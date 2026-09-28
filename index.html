@@ -1,11 +1,62 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TripEase</title>
-</head>
-<body>
+
+    <meta
+      name="description"
+      content="Plan your trip, explore destinations, estimate expenses, and book hotels and tickets with TripEase."
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css">
     
-</body>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <header class="header">
+      <nav class="navbar container">
+        <!-- Logo -->
+        <a href="#" class="logo">
+          <img src="assets/images/tripease-logo.png" alt="TripEase Logo" />
+          <span>TripEase</span>
+        </a>
+
+        <!-- Navigation Links -->
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#home" class="active">Home</a></li>
+          <li><a href="#destinations">Destinations</a></li>
+          <li><a href="#destinations">Trip Planner</a></li>
+          <li><a href="#destinations">Bookings</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        <!-- Auth Buttons -->
+        <div class="nav-actions">
+          <a href="#login" class="login-btn">Log In</a>
+          <a href="#signup" class="signup-btn">Sign Up</a>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button
+          class="menu-toggle"
+          id="menuToggle"
+          aria-label="Toggle navigation"
+          aria-expanded="false"
+        >
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </nav>
+    </header>
+
+    <script src="js/app.js"></script>
+  </body>
 </html>
