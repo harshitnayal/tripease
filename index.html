@@ -16,8 +16,7 @@
     />
 
     <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/responsive.css">
-    
+    <link rel="stylesheet" href="css/responsive.css" />
   </head>
   <body>
     <!-- Navbar -->
@@ -56,6 +55,120 @@
         </button>
       </nav>
     </header>
+
+    <!-- Hero Section -->
+    <main>
+      <section class="hero" id="home">
+        <div class="hero-overlay"></div>
+
+        <div class="container hero-container">
+          <div class="hero-content">
+            <span class="hero-tagline">
+              <i class="fa-solid fa-earth-americas"></i>
+              Explore the World with TripEase
+            </span>
+
+            <h1>
+              Plan Your Perfect<br />
+              <span>Trip.</span>
+            </h1>
+
+            <p class="hero-description">
+              Discover amazing destinations, plan your itinerary, estimate your expenses, and book hotels and tickets all in one place.
+            </p>
+
+            <!-- CTA Buttons -->
+            <div class="hero-buttons">
+              <a href="#trip-planner" class="hero-btn primary-btn">
+                Start Planning
+                <i class="fa-solid fa-arrow-right"></i>
+              </a>
+
+              <a href="#destinations" class="hero-btn secondary-btn">
+                Explore Destinations
+                <i class="fa-solid fa-compass"></i>
+              </a>
+            </div>
+
+            <!-- Trust Information -->
+            <div class="hero-trust">
+              <div class="trust-item">
+                <i class="fa-solid fa-check-circle"></i>
+                Easy Trip Planning
+              </div>
+
+              <div class="trust-item">
+                <i class="fa-solid fa-check-circle"></i>
+                Hassle-Free Booking
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Trip Search Section -->
+      <section class="trip-search-section" id="trip-planner">
+        <div class="container">
+          <form class="trip-search-form" id="tripSearchForm">
+            <!-- Destination -->
+            <div class="search-field">
+              <label for="destination">
+                <i class="fa-solid fa-location-dot"></i>
+                Destination
+              </label>
+
+              <input
+                type="text"
+                id="destination"
+                name="destination"
+                placeholder="Where do you want to go?"
+                required
+              />
+            </div>
+
+            <!-- Departure Date -->
+            <div class="search-field">
+              <label for="departureDate">
+                <i class="fa-regular fa-calendar"></i>
+                Departure Date
+              </label>
+
+              <input
+                type="date"
+                id="departureDate"
+                name="departureDate"
+                required
+              />
+            </div>
+
+            <!-- Travellers -->
+            <div class="search-field">
+              <label for="travellers">
+                <i class="fa-solid fa-users"></i>
+                Travellers
+              </label>
+
+              <select id="travellers" name="travellers" required>
+                <option value="1">1 Traveller</option>
+                <option value="2" selected>2 Travellers</option>
+                <option value="3">3 Travellers</option>
+                <option value="4">4 Travellers</option>
+                <option value="5">5 Travellers</option>
+                <option value="6">6 Travellers</option>
+                <option value="7">7 Travellers</option>
+                <option value="8">8 Travellers</option>
+              </select>
+            </div>
+
+            <!-- Search Button -->
+            <button type="submit" class="search-btn">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              Search Trips
+            </button>
+          </form>
+        </div>
+      </section>
+    </main>
 
     <script src="js/app.js"></script>
   </body>
