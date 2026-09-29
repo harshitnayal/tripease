@@ -386,7 +386,7 @@ button {
 
 .trip-search-form {
     display: grid;
-    grid-template-columns: 1.5fr 1fr 1fr auto;
+    grid-template-columns: 1.2fr 1fr 1fr 0.8fr auto;
     align-items: center;
     gap: 20px;
 
@@ -474,4 +474,16 @@ button {
 .search-btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 18px rgba(2, 132, 199, 0.22);
+}
+
+.search-message {
+    margin-top: 15px;
+    text-align: center;
+    color: #15803d;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.search-message.error {
+    color: #dc2626;
 }

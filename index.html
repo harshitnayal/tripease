@@ -74,7 +74,8 @@
             </h1>
 
             <p class="hero-description">
-              Discover amazing destinations, plan your itinerary, estimate your expenses, and book hotels and tickets all in one place.
+              Discover amazing destinations, plan your itinerary, estimate your
+              expenses, and book hotels and tickets all in one place.
             </p>
 
             <!-- CTA Buttons -->
@@ -126,19 +127,22 @@
               />
             </div>
 
-            <!-- Departure Date -->
+            <!-- Start Date -->
             <div class="search-field">
-              <label for="departureDate">
+              <label for="startDate">
                 <i class="fa-regular fa-calendar"></i>
-                Departure Date
+                Start Date
               </label>
+              <input type="date" id="startDate" name="startDate" required />
+            </div>
 
-              <input
-                type="date"
-                id="departureDate"
-                name="departureDate"
-                required
-              />
+            <!-- End Date -->
+            <div class="search-field">
+              <label for="endDate">
+                <i class="fa-regular fa-calendar-check"></i>
+                End Date
+              </label>
+              <input type="date" id="endDate" name="endDate" required />
             </div>
 
             <!-- Travellers -->
@@ -166,6 +170,13 @@
               Search Trips
             </button>
           </form>
+
+          <p
+            class="search-message"
+            id="searchMessage"
+            role="status"
+            aria-live="polite"
+          ></p>
         </div>
       </section>
     </main>
