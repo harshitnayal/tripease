@@ -384,3 +384,160 @@
     }
 
 }
+
+
+/*  DESTINATIONS RESPONSIVE  */
+
+/* Large Tablets and Small Laptops */
+@media screen and (max-width: 1100px) {
+    .destination-carousel {
+        gap: 18px;
+    }
+
+    .destination-card {
+        flex: 0 0 calc((100% - 36px) / 3);
+    }
+
+    .destination-content {
+        padding: 18px;
+    }
+
+    .destination-content h3 {
+        font-size: 20px;
+    }
+}
+
+/* Tablets */
+@media screen and (max-width: 768px) {
+    .destinations-section {
+        padding: 60px 0;
+    }
+
+    .destination-carousel {
+        gap: 16px;
+        padding: 10px 0 20px;
+    }
+
+    .destination-card {
+        flex: 0 0 calc((100% - 16px) / 2);
+    }
+
+    .destination-image {
+        height: 220px;
+    }
+
+    .destination-content {
+        padding: 16px;
+    }
+
+    .destination-content h3 {
+        font-size: 19px;
+    }
+
+    .destination-content p {
+        font-size: 14px;
+    }
+
+    .destination-meta {
+        font-size: 13px;
+    }
+
+    .explore-btn {
+        font-size: 14px;
+        padding: 10px 14px;
+    }
+}
+
+/* Mobile Devices */
+@media screen and (max-width: 480px) {
+    .destinations-section {
+        padding: 45px 0;
+    }
+
+    .destinations-section .section-title {
+        font-size: 26px;
+        text-align: center;
+    }
+
+    .destinations-section .section-subtitle {
+        font-size: 14px;
+        text-align: center;
+        padding: 0 12px;
+    }
+
+    .destination-wrapper {
+        padding: 0 16px;
+    }
+
+    .destination-carousel {
+        gap: 14px;
+        padding: 10px 0 18px;
+        scroll-padding-left: 0;
+    }
+
+    .destination-card {
+        flex: 0 0 85%;
+        max-width: 340px;
+        border-radius: 14px;
+    }
+
+    .destination-image {
+        height: 210px;
+    }
+
+    .destination-content {
+        padding: 15px;
+    }
+
+    .destination-content h3 {
+        font-size: 18px;
+    }
+
+    .destination-content p {
+        font-size: 13px;
+        line-height: 1.6;
+    }
+
+    .destination-location {
+        font-size: 12px;
+    }
+
+    .destination-meta {
+        font-size: 12px;
+    }
+
+    .destination-number {
+        font-size: 13px;
+    }
+
+    .destination-badge {
+        font-size: 11px;
+        padding: 5px 10px;
+    }
+
+    .explore-btn {
+        width: 100%;
+        justify-content: center;
+        padding: 11px 14px;
+        font-size: 14px;
+    }
+}
+
+/* Very Small Mobile Devices */
+@media screen and (max-width: 360px) {
+    .destination-card {
+        flex: 0 0 90%;
+    }
+
+    .destination-image {
+        height: 180px;
+    }
+
+    .destination-content {
+        padding: 12px;
+    }
+
+    .destination-content h3 {
+        font-size: 17px;
+    }
+}

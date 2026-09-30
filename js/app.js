@@ -1,5 +1,6 @@
 // NAVBAR FUNCTIONALITY
 
+// Access navbar elements
 const menuToggle = document.getElementById("menuToggle");
 const navLinks = document.getElementById("navLinks");
 
@@ -30,7 +31,7 @@ document.querySelectorAll(".nav-links a").forEach((link) => {
 
 // TRIP SEARCH FUNCTIONALITY
 
-// Trip Search Form
+// Access elements
 const tripSearchForm = document.getElementById("tripSearchForm");
 const destinationInput = document.getElementById("destination");
 const startDateInput = document.getElementById("startDate");
@@ -97,5 +98,67 @@ tripSearchForm.addEventListener("submit", (event) => {
         startDate,
         endDate,
         travellers
+    });
+});
+
+
+/*  DESTINATION SECTION  */
+
+// Access destination elements
+const destinationCarousel = document.getElementById("destinationCarousel");
+const destinationCards = document.querySelectorAll(".destination-card");
+const exploreButtons = document.querySelectorAll(".explore-btn");
+
+// Horizontal scrolling with mouse wheel
+if (destinationCarousel) {
+    destinationCarousel.addEventListener(
+        "wheel",
+        (event) => {
+            // Convert vertical mouse wheel movement to horizontal scrolling
+            if (Math.abs(event.deltaY) > Math.abs(event.deltaX)) {
+                event.preventDefault();
+
+                destinationCarousel.scrollBy({
+                    left: event.deltaY,
+                    behavior: "auto"
+                });
+            }
+        },
+        { passive: false }
+    );
+}
+
+// Explore Now button functionality
+exploreButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+
+        const selectedDestination = button.dataset.destination;
+
+        // Get trip planner elements
+        const destinationInput = document.getElementById("destination");
+        const tripPlanner = document.getElementById("trip-planner");
+
+        // Check if elements exist
+        if (!destinationInput || !tripPlanner) {
+            console.error("Trip planner elements not found!");
+            return;
+        }
+
+        destinationInput.value = selectedDestination;
+
+        destinationInput.dispatchEvent(
+            new Event("input", { bubbles: true })
+        );
+
+        // Smoothly scroll to trip planner
+        tripPlanner.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+
+        // Focus destination input after scrolling
+        setTimeout(() => {
+            destinationInput.focus({ preventScroll: true });
+        }, 500);
     });
 });
