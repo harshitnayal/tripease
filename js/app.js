@@ -162,3 +162,189 @@ exploreButtons.forEach((button) => {
         }, 500);
     });
 });
+
+/* TRIP PLANNER FUNCTIONALITY */
+
+const tripPlannerForm = document.getElementById("tripPlannerForm");
+
+if (tripPlannerForm) {
+
+    // Access Elements
+    const travelTypeSelect = document.getElementById("travelType");
+    const businessDetails = document.getElementById("businessDetails");
+
+    const startDateInput = document.getElementById("plannerStartDate");
+    const endDateInput = document.getElementById("plannerEndDate");
+
+    const message = document.getElementById("tripPlannerMessage");
+
+
+    // Get Today's Date in Local Timezone
+    const today = new Date();
+
+    const localToday = new Date(
+        today.getTime() - today.getTimezoneOffset() * 60000
+    )
+        .toISOString()
+        .split("T")[0];
+
+
+    // Prevent Selecting Past Dates
+    startDateInput.min = localToday;
+    endDateInput.min = localToday;
+
+
+    // Update Return Date Based on Departure Date
+    startDateInput.addEventListener("change", () => {
+
+        const startDate = startDateInput.value;
+
+        endDateInput.min = startDate || localToday;
+
+        if (endDateInput.value && endDateInput.value <= startDate) {
+            endDateInput.value = "";
+        }
+
+    });
+
+
+    // Show Business Details When Business Is Selected
+    travelTypeSelect.addEventListener("change", () => {
+
+        businessDetails.hidden =
+            travelTypeSelect.value !== "Business";
+
+    });
+
+
+    // Handle Form Submission
+    tripPlannerForm.addEventListener("submit", (event) => {
+
+        event.preventDefault();
+
+        const formData = new FormData(tripPlannerForm);
+
+
+        // Get Form Values
+        const destination = formData.get("destination").trim();
+        const travelType = formData.get("travelType");
+        const startDate = formData.get("startDate");
+        const endDate = formData.get("endDate");
+        const travellers = formData.get("travellers");
+        const budget = formData.get("budget");
+        const companyName = formData.get("companyName");
+        const meetingPurpose = formData.get("meetingPurpose");
+        const notes = formData.get("notes") || "";
+
+
+        // Clear Previous Message and Classes
+        message.textContent = "";
+        message.classList.remove("error", "success");
+
+
+        // Validate Date Range
+        if (endDate <= startDate) {
+
+            message.textContent =
+                "Return date must be after departure date.";
+
+            message.classList.add("error");
+
+            return;
+        }
+
+
+        // Display Trip Overview
+        document.getElementById("summaryDestination").textContent =
+            destination;
+
+        document.getElementById("summaryTravelType").textContent =
+            travelType;
+
+        document.getElementById("summaryStartDate").textContent =
+            startDate;
+
+        document.getElementById("summaryEndDate").textContent =
+            endDate;
+
+        document.getElementById("summaryTravellers").textContent =
+            travellers;
+
+
+        // Format Budget in Indian Rupees
+        document.getElementById("summaryBudget").textContent =
+            Number(budget).toLocaleString("en-IN", {
+                style: "currency",
+                currency: "INR",
+                maximumFractionDigits: 0
+            });
+
+
+        // Business Travel Summary
+        const summaryBusiness =
+            document.getElementById("summaryBusiness");
+
+        if (summaryBusiness) {
+
+            if (travelType === "Business") {
+
+                summaryBusiness.hidden = false;
+
+                document.getElementById("summaryCompany").textContent =
+                    companyName || "Not provided";
+
+                document.getElementById("summaryPurpose").textContent =
+                    meetingPurpose || "Not provided";
+
+            } else {
+
+                summaryBusiness.hidden = true;
+
+            }
+
+        }
+
+        // Additional Requirements
+        const summaryNotesWrapper =
+            document.getElementById("summaryNotesWrapper");
+
+        if (summaryNotesWrapper) {
+
+            summaryNotesWrapper.hidden = !notes.trim();
+
+            if (notes.trim()) {
+
+                document.getElementById("summaryNotes").textContent =
+                    notes;
+
+            }
+
+        }
+
+
+        document.getElementById("summaryPlaceholder").hidden = true;
+
+        document.getElementById("summaryContent").hidden = false;
+
+
+        // Success Message
+        message.textContent =
+            "Your trip plan has been generated successfully!";
+
+        message.classList.add("success");
+
+
+        const tripSummary = document.getElementById("tripSummary");
+
+        const summaryPosition =
+            tripSummary.getBoundingClientRect().top +
+            window.scrollY - 120;
+
+        window.scrollTo({
+            top: summaryPosition,
+            behavior: "smooth"
+        });
+
+    });
+
+}

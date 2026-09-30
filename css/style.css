@@ -232,6 +232,8 @@ button {
     background-position: center;
     background-repeat: no-repeat;
     background-position: center 60%;
+
+    scroll-margin-top: 100px;
 }
 
 /* Hero Container */
@@ -504,6 +506,7 @@ button {
 .destinations-section {
     background: var(--background-color);
     overflow: hidden;
+    scroll-margin-top: 100px;
 }
 
 .destinations-section .section-heading {
@@ -741,4 +744,390 @@ button {
 
 .explore-btn:hover {
     background: var(--primary-dark);
+}
+
+/*  TRIP PLANNER SECTION  */
+
+.trip-planner-section {
+    background: var(--background-color);
+    position: relative;
+    margin-top: 50px;
+    scroll-margin-top: 100px;
+}
+
+/* Section Heading */
+
+.trip-planner-section .section-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 40px;
+}
+
+.journey-label {
+    display: inline-block;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.trip-planner-section .section-tag {
+    display: inline-block;
+    color: var(--primary-color);
+    background: #e0f2fe;
+    padding: 8px 18px;
+    border-radius: 30px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.trip-planner-section .section-title {
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 15px;
+}
+
+.trip-planner-section .section-title span {
+    color: var(--primary-color);
+}
+
+.trip-planner-section .section-description {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+/*  MAIN TWO-COLUMN LAYOUT  */
+
+.trip-planner-container {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: start;
+}
+
+/* Form and Summary Cards */
+
+.trip-form-wrapper,
+.trip-summary-wrapper {
+    min-width: 0;
+    padding: 24px;
+    background: var(--white);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    box-shadow: var(--shadow-md);
+}
+
+/* Form Heading */
+
+.trip-form-heading {
+    margin-bottom: 20px;
+}
+
+.trip-form-heading h3,
+.summary-header h3 {
+    font-size: 1.35rem;
+    color: var(--text-color);
+    margin-bottom: 6px;
+}
+
+.trip-form-heading p,
+.summary-header p {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+}
+
+/*  FORM STYLING  */
+
+#tripPlannerForm {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+#tripPlannerForm .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 0;
+}
+
+#tripPlannerForm label,
+#tripPlannerForm .form-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+/* Inputs and Textarea */
+
+#tripPlannerForm input:not([type="radio"]):not([type="checkbox"]),
+#tripPlannerForm textarea,
+#tripPlannerForm select {
+    width: 100%;
+    padding: 11px 13px;
+    border: 1px solid var(--border-color);
+    border-radius: 9px;
+    outline: none;
+    background: #fff;
+    color: var(--text-color);
+    font-family: inherit;
+    font-size: 0.9rem;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+#tripPlannerForm input:focus,
+#tripPlannerForm textarea:focus,
+#tripPlannerForm select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.1);
+}
+
+#tripPlannerForm input::placeholder,
+#tripPlannerForm textarea::placeholder {
+    color: #94a3b8;
+}
+
+#tripPlannerForm textarea {
+    resize: vertical;
+    min-height: 85px;
+}
+
+/* Travel Type Dropdown */
+
+#travelType {
+    cursor: pointer;
+}
+
+#travelType option {
+    color: var(--text-color);
+    background: #fff;
+}
+
+/* Date and Budget Rows */
+
+#tripPlannerForm .form-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+}
+
+/*  BUSINESS DETAILS   */
+
+.business-details {
+    padding: 16px;
+    border: 1px solid #bae6fd;
+    border-radius: 10px;
+    background: #f0f9ff;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.business-details[hidden] {
+    display: none;
+}
+
+.business-details h3 {
+    font-size: 1rem;
+    color: var(--primary-dark);
+    margin: 0;
+}
+
+/*  GENERATE TRIP BUTTON  */
+
+.generate-trip-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 13px 18px;
+    border: none;
+    border-radius: 9px;
+    background: linear-gradient(
+        135deg,
+        var(--primary-color),
+        var(--primary-dark)
+    );
+    color: #fff;
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.generate-trip-btn span {
+    font-size: 1.3rem;
+    transition: transform 0.3s ease;
+}
+
+.generate-trip-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(2, 132, 199, 0.2);
+}
+
+.generate-trip-btn:hover span {
+    transform: translateX(5px);
+}
+
+.generate-trip-btn:active {
+    transform: translateY(0);
+}
+
+.generate-trip-btn:focus-visible {
+    outline: 3px solid rgba(2, 132, 199, 0.35);
+    outline-offset: 3px;
+}
+
+/*  FORM SUCCESS AND ERROR MESSAGES  */
+
+.form-message {
+    margin: 0;
+    text-align: center;
+    font-size: 0.85rem;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.form-message.error {
+    color: #dc2626;
+}
+
+.form-message.success {
+    color: #16a34a;
+}
+
+/*  TRIP SUMMARY  */
+
+.trip-summary-wrapper {
+    position: sticky;
+    top: 100px;
+    min-height: 400px;
+}
+
+#tripSummary {
+    scroll-margin-top: 120px;
+}
+
+/* Placeholder */
+
+.summary-placeholder {
+    min-height: 340px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.summary-placeholder-icon {
+    width: 70px;
+    height: 70px;
+    display: grid;
+    place-items: center;
+    background: #e0f2fe;
+    border-radius: 50%;
+    font-size: 2rem;
+    margin-bottom: 18px;
+}
+
+.summary-placeholder h3 {
+    font-size: 1.25rem;
+    margin-bottom: 8px;
+    color: var(--text-color);
+}
+
+.summary-placeholder p {
+    max-width: 270px;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+}
+
+/* Summary Tag */
+
+.summary-tag {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 12px;
+    border-radius: 20px;
+    background: #e0f2fe;
+    color: var(--primary-dark);
+    font-size: 0.78rem;
+    font-weight: 600;
+}
+
+/* Summary Grid - Exactly Two Columns */
+
+.summary-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.summary-item {
+    min-width: 0;
+    padding: 14px;
+    background: #f8fafc;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    overflow-wrap: anywhere;
+}
+
+.summary-label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--text-secondary);
+    font-size: 0.78rem;
+}
+
+.summary-item h4 {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--text-color);
+}
+
+.summary-item p {
+    margin-top: 6px;
+    font-size: 0.82rem;
+    line-height: 1.5;
+    color: var(--text-secondary);
+}
+
+.summary-full {
+    grid-column: 1 / -1;
+}
+
+/* Summary Footer */
+
+.summary-footer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-top: 18px;
+    margin-top: 20px;
+    border-top: 1px solid var(--border-color);
+}
+
+.summary-footer p {
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+}
+
+/* Hide Elements */
+
+.summary-content[hidden],
+.summary-placeholder[hidden],
+.summary-item[hidden] {
+    display: none;
 }

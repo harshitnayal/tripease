@@ -32,8 +32,8 @@
         <ul class="nav-links" id="navLinks">
           <li><a href="#home" class="active">Home</a></li>
           <li><a href="#destinations">Destinations</a></li>
-          <li><a href="#destinations">Trip Planner</a></li>
-          <li><a href="#destinations">Bookings</a></li>
+          <li><a href="#trip-planner">Trip Planner</a></li>
+          <li><a href="#bookings">Bookings</a></li>
           <li><a href="#about">About Us</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
@@ -108,7 +108,7 @@
       </section>
 
       <!-- Trip Search Section -->
-      <section class="trip-search-section" id="trip-planner">
+      <section class="trip-search-section">
         <div class="container">
           <form class="trip-search-form" id="tripSearchForm">
             <!-- Destination -->
@@ -476,6 +476,284 @@
                   </button>
                 </div>
               </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!--  TRIP PLANNER SECTION  -->
+
+      <section class="trip-planner-section section-padding" id="trip-planner">
+        <div class="container">
+          <!-- Section Heading -->
+          <div class="section-header">
+            <span class="journey-label">Plan</span>
+
+            <h2 class="section-title">Plan Your Trip</h2>
+
+            <p class="section-description">
+              Customize your travel experience with a plan that matches your
+              preferences, budget, and travel style.
+            </p>
+          </div>
+
+          <!-- Two Column Layout -->
+          <div class="trip-planner-container">
+            <!--  LEFT: TRIP PLANNING FORM  -->
+
+            <div class="trip-form-wrapper">
+              <div class="trip-form-heading">
+                <h3>Plan Your Trip</h3>
+                <p>Fill in your travel details to get started.</p>
+              </div>
+
+              <form id="tripPlannerForm">
+                <!-- Destination -->
+                <div class="form-group">
+                  <label for="plannerDestination">
+                    Where do you want to go?
+                  </label>
+
+                  <input
+                    type="text"
+                    id="plannerDestination"
+                    name="destination"
+                    placeholder="Enter your dream destination"
+                    required
+                  />
+                </div>
+
+                <!-- Travel Dates -->
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="plannerStartDate"> Departure Date </label>
+
+                    <input
+                      type="date"
+                      id="plannerStartDate"
+                      name="startDate"
+                      required
+                    />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="plannerEndDate"> Return Date </label>
+
+                    <input
+                      type="date"
+                      id="plannerEndDate"
+                      name="endDate"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <!-- Travellers and Budget -->
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="plannerTravellers">
+                      Number of Travellers
+                    </label>
+
+                    <input
+                      type="number"
+                      id="plannerTravellers"
+                      name="travellers"
+                      min="1"
+                      max="50"
+                      value="1"
+                      required
+                    />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="plannerBudget"> Total Budget (₹) </label>
+
+                    <input
+                      type="number"
+                      id="plannerBudget"
+                      name="budget"
+                      min="1"
+                      placeholder="Enter your budget"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <!-- Travel Type -->
+                <div class="form-group">
+                  <label for="travelType">Who are you travelling with?</label>
+
+                  <select id="travelType" name="travelType" required>
+                    <option value="" disabled selected>
+                      Select travel type
+                    </option>
+                    <option value="Solo">🧍 Solo</option>
+                    <option value="Couple">💑 Couple</option>
+                    <option value="Family">👨‍👩‍👧 Family</option>
+                    <option value="Friends">👯 Friends</option>
+                    <option value="Business">💼 Business / Office</option>
+                    <option value="Other">🌍 Other</option>
+                  </select>
+                </div>
+
+                <!-- Business Details -->
+                <div class="business-details" id="businessDetails" hidden>
+                  <h3>Business Travel Details</h3>
+
+                  <div class="form-group">
+                    <label for="companyName"> Company Name </label>
+
+                    <input
+                      type="text"
+                      id="companyName"
+                      name="companyName"
+                      placeholder="Enter company name"
+                    />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="meetingPurpose"> Purpose of Visit </label>
+
+                    <input
+                      type="text"
+                      id="meetingPurpose"
+                      name="meetingPurpose"
+                      placeholder="Meeting, conference, client visit..."
+                    />
+                  </div>
+                </div>
+
+                <!-- Additional Requirements -->
+                <div class="form-group">
+                  <label for="tripNotes">
+                    Additional Requirements (Optional)
+                  </label>
+
+                  <textarea
+                    id="tripNotes"
+                    name="notes"
+                    rows="4"
+                    placeholder="Tell us more about your dream trip..."
+                  ></textarea>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="generate-trip-btn">
+                  Generate My Trip Plan
+                  <span>→</span>
+                </button>
+
+                <p
+                  id="tripPlannerMessage"
+                  class="form-message"
+                  aria-live="polite"
+                ></p>
+              </form>
+            </div>
+
+            <!--  RIGHT: TRIP SUMMARY  -->
+
+            <div class="trip-summary-wrapper" id="tripSummary">
+              <div class="summary-placeholder" id="summaryPlaceholder">
+                <div class="summary-placeholder-icon">✈️</div>
+
+                <h3>Your Trip Summary</h3>
+
+                <p>
+                  Your personalized trip details will appear here once you
+                  submit the form.
+                </p>
+              </div>
+
+              <!-- Submitted Trip Details -->
+              <div class="summary-content" id="summaryContent" hidden>
+                <div class="summary-header">
+                  <span class="summary-tag"> Your Travel Plan </span>
+
+                  <h3>Trip Overview</h3>
+
+                  <p>Here's a summary of your planned journey.</p>
+                </div>
+
+                <!-- Two Column Details Grid -->
+                <div class="summary-grid">
+                  <div class="summary-item">
+                    <span class="summary-label"> 📍 Destination </span>
+
+                    <h4 id="summaryDestination">-</h4>
+                  </div>
+
+                  <div class="summary-item">
+                    <span class="summary-label"> 🧳 Travel Type </span>
+
+                    <h4 id="summaryTravelType">-</h4>
+                  </div>
+
+                  <div class="summary-item">
+                    <span class="summary-label"> 📅 Departure </span>
+
+                    <h4 id="summaryStartDate">-</h4>
+                  </div>
+
+                  <div class="summary-item">
+                    <span class="summary-label"> 📅 Return </span>
+
+                    <h4 id="summaryEndDate">-</h4>
+                  </div>
+
+                  <div class="summary-item">
+                    <span class="summary-label"> 👥 Travellers </span>
+
+                    <h4 id="summaryTravellers">-</h4>
+                  </div>
+
+                  <div class="summary-item">
+                    <span class="summary-label"> 💰 Total Budget </span>
+
+                    <h4 id="summaryBudget">-</h4>
+                  </div>
+
+                  <div class="summary-item summary-full">
+                    <span class="summary-label"> ✨ Preferences </span>
+
+                    <h4 id="summaryPreferences">-</h4>
+                  </div>
+
+                  <!-- Business Summary -->
+                  <div
+                    class="summary-item summary-full"
+                    id="summaryBusiness"
+                    hidden
+                  >
+                    <span class="summary-label"> 💼 Business Details </span>
+
+                    <h4 id="summaryCompany">-</h4>
+
+                    <p id="summaryPurpose"></p>
+                  </div>
+
+                  <!-- Additional Notes -->
+                  <div
+                    class="summary-item summary-full"
+                    id="summaryNotesWrapper"
+                    hidden
+                  >
+                    <span class="summary-label">
+                      📝 Additional Requirements
+                    </span>
+
+                    <p id="summaryNotes"></p>
+                  </div>
+                </div>
+
+                <!-- Summary Footer -->
+                <div class="summary-footer">
+                  <span>✈️</span>
+
+                  <p>Your journey, made easy with TripEase.</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>

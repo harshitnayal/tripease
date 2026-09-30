@@ -541,3 +541,214 @@
         font-size: 17px;
     }
 }
+
+
+/*  TRIP PLANNER - RESPONSIVE DESIGN  */
+
+/* Large Tablets and Small Laptops */
+
+@media (max-width: 1200px) {
+    .trip-planner-container {
+        gap: 20px;
+    }
+
+    .trip-form-wrapper,
+    .trip-summary-wrapper {
+        padding: 22px;
+    }
+}
+
+/* Tablets */
+
+@media (max-width: 992px) {
+    .trip-planner-container {
+        grid-template-columns: 1fr;
+        max-width: 700px;
+        gap: 24px;
+    }
+
+    .trip-form-wrapper,
+    .trip-summary-wrapper {
+        width: 100%;
+    }
+
+    .trip-summary-wrapper {
+        position: static;
+        min-height: auto;
+    }
+
+    .summary-placeholder {
+        min-height: 250px;
+    }
+
+    .trip-planner-section .section-header {
+        margin-bottom: 35px;
+    }
+}
+
+/* Small Tablets and Large Phones */
+
+@media (max-width: 768px) {
+    .trip-planner-section {
+        margin-top: 35px;
+    }
+
+    .trip-planner-container {
+        gap: 20px;
+    }
+
+    .trip-form-wrapper,
+    .trip-summary-wrapper {
+        padding: 22px;
+        border-radius: 14px;
+    }
+
+    #tripPlannerForm {
+        gap: 16px;
+    }
+
+    #tripPlannerForm .form-row {
+        gap: 14px;
+    }
+
+    .trip-form-heading h3,
+    .summary-header h3 {
+        font-size: 1.25rem;
+    }
+
+    .summary-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+}
+
+/* Mobile Devices */
+
+@media (max-width: 600px) {
+    .trip-planner-section {
+        margin-top: 30px;
+    }
+
+    .trip-planner-section .section-header {
+        margin-bottom: 28px;
+    }
+
+    .trip-planner-section .section-title {
+        font-size: 2rem;
+    }
+
+    .trip-planner-section .section-description {
+        font-size: 0.9rem;
+        line-height: 1.6;
+    }
+
+    .trip-planner-container {
+        gap: 18px;
+    }
+
+    .trip-form-wrapper,
+    .trip-summary-wrapper {
+        padding: 20px 16px;
+        border-radius: 14px;
+    }
+
+    #tripPlannerForm {
+        gap: 16px;
+    }
+
+    #tripPlannerForm .form-row {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    #tripPlannerForm input:not([type="radio"]):not([type="checkbox"]),
+    #tripPlannerForm textarea,
+    #tripPlannerForm select {
+        font-size: 16px;
+    }
+
+    .business-details {
+        padding: 14px;
+    }
+
+    .generate-trip-btn {
+        padding: 13px 16px;
+        font-size: 0.9rem;
+    }
+
+    .summary-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .summary-item {
+        padding: 12px 10px;
+    }
+
+    .summary-label {
+        font-size: 0.72rem;
+    }
+
+    .summary-item h4 {
+        font-size: 0.82rem;
+        line-height: 1.4;
+    }
+
+    .summary-item p {
+        font-size: 0.78rem;
+    }
+
+    .summary-placeholder {
+        min-height: 220px;
+        padding: 12px;
+    }
+
+    .summary-placeholder-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.7rem;
+    }
+
+    .summary-footer {
+        align-items: flex-start;
+    }
+}
+
+/* Small Mobile Devices */
+
+@media (max-width: 360px) {
+    .trip-form-wrapper,
+    .trip-summary-wrapper {
+        padding: 16px 12px;
+    }
+
+    .trip-planner-section .section-title {
+        font-size: 1.75rem;
+    }
+
+    .trip-form-heading h3,
+    .summary-header h3 {
+        font-size: 1.15rem;
+    }
+
+    .summary-grid {
+        gap: 8px;
+    }
+
+    .summary-item {
+        padding: 10px 8px;
+    }
+
+    .summary-label {
+        font-size: 0.68rem;
+    }
+
+    .summary-item h4 {
+        font-size: 0.78rem;
+    }
+
+    .generate-trip-btn {
+        padding: 12px;
+        font-size: 0.85rem;
+    }
+}
