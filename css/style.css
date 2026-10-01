@@ -516,7 +516,7 @@ button {
 
 .section-subtitle {
     display: inline-block;
-    color: var(--primary-color);
+    color: var(--secondary-dark);
     font-size: 0.8rem;
     font-weight: 700;
     letter-spacing: 2px;
@@ -766,7 +766,7 @@ button {
 .journey-label {
     display: inline-block;
     margin-bottom: 10px;
-    color: var(--primary-color);
+    color: var(--secondary-dark);
     font-size: 14px;
     font-weight: 700;
     letter-spacing: 2px;

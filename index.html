@@ -17,6 +17,7 @@
 
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/responsive.css" />
+    <link rel="stylesheet" href="css/booking.css" />
   </head>
   <body>
     <!-- Navbar -->
@@ -760,6 +761,414 @@
       </section>
     </main>
 
+    <!--  BOOKINGS SECTION  -->
+    <section class="bookings-section section-padding" id="bookings">
+      <div class="container">
+        <!-- Section Header -->
+        <div class="section-header">
+          <span class="section-tag">Your Travel Reservations</span>
+          <h2>Book Your Next Journey</h2>
+          <p>
+            Find hotels, flights, trains and buses for your next adventure.
+            Everything you need for a comfortable journey, all in one place.
+          </p>
+        </div>
+
+        <!-- Booking Tabs -->
+        <div
+          class="booking-tabs"
+          role="tablist"
+          aria-label="Booking categories"
+        >
+          <button
+            type="button"
+            class="booking-tab active"
+            id="hotelTab"
+            data-booking="hotels"
+            role="tab"
+            aria-selected="true"
+            aria-controls="hotelsPanel"
+          >
+            <span>🏨</span>
+            Hotels
+          </button>
+
+          <button
+            type="button"
+            class="booking-tab"
+            id="flightTab"
+            data-booking="flights"
+            role="tab"
+            aria-selected="false"
+            aria-controls="flightsPanel"
+          >
+            <span>✈️</span>
+            Flights
+          </button>
+
+          <button
+            type="button"
+            class="booking-tab"
+            id="trainTab"
+            data-booking="trains"
+            role="tab"
+            aria-selected="false"
+            aria-controls="trainsPanel"
+          >
+            <span>🚆</span>
+            Trains
+          </button>
+
+          <button
+            type="button"
+            class="booking-tab"
+            id="busTab"
+            data-booking="buses"
+            role="tab"
+            aria-selected="false"
+            aria-controls="busesPanel"
+          >
+            <span>🚌</span>
+            Buses
+          </button>
+        </div>
+
+        <!-- Booking Panels -->
+        <div class="booking-content" id="bookingContent">
+          <!--  HOTELS  -->
+          <div
+            class="booking-panel active"
+            id="hotelsPanel"
+            data-panel="hotels"
+            role="tabpanel"
+            aria-labelledby="hotelTab"
+          >
+            <div class="booking-panel-header">
+              <div>
+                <h3>Find Your Perfect Stay</h3>
+                <p>Discover comfortable hotels at your destination.</p>
+              </div>
+              <span class="booking-panel-icon">🏨</span>
+            </div>
+
+            <form id="hotelBookingForm" class="booking-search-form">
+              <div class="booking-form-group">
+                <label for="bookingHotelDestination">Destination</label>
+                <input
+                  type="text"
+                  id="bookingHotelDestination"
+                  name="destination"
+                  placeholder="Where do you want to stay?"
+                  required
+                />
+              </div>
+
+              <div class="booking-form-group">
+                <label for="bookingHotelCheckIn">Check-in</label>
+                <input
+                  type="date"
+                  id="bookingHotelCheckIn"
+                  name="checkIn"
+                  required
+                />
+              </div>
+
+              <div class="booking-form-group">
+                <label for="bookingHotelCheckOut">Check-out</label>
+                <input
+                  type="date"
+                  id="bookingHotelCheckOut"
+                  name="checkOut"
+                  required
+                />
+              </div>
+
+              <div class="booking-form-group">
+                <label for="bookingHotelGuests">Guests</label>
+                <select id="bookingHotelGuests" name="guests" required>
+                  <option value="1">1 Guest</option>
+                  <option value="2" selected>2 Guests</option>
+                  <option value="3">3 Guests</option>
+                  <option value="4">4 Guests</option>
+                  <option value="5">5 Guests</option>
+                  <option value="6">6 Guests</option>
+                </select>
+              </div>
+
+              <button type="submit" class="booking-search-btn">
+                Search Hotels →
+              </button>
+            </form>
+
+            <p
+              id="hotelBookingMessage"
+              class="form-message"
+              aria-live="polite"
+            ></p>
+
+            <div id="hotelBookingResults" class="booking-results"></div>
+          </div>
+
+          <!--  FLIGHTS  -->
+          <div
+            class="booking-panel"
+            id="flightsPanel"
+            data-panel="flights"
+            role="tabpanel"
+            aria-labelledby="flightTab"
+            hidden
+          >
+            <div class="booking-panel-header">
+              <div>
+                <h3>Book Your Flight</h3>
+                <p>Explore destinations and plan your journey by air.</p>
+              </div>
+              <span class="booking-panel-icon">✈️</span>
+            </div>
+
+            <form id="flightBookingForm" class="booking-search-form">
+              <div class="booking-form-group">
+                <label for="flightFrom">From</label>
+                <input
+                  type="text"
+                  id="flightFrom"
+                  name="from"
+                  placeholder="Departure city"
+                  required
+                />
+              </div>
+
+              <div class="booking-form-group">
+                <label for="flightTo">To</label>
+                <input
+                  type="text"
+                  id="flightTo"
+                  name="to"
+                  placeholder="Arrival city"
+                  required
+                />
+              </div>
+
+              <div class="booking-form-group">
+                <label for="flightDeparture">Departure</label>
+                <input
+                  type="date"
+                  id="flightDeparture"
+                  name="departure"
+                  required
+                />
+              </div>
+
+              <div class="booking-form-group">
+                <label for="flightReturn">Return (Optional)</label>
+                <input type="date" id="flightReturn" name="return" />
+              </div>
+
+              <div class="booking-form-group">
+                <label for="flightPassengers">Passengers</label>
+                <select id="flightPassengers" name="passengers" required>
+                  <option value="1">1 Passenger</option>
+                  <option value="2">2 Passengers</option>
+                  <option value="3">3 Passengers</option>
+                  <option value="4">4 Passengers</option>
+                  <option value="5">5 Passengers</option>
+                  <option value="6">6 Passengers</option>
+                </select>
+              </div>
+
+              <div class="booking-form-group">
+                <label for="flightClass">Travel Class</label>
+                <select id="flightClass" name="travelClass" required>
+                  <option value="Economy">Economy</option>
+                  <option value="Premium Economy">Premium Economy</option>
+                  <option value="Business">Business</option>
+                  <option value="First Class">First Class</option>
+                </select>
+              </div>
+
+              <button type="submit" class="booking-search-btn">
+                Search Flights →
+              </button>
+            </form>
+
+            <p
+              id="flightBookingMessage"
+              class="form-message"
+              aria-live="polite"
+            ></p>
+
+            <div id="flightBookingResults" class="booking-results"></div>
+          </div>
+
+          <!--  TRAINS  -->
+          <div
+            class="booking-panel"
+            id="trainsPanel"
+            data-panel="trains"
+            role="tabpanel"
+            aria-labelledby="trainTab"
+            hidden
+          >
+            <div class="booking-panel-header">
+              <div>
+                <h3>Find Your Train</h3>
+                <p>Plan a comfortable and convenient rail journey.</p>
+              </div>
+              <span class="booking-panel-icon">🚆</span>
+            </div>
+
+            <form id="trainBookingForm" class="booking-search-form">
+              <div class="booking-form-group">
+                <label for="trainFrom">From</label>
+                <input
+                  type="text"
+                  id="trainFrom"
+                  name="from"
+                  placeholder="Departure station"
+                  required
+                />
+              </div>
+
+              <div class="booking-form-group">
+                <label for="trainTo">To</label>
+                <input
+                  type="text"
+                  id="trainTo"
+                  name="to"
+                  placeholder="Destination station"
+                  required
+                />
+              </div>
+
+              <div class="booking-form-group">
+                <label for="trainDate">Journey Date</label>
+                <input type="date" id="trainDate" name="journeyDate" required />
+              </div>
+
+              <div class="booking-form-group">
+                <label for="trainPassengers">Passengers</label>
+                <select id="trainPassengers" name="passengers" required>
+                  <option value="1">1 Passenger</option>
+                  <option value="2">2 Passengers</option>
+                  <option value="3">3 Passengers</option>
+                  <option value="4">4 Passengers</option>
+                  <option value="5">5 Passengers</option>
+                  <option value="6">6 Passengers</option>
+                </select>
+              </div>
+
+              <div class="booking-form-group">
+                <label for="trainClass">Travel Class</label>
+                <select id="trainClass" name="travelClass" required>
+                  <option value="Sleeper">Sleeper</option>
+                  <option value="3AC">AC 3 Tier</option>
+                  <option value="2AC">AC 2 Tier</option>
+                  <option value="1AC">AC First Class</option>
+                  <option value="Chair Car">Chair Car</option>
+                </select>
+              </div>
+
+              <button type="submit" class="booking-search-btn">
+                Search Trains →
+              </button>
+            </form>
+
+            <p
+              id="trainBookingMessage"
+              class="form-message"
+              aria-live="polite"
+            ></p>
+
+            <div id="trainBookingResults" class="booking-results"></div>
+          </div>
+
+          <!--  BUSES  -->
+          <div
+            class="booking-panel"
+            id="busesPanel"
+            data-panel="buses"
+            role="tabpanel"
+            aria-labelledby="busTab"
+            hidden
+          >
+            <div class="booking-panel-header">
+              <div>
+                <h3>Book Your Bus</h3>
+                <p>Discover bus routes and plan your road trip.</p>
+              </div>
+              <span class="booking-panel-icon">🚌</span>
+            </div>
+
+            <form id="busBookingForm" class="booking-search-form">
+              <div class="booking-form-group">
+                <label for="busFrom">From</label>
+                <input
+                  type="text"
+                  id="busFrom"
+                  name="from"
+                  placeholder="Departure city"
+                  required
+                />
+              </div>
+
+              <div class="booking-form-group">
+                <label for="busTo">To</label>
+                <input
+                  type="text"
+                  id="busTo"
+                  name="to"
+                  placeholder="Destination city"
+                  required
+                />
+              </div>
+
+              <div class="booking-form-group">
+                <label for="busDate">Journey Date</label>
+                <input type="date" id="busDate" name="journeyDate" required />
+              </div>
+
+              <div class="booking-form-group">
+                <label for="busPassengers">Passengers</label>
+                <select id="busPassengers" name="passengers" required>
+                  <option value="1">1 Passenger</option>
+                  <option value="2">2 Passengers</option>
+                  <option value="3">3 Passengers</option>
+                  <option value="4">4 Passengers</option>
+                  <option value="5">5 Passengers</option>
+                  <option value="6">6 Passengers</option>
+                </select>
+              </div>
+
+              <div class="booking-form-group">
+                <label for="busType">Bus Type</label>
+                <select id="busType" name="busType" required>
+                  <option value="AC Sleeper">AC Sleeper</option>
+                  <option value="Non-AC Sleeper">Non-AC Sleeper</option>
+                  <option value="AC Seater">AC Seater</option>
+                  <option value="Volvo">Volvo</option>
+                  <option value="Luxury">Luxury</option>
+                </select>
+              </div>
+
+              <button type="submit" class="booking-search-btn">
+                Search Buses →
+              </button>
+            </form>
+
+            <p
+              id="busBookingMessage"
+              class="form-message"
+              aria-live="polite"
+            ></p>
+
+            <div id="busBookingResults" class="booking-results"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <script src="js/app.js" defer></script>
+    <script src="js/bookingData.js"></script>
+    <script src="js/booking.js"></script>
   </body>
 </html>
