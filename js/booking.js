@@ -513,49 +513,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  /* BOOK NOW BUTTON */
-
-  Object.entries(resultsContainers).forEach(([type, container]) => {
-    if (!container) return;
-
-    container.addEventListener("click", (event) => {
-      const button = event.target.closest(".booking-btn");
-
-      if (!button) return;
-
-      const selectedType = button.dataset.bookType;
-      const selectedId = button.dataset.bookId;
-
-      const item = bookingData[selectedType]?.find(
-        (booking) => String(booking.id) === String(selectedId),
-      );
-
-      if (!item) return;
-
-      const title = getItemTitle(item, selectedType);
-
-      alert(
-        `${title} selected successfully!\n\n` +
-          "This is a demo booking. No real payment or reservation has been made.",
-      );
-    });
-  });
-
-  document.querySelectorAll(".booking-results").forEach((container) => {
-    container.addEventListener(
-      "wheel",
-      (event) => {
-        if (container.scrollWidth <= container.clientWidth) return;
-
-        event.preventDefault();
-
-        container.scrollLeft += event.deltaY;
-      },
-      { passive: false },
-    );
-  });
-
-  /* DATE VALIDATION */
+   /* DATE VALIDATION */
 
   const today = new Date().toISOString().split("T")[0];
 
@@ -603,6 +561,432 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
+
+  /* BOOK NOW BUTTON */
+
+  
+/* MY BOOKINGS - BOOKING MANAGEMENT */
+
+const myBookingsList = document.getElementById("myBookingsList");
+const myBookingsEmpty = document.getElementById("myBookingsEmpty");
+
+const totalBookingsEl = document.getElementById("totalBookings");
+const confirmedBookingsEl = document.getElementById("confirmedBookings");
+const pendingBookingsEl = document.getElementById("pendingBookings");
+const cancelledBookingsEl = document.getElementById("cancelledBookings");
+
+const bookingFilters = document.querySelectorAll(".booking-filter");
+
+// Load saved bookings from localStorage
+let myBookings = [];
+
+try {
+  myBookings = JSON.parse(
+    localStorage.getItem("tripEaseMyBookings")
+  ) || [];
+} catch (error) {
+  console.error("Unable to load saved bookings:", error);
+  myBookings = [];
+}
+
+// Save bookings
+function saveMyBookings() {
+  localStorage.setItem(
+    "tripEaseMyBookings",
+    JSON.stringify(myBookings)
+  );
+}
+
+// Format date
+function formatBookingDate(date) {
+  if (!date) return "Not specified";
+
+  const options = {
+    day: "numeric",
+    month: "short",
+    year: "numeric"
+  };
+
+  return new Date(date + "T00:00:00").toLocaleDateString(
+    "en-IN",
+    options
+  );
+}
+
+// Generate booking ID
+function generateBookingId() {
+  return "TE" + Date.now().toString().slice(-8);
+}
+
+// Get booking details from the selected form
+function getBookingFormDetails(type) {
+  const details = {
+    hotels: {
+      date: document.getElementById("bookingHotelCheckIn").value,
+      endDate: document.getElementById("bookingHotelCheckOut").value,
+      guests: document.getElementById("bookingHotelGuests").value
+    },
+
+    flights: {
+      date: document.getElementById("flightDeparture").value,
+      endDate: document.getElementById("flightReturn").value,
+      guests: document.getElementById("flightPassengers").value,
+      travelClass: document.getElementById("flightClass").value
+    },
+
+    trains: {
+      date: document.getElementById("trainDate").value,
+      guests: document.getElementById("trainPassengers").value,
+      travelClass: document.getElementById("trainClass").value
+    },
+
+    buses: {
+      date: document.getElementById("busDate").value,
+      guests: document.getElementById("busPassengers").value,
+      travelClass: document.getElementById("busType").value
+    }
+  };
+
+  return details[type];
+}
+
+// Create a new booking
+function createMyBooking(type, item) {
+  const formDetails = getBookingFormDetails(type);
+
+  const title = getItemTitle(item, type);
+
+  const price = Number(
+    item.price ?? item.fare ?? item.amount ?? item.basePrice ?? 0
+  );
+
+  const booking = {
+    id: generateBookingId(),
+    type,
+    title,
+    location:
+      item.location ||
+      item.city ||
+      (item.from && item.to
+        ? `${item.from} → ${item.to}`
+        : "India"),
+    image: item.image || item.imageUrl || "",
+    date: formDetails.date,
+    endDate: formDetails.endDate || "",
+    guests: Number(formDetails.guests) || 1,
+    travelClass: formDetails.travelClass || "",
+    price:
+      type === "hotels"
+        ? price * (formDetails.date && formDetails.endDate
+            ? Math.max(
+                1,
+                Math.round(
+                  (new Date(formDetails.endDate) -
+                    new Date(formDetails.date)) /
+                    (1000 * 60 * 60 * 24)
+                )
+              )
+            : 1)
+        : price * (Number(formDetails.guests) || 1),
+    status: "confirmed",
+    createdAt: new Date().toISOString()
+  };
+
+  myBookings.unshift(booking);
+
+  saveMyBookings();
+  renderMyBookings();
+
+  return booking;
+}
+
+// Update summary cards
+function updateBookingSummary() {
+  totalBookingsEl.textContent = myBookings.length;
+
+  confirmedBookingsEl.textContent = myBookings.filter(
+    booking => booking.status === "confirmed"
+  ).length;
+
+  pendingBookingsEl.textContent = myBookings.filter(
+    booking => booking.status === "pending"
+  ).length;
+
+  cancelledBookingsEl.textContent = myBookings.filter(
+    booking => booking.status === "cancelled"
+  ).length;
+}
+
+// Render booking cards
+function renderMyBookings(filter = "all") {
+  if (!myBookingsList || !myBookingsEmpty) return;
+
+  updateBookingSummary();
+
+  const filteredBookings =
+    filter === "all"
+      ? myBookings
+      : myBookings.filter(
+          booking => booking.status === filter
+        );
+
+  if (filteredBookings.length === 0) {
+    myBookingsList.innerHTML = "";
+    myBookingsEmpty.style.display = "flex";
+
+    const heading = myBookingsEmpty.querySelector("h3");
+    const message = myBookingsEmpty.querySelector("p");
+
+    if (myBookings.length === 0) {
+      heading.textContent = "No Bookings Yet";
+      message.textContent =
+        "You haven't made any reservations yet. Start planning your next adventure with TripEase!";
+    } else {
+      heading.textContent = `No ${filter} bookings`;
+      message.textContent =
+        `You don't have any ${filter} bookings at the moment.`;
+    }
+
+    return;
+  }
+
+  myBookingsEmpty.style.display = "none";
+
+  myBookingsList.innerHTML = filteredBookings
+    .map(booking => {
+      const icon =
+        booking.type === "hotels"
+          ? "🏨"
+          : booking.type === "flights"
+            ? "✈️"
+            : booking.type === "trains"
+              ? "🚆"
+              : "🚌";
+
+      const typeName =
+        booking.type.charAt(0).toUpperCase() +
+        booking.type.slice(1);
+
+      const imageHTML = booking.image
+        ? `<img src="${escapeHTML(booking.image)}"
+                alt="${escapeHTML(booking.title)}"
+                loading="lazy">`
+        : `<div class="booking-result-icon">${icon}</div>`;
+
+      const dateLabel =
+        booking.type === "hotels"
+          ? "Check-in"
+          : "Journey Date";
+
+      const endDateHTML = booking.endDate
+        ? `
+          <div class="booking-info-item">
+            <span>Return / Check-out</span>
+            <strong>${formatBookingDate(booking.endDate)}</strong>
+          </div>
+        `
+        : "";
+
+      const classHTML = booking.travelClass
+        ? `
+          <div class="booking-info-item">
+            <span>Class / Type</span>
+            <strong>${escapeHTML(booking.travelClass)}</strong>
+          </div>
+        `
+        : "";
+
+      const cancelButton =
+        booking.status !== "cancelled"
+          ? `
+            <button
+              type="button"
+              class="booking-action-btn cancel-booking-btn"
+              data-action="cancel"
+              data-id="${escapeHTML(booking.id)}"
+            >
+              Cancel Booking
+            </button>
+          `
+          : "";
+
+      return `
+        <article class="my-booking-card">
+
+          <div class="my-booking-image">
+            ${imageHTML}
+          </div>
+
+          <div class="my-booking-details">
+
+            <div class="my-booking-top">
+              <div>
+                <h3 class="my-booking-title">
+                  ${escapeHTML(booking.title)}
+                </h3>
+
+                <span class="my-booking-type">
+                  ${icon} ${typeName}
+                </span>
+              </div>
+
+              <span class="booking-status ${booking.status}">
+                ${booking.status}
+              </span>
+            </div>
+
+            <div class="my-booking-info">
+
+              <div class="booking-info-item">
+                <span>Booking ID</span>
+                <strong>${escapeHTML(booking.id)}</strong>
+              </div>
+
+              <div class="booking-info-item">
+                <span>${dateLabel}</span>
+                <strong>${formatBookingDate(booking.date)}</strong>
+              </div>
+
+              ${endDateHTML}
+
+              <div class="booking-info-item">
+                <span>Guests / Passengers</span>
+                <strong>${booking.guests}</strong>
+              </div>
+
+              ${classHTML}
+
+              <div class="booking-info-item">
+                <span>Location / Route</span>
+                <strong>${escapeHTML(booking.location)}</strong>
+              </div>
+
+            </div>
+
+            <div class="my-booking-footer">
+
+              <div class="my-booking-price">
+                ${formatPrice(booking.price)}
+              </div>
+
+              <div class="my-booking-actions">
+
+                <button
+                  type="button"
+                  class="booking-action-btn view-booking-btn"
+                  data-action="view"
+                  data-id="${escapeHTML(booking.id)}"
+                >
+                  View Details
+                </button>
+
+                ${cancelButton}
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </article>
+      `;
+    })
+    .join("");
+}
+
+// Booking filter buttons
+bookingFilters.forEach(button => {
+  button.addEventListener("click", () => {
+    bookingFilters.forEach(filter => {
+      filter.classList.remove("active");
+    });
+
+    button.classList.add("active");
+
+    renderMyBookings(button.dataset.filter);
+  });
+});
+
+// View and cancel booking actions
+myBookingsList.addEventListener("click", event => {
+  const button = event.target.closest("[data-action]");
+
+  if (!button) return;
+
+  const bookingId = button.dataset.id;
+  const action = button.dataset.action;
+
+  const booking = myBookings.find(
+    item => item.id === bookingId
+  );
+
+  if (!booking) return;
+
+  if (action === "view") {
+    alert(
+      `Booking Details\n\n` +
+      `Booking ID: ${booking.id}\n` +
+      `Type: ${booking.type}\n` +
+      `Name: ${booking.title}\n` +
+      `Date: ${formatBookingDate(booking.date)}\n` +
+      `Guests: ${booking.guests}\n` +
+      `Amount: ${formatPrice(booking.price)}\n` +
+      `Status: ${booking.status.toUpperCase()}\n\n` +
+      `This is a demo reservation.`
+    );
+  }
+
+  if (action === "cancel") {
+    const confirmCancel = confirm(
+      `Are you sure you want to cancel booking ${booking.id}?`
+    );
+
+    if (!confirmCancel) return;
+
+    booking.status = "cancelled";
+
+    saveMyBookings();
+
+    const activeFilter =
+      document.querySelector(".booking-filter.active")
+        ?.dataset.filter || "all";
+
+    renderMyBookings(activeFilter);
+  }
+});
+
+// Handle Book Now clicks
+Object.entries(resultsContainers).forEach(([type, container]) => {
+  if (!container) return;
+
+  container.addEventListener("click", event => {
+    const button = event.target.closest(".booking-btn");
+
+    if (!button) return;
+
+    const selectedType = button.dataset.bookType;
+    const selectedId = button.dataset.bookId;
+
+    const item = bookingData[selectedType]?.find(
+      booking => String(booking.id) === String(selectedId)
+    );
+
+    if (!item) return;
+
+    const booking = createMyBooking(selectedType, item);
+
+    alert(
+      `Booking created successfully! 🎉\n\n` +
+      `Booking ID: ${booking.id}\n` +
+      `Name: ${booking.title}\n` +
+      `Amount: ${formatPrice(booking.price)}\n\n` +
+      `You can view your reservation in My Bookings.\n\n` +
+      `Note: This is a demo booking. No real payment or reservation has been made.`
+    );
+  });
+});
+
+renderMyBookings();
 
   showBookingTab("hotels");
 });

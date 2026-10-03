@@ -146,7 +146,7 @@ const flights = [
     class: "Economy",
     badge: "Popular",
     image:
-      "https://upload.wikimedia.org/wikipedia/commons/4/4d/IndiGo_Airbus_A320neo_F-WWDG_%28to_VT-ITI%29_%2828915135713%29.jpg?utm_source=en.wikipedia.org&utm_campaign=index&utm_content=original",
+      "https://www.hindustantimes.com/ht-img/img/2026/07/08/cropped/16-9/An-IndiGo-flight-lands-at-the-Noida-International-_1783473243496_1783473275782_b9d67fb5-94ff-4b85-8145-837306dccdaf.jpg",
   },
   {
     id: 2,
@@ -180,7 +180,7 @@ const flights = [
     class: "Economy",
     badge: "Best Price",
     image:
-      "https://upload.wikimedia.org/wikipedia/commons/6/6c/Akasa_Air_737_max_8-200.jpg?utm_source=en.wikipedia.org&utm_campaign=index&utm_content=original",
+      "https://a.storyblok.com/f/159922/3000x1688/fd58f43a36/rp_image.webp",
   },
   {
     id: 4,
@@ -214,7 +214,7 @@ const flights = [
     class: "Economy",
     badge: "Popular",
     image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAADpabXhKXlQls8gmj5i3QTKY9umnyrBJsP0e09DCa89-vPO3ty7mvfw&s=10",
+      "https://static.toiimg.com/thumb/msid-100468509,width-1280,height-720,resizemode-4/100468509.jpg",
   },
   {
     id: 6,
@@ -248,7 +248,7 @@ const flights = [
     class: "Economy",
     badge: "Popular",
     image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDrvGpHeCc9s7goWl1vpBIt_kwVLzOPxizFZI5mANX7Fp__kVTqbCLXZ-T&s=10",
+      "https://www.siasat.com/wp-content/uploads/2023/06/indigo-780x470.jpg",
   },
   {
     id: 8,
@@ -299,7 +299,7 @@ const flights = [
     class: "Economy",
     badge: "Comfort",
     image:
-      "https://media.fortuneindia.com/fortune-india/import/2023-02/557b1709-7f0c-4382-8a33-7a14b4de3956/AirIndia.jpeg?w=1200&ar=40:21&auto=format,compress&ogImage=true&mode=crop&enlarge=true&overlay=false&overlay_position=bottom&overlay_width=100",
+      "https://media.assettype.com/outlooktraveller/2025-06-17/xcnlxl0r/shutterstock2538615397-min.jpg?w=640",
   },
 ];
 

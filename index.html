@@ -35,6 +35,7 @@
           <li><a href="#destinations">Destinations</a></li>
           <li><a href="#trip-planner">Trip Planner</a></li>
           <li><a href="#bookings">Bookings</a></li>
+          <li><a href="#my-bookings">My Bookings</a></li>
           <li><a href="#about">About Us</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
@@ -1166,6 +1167,105 @@
         </div>
       </div>
     </section>
+
+    
+<!-- My Bookings Section -->
+<section class="my-bookings-section section-padding" id="my-bookings">
+  <div class="container">
+
+    <!-- Section Header -->
+    <div class="section-header">
+      <span class="section-tag">Your Travel History</span>
+      <h2>My Bookings</h2>
+      <p>
+        Manage your reservations and keep track of all your journeys
+        in one place.
+      </p>
+    </div>
+
+    <!-- Booking Summary -->
+    <div class="booking-summary">
+
+      <div class="summary-card">
+        <div class="summary-icon total-icon">📋</div>
+        <div>
+          <h3 id="totalBookings">0</h3>
+          <p>Total Bookings</p>
+        </div>
+      </div>
+
+      <div class="summary-card">
+        <div class="summary-icon confirmed-icon">✅</div>
+        <div>
+          <h3 id="confirmedBookings">0</h3>
+          <p>Confirmed</p>
+        </div>
+      </div>
+
+      <div class="summary-card">
+        <div class="summary-icon pending-icon">⏳</div>
+        <div>
+          <h3 id="pendingBookings">0</h3>
+          <p>Pending</p>
+        </div>
+      </div>
+
+      <div class="summary-card">
+        <div class="summary-icon cancelled-icon">❌</div>
+        <div>
+          <h3 id="cancelledBookings">0</h3>
+          <p>Cancelled</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Booking Filters -->
+    <div class="my-bookings-header">
+      <h3>Your Reservations</h3>
+
+      <div class="booking-filters" role="group" aria-label="Filter bookings">
+        <button class="booking-filter active" data-filter="all">
+          All
+        </button>
+
+        <button class="booking-filter" data-filter="confirmed">
+          Confirmed
+        </button>
+
+        <button class="booking-filter" data-filter="pending">
+          Pending
+        </button>
+
+        <button class="booking-filter" data-filter="cancelled">
+          Cancelled
+        </button>
+      </div>
+    </div>
+
+    <!-- Booking List -->
+    <div class="my-bookings-list" id="myBookingsList">
+
+    </div>
+
+    <!-- Empty State -->
+    <div class="my-bookings-empty" id="myBookingsEmpty" style="display: none;">
+      <div class="empty-booking-icon">🧳</div>
+
+      <h3>No Bookings Yet</h3>
+
+      <p>
+        You haven't made any reservations yet.
+        Start planning your next adventure with TripEase!
+      </p>
+
+      <a href="#bookings" class="empty-booking-btn">
+        Explore Bookings →
+      </a>
+    </div>
+
+  </div>
+</section>
 
     <script src="js/app.js" defer></script>
     <script src="js/bookingData.js"></script>
