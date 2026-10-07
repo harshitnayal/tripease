@@ -1,0 +1,335 @@
+/* SCHEDULE / ITINERARY CSS */
+
+.schedule-section {
+    width: 100%;
+    padding: 100px 0;
+    background: var(--bg, #f8fafc);
+}
+
+/* SECTION HEADER */
+
+.schedule-header {
+    width: 100%;
+    max-width: 750px;
+    margin: 0 auto 50px;
+    text-align: center;
+}
+
+.schedule-header .section-tag {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 15px;
+    color: var(--secondary-color);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+}
+
+.schedule-header .section-tag i {
+    font-size: 14px;
+}
+
+.schedule-header h2 {
+    margin: 0 0 15px;
+    color: var(--text, #0f172a);
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+}
+
+.schedule-header p {
+    margin: 0;
+    color: var(--text-secondary, #475569);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.7;
+}
+
+
+/* TRIP SUMMARY */
+
+.schedule-trip-summary {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-bottom: 50px;
+}
+
+.schedule-trip-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 22px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(15, 23, 42, 0.05);
+}
+
+.schedule-trip-icon {
+    flex: 0 0 50px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary, #0284c7);
+    background: rgba(2, 132, 199, 0.1);
+    border-radius: 12px;
+}
+
+.schedule-trip-icon i {
+    font-size: 19px;
+}
+
+.schedule-trip-info span {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--text-secondary, #475569);
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.schedule-trip-info h3 {
+    margin: 0;
+    color: var(--text, #0f172a);
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+
+/* ITINERARY */
+
+.itinerary-wrapper {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.itinerary-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.itinerary-day {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    gap: 20px;
+    align-items: start;
+}
+
+
+/* DAY NUMBER */
+
+.day-number {
+    position: relative;
+    width: 76px;
+    height: 76px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    background: linear-gradient(
+        135deg,
+        var(--primary, #0284c7),
+        #16a34a
+    );
+    border-radius: 18px;
+    box-shadow: 0 8px 20px rgba(2, 132, 199, 0.2);
+}
+
+.day-number span {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.day-number strong {
+    font-size: 24px;
+    font-weight: 800;
+    line-height: 1;
+}
+
+
+/* DAY CONTENT */
+
+.day-content {
+    padding: 25px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 18px;
+    box-shadow: 0 8px 25px rgba(15, 23, 42, 0.06);
+}
+
+.day-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.day-header h3 {
+    margin: 0;
+    color: var(--text, #0f172a);
+    font-size: 21px;
+    font-weight: 700;
+}
+
+.day-date {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--primary, #0284c7);
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+/* ACTIVITIES */
+
+.activity-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 15px 0;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.activity-item:last-child {
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.activity-icon {
+    flex: 0 0 40px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary, #0284c7);
+    background: rgba(2, 132, 199, 0.08);
+    border-radius: 10px;
+}
+
+.activity-icon i {
+    font-size: 15px;
+}
+
+.activity-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.activity-time {
+    display: block;
+    margin-bottom: 4px;
+    color: var(--primary, #0284c7);
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.activity-content h4 {
+    margin: 0 0 5px;
+    color: var(--text, #0f172a);
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.activity-content p {
+    margin: 0;
+    color: var(--text-secondary, #475569);
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+
+/* DAY FOOTER */
+
+.day-footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    margin-top: 18px;
+    padding-top: 14px;
+    border-top: 1px solid #e2e8f0;
+    color: var(--text-secondary, #475569);
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.day-footer i {
+    margin-right: 6px;
+    color: var(--primary, #0284c7);
+    font-size: 13px;
+}
+
+.day-footer span {
+    color: var(--text-secondary, #475569);
+}
+
+
+/* SCHEDULE ACTIONS */
+
+.schedule-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 45px;
+}
+
+.schedule-action-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 20px;
+    color: var(--text, #0f172a);
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease,
+        background 0.25s ease;
+}
+
+.schedule-action-btn:hover {
+    transform: translateY(-2px);
+    border-color: var(--primary, #0284c7);
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+}
+
+.schedule-action-btn i {
+    font-size: 14px;
+}
+
+
+/* SAVE BUTTON */
+
+.save-schedule-btn {
+    color: #ffffff;
+    background: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+.save-schedule-btn:hover {
+    color: #ffffff;
+    background: var(--primary-dark, #0369a1);
+    border-color: var(--primary-dark, #0369a1);
+}
