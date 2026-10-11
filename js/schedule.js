@@ -315,3 +315,1013 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelector(".download-schedule-btn")
         ?.addEventListener("click", downloadTripEaseItinerary);
 });
+
+/* SAVED ITINERARIES */
+
+const TRIPEASE_SAVED_ITINERARIES_KEY =
+    "tripeaseSavedItineraries";
+
+let tripeaseToastTimer = null;
+
+
+/* LOCAL STORAGE */
+
+function getSavedTripEaseItineraries() {
+
+    try {
+
+        const saved =
+            localStorage.getItem(
+                TRIPEASE_SAVED_ITINERARIES_KEY
+            );
+
+        return saved ? JSON.parse(saved) : [];
+
+    } catch (error) {
+
+        console.error(
+            "TripEase: Unable to read saved itineraries.",
+            error
+        );
+
+        return [];
+    }
+}
+
+
+function setSavedTripEaseItineraries(itineraries) {
+
+    try {
+
+        localStorage.setItem(
+            TRIPEASE_SAVED_ITINERARIES_KEY,
+            JSON.stringify(itineraries)
+        );
+
+    } catch (error) {
+
+        console.error(
+            "TripEase: Unable to save itineraries.",
+            error
+        );
+
+        alert(
+            "Unable to save your itinerary. Please try again."
+        );
+    }
+}
+
+
+/* HTML ESCAPE */
+
+function escapeTripEaseHTML(value) {
+
+    return String(value ?? "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+}
+
+
+/* TOAST NOTIFICATION */
+
+function showTripEaseToast(
+    message,
+    title = "Success"
+) {
+
+    const toast =
+        document.getElementById("tripeaseToast");
+
+    const toastMessage =
+        document.getElementById(
+            "tripeaseToastMessage"
+        );
+
+    const toastTitle =
+        toast?.querySelector(
+            ".tripease-toast-content strong"
+        );
+
+    if (!toast || !toastMessage) {
+        return;
+    }
+
+    toastMessage.textContent = message;
+
+    if (toastTitle) {
+        toastTitle.textContent = title;
+    }
+
+    clearTimeout(tripeaseToastTimer);
+
+    toast.hidden = false;
+
+    requestAnimationFrame(() => {
+        toast.classList.add("show");
+    });
+
+    tripeaseToastTimer = setTimeout(() => {
+        hideTripEaseToast();
+    }, 3500);
+}
+
+
+function hideTripEaseToast() {
+
+    const toast =
+        document.getElementById("tripeaseToast");
+
+    if (!toast) {
+        return;
+    }
+
+    toast.classList.remove("show");
+
+    setTimeout(() => {
+
+        if (!toast.classList.contains("show")) {
+            toast.hidden = true;
+        }
+
+    }, 300);
+}
+
+
+/* FORMAT SAVED DATE */
+
+function formatSavedTripEaseDate(dateString) {
+
+    if (!dateString) {
+        return "Recently";
+    }
+
+    const date = new Date(dateString);
+
+    if (isNaN(date.getTime())) {
+        return "Recently";
+    }
+
+    return date.toLocaleDateString(
+        "en-IN",
+        {
+            day: "numeric",
+            month: "short",
+            year: "numeric"
+        }
+    );
+}
+
+
+/* SAVE CURRENT SCHEDULE */
+
+function saveTripEaseSchedule() {
+
+    const destinationInput =
+        document.getElementById(
+            "plannerDestination"
+        );
+
+    const startDateInput =
+        document.getElementById(
+            "plannerStartDate"
+        );
+
+    const endDateInput =
+        document.getElementById(
+            "plannerEndDate"
+        );
+
+    const travelTypeInput =
+        document.getElementById(
+            "travelType"
+        );
+
+    const itineraryTimeline =
+        document.getElementById(
+            "itineraryTimeline"
+        );
+
+
+    if (
+        !destinationInput ||
+        !startDateInput ||
+        !endDateInput ||
+        !itineraryTimeline
+    ) {
+
+        console.error(
+            "TripEase: Required schedule elements not found."
+        );
+
+        return;
+    }
+
+
+    const destination =
+        destinationInput.value.trim();
+
+    const startDate =
+        startDateInput.value;
+
+    const endDate =
+        endDateInput.value;
+
+    const travelType =
+        travelTypeInput?.value || "solo";
+
+
+    if (
+        !destination ||
+        !startDate ||
+        !endDate
+    ) {
+
+        alert(
+            "Please generate a trip schedule before saving it."
+        );
+
+        return;
+    }
+
+
+    if (!itineraryTimeline.innerHTML.trim()) {
+
+        alert(
+            "Please generate your itinerary before saving it."
+        );
+
+        return;
+    }
+
+
+    const start =
+        new Date(
+            startDate + "T00:00:00"
+        );
+
+    const end =
+        new Date(
+            endDate + "T00:00:00"
+        );
+
+
+    if (
+        isNaN(start.getTime()) ||
+        isNaN(end.getTime())
+    ) {
+
+        alert(
+            "Please select valid travel dates."
+        );
+
+        return;
+    }
+
+
+    if (end < start) {
+
+        alert(
+            "Return date cannot be before the start date."
+        );
+
+        return;
+    }
+
+
+    const totalNights =
+        Math.round(
+            (end - start) /
+            (1000 * 60 * 60 * 24)
+        );
+
+    const totalDays =
+        totalNights + 1;
+
+
+    const savedItineraries =
+        getSavedTripEaseItineraries();
+
+
+    /* Prevent duplicate */
+
+    const alreadySaved =
+        savedItineraries.some(item =>
+
+            item.destination?.toLowerCase() ===
+                destination.toLowerCase() &&
+
+            item.startDate === startDate &&
+
+            item.endDate === endDate &&
+
+            item.travelType === travelType
+        );
+
+
+    if (alreadySaved) {
+
+        alert(
+            "This itinerary is already saved."
+        );
+
+        return;
+    }
+
+
+    /* Create itinerary */
+
+    const itinerary = {
+
+        id: Date.now().toString(),
+
+        destination,
+
+        startDate,
+
+        endDate,
+
+        travelType,
+
+        totalDays,
+
+        totalNights,
+
+        itineraryHTML:
+            itineraryTimeline.innerHTML,
+
+        createdAt:
+            new Date().toISOString()
+    };
+
+
+    savedItineraries.unshift(
+        itinerary
+    );
+
+
+    setSavedTripEaseItineraries(
+        savedItineraries
+    );
+
+
+    renderSavedTripEaseItineraries();
+
+
+    /* Modern success notification */
+
+    showTripEaseToast(
+        `${destination} itinerary saved successfully.`
+    );
+
+
+    console.log(
+        "TripEase: Itinerary saved successfully."
+    );
+}
+
+
+/* RENDER SAVED ITINERARIES */
+
+function renderSavedTripEaseItineraries() {
+
+    const grid =
+        document.getElementById(
+            "savedItinerariesGrid"
+        );
+
+    const emptyState =
+        document.getElementById(
+            "savedItinerariesEmpty"
+        );
+
+    const clearAllButton =
+        document.getElementById(
+            "clearAllSavedBtn"
+        );
+
+
+    if (!grid || !emptyState) {
+
+        console.error(
+            "TripEase: Saved itinerary elements not found."
+        );
+
+        return;
+    }
+
+
+    const savedItineraries =
+        getSavedTripEaseItineraries();
+
+
+    grid.innerHTML = "";
+
+
+    if (savedItineraries.length === 0) {
+
+        grid.style.display = "none";
+
+        emptyState.hidden = false;
+
+        if (clearAllButton) {
+            clearAllButton.hidden = true;
+        }
+
+        return;
+    }
+
+    grid.style.display = "flex";
+
+    emptyState.hidden = true;
+
+
+    if (clearAllButton) {
+        clearAllButton.hidden = false;
+    }
+
+
+    savedItineraries.forEach(
+        itinerary => {
+
+            const card =
+                createSavedTripEaseCard(
+                    itinerary
+                );
+
+            grid.appendChild(card);
+        }
+    );
+}
+
+
+/* CREATE SAVED CARD */
+
+function createSavedTripEaseCard(
+    itinerary
+) {
+
+    const card =
+        document.createElement(
+            "article"
+        );
+
+
+    card.className =
+        "saved-itinerary-card";
+
+
+    const destination =
+        escapeTripEaseHTML(
+            itinerary.destination
+        );
+
+
+    const travelType =
+        escapeTripEaseHTML(
+            formatTravelType(
+                itinerary.travelType
+            )
+        );
+
+
+    const start =
+        new Date(
+            itinerary.startDate +
+            "T00:00:00"
+        );
+
+
+    const end =
+        new Date(
+            itinerary.endDate +
+            "T00:00:00"
+        );
+
+
+    const dateText =
+        `${formatScheduleDate(start)} - ${formatScheduleDate(end)}`;
+
+
+    const savedOn =
+        formatSavedTripEaseDate(
+            itinerary.createdAt
+        );
+
+
+    card.innerHTML = `
+
+        <div class="saved-card-top">
+
+            <div class="saved-card-location">
+
+                <div class="saved-location-icon">
+
+                    <i class="fa-solid fa-location-dot"></i>
+
+                </div>
+
+
+                <div class="saved-location-text">
+
+                    <span>DESTINATION</span>
+
+                    <h3 title="${destination}">
+                        ${destination}
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+            <span class="saved-travel-type">
+                ${travelType}
+            </span>
+
+        </div>
+
+
+        <div class="saved-card-details">
+
+            <div class="saved-detail-item">
+
+                <span>TRAVEL DATES</span>
+
+                <strong>
+                    ${dateText}
+                </strong>
+
+            </div>
+
+
+            <div class="saved-detail-item">
+
+                <span>DURATION</span>
+
+                <strong>
+                    ${itinerary.totalDays}
+                    Days /
+                    ${itinerary.totalNights}
+                    Nights
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="saved-card-footer">
+
+            <span class="saved-card-date">
+
+                <i class="fa-regular fa-calendar-check"></i>
+
+                Saved on ${savedOn}
+
+            </span>
+
+
+            <div class="saved-card-actions">
+
+                <button
+                    type="button"
+                    class="saved-card-btn saved-view-btn"
+                    data-action="view"
+                    data-id="${itinerary.id}"
+                >
+                    <i class="fa-solid fa-eye"></i>
+                    View
+                </button>
+
+
+                <button
+                    type="button"
+                    class="saved-card-btn saved-delete-btn"
+                    data-action="delete"
+                    data-id="${itinerary.id}"
+                >
+                    <i class="fa-solid fa-trash"></i>
+                    Delete
+                </button>
+
+            </div>
+
+        </div>
+    `;
+
+
+    return card;
+}
+
+
+/* VIEW SAVED ITINERARY */
+
+function viewSavedTripEaseItinerary(id) {
+
+    const savedItineraries =
+        getSavedTripEaseItineraries();
+
+
+    const itinerary =
+        savedItineraries.find(
+            item => item.id === id
+        );
+
+
+    if (!itinerary) {
+
+        alert(
+            "Saved itinerary could not be found."
+        );
+
+        return;
+    }
+
+
+    const destinationInput =
+        document.getElementById(
+            "plannerDestination"
+        );
+
+    const startDateInput =
+        document.getElementById(
+            "plannerStartDate"
+        );
+
+    const endDateInput =
+        document.getElementById(
+            "plannerEndDate"
+        );
+
+    const travelTypeInput =
+        document.getElementById(
+            "travelType"
+        );
+
+
+    if (destinationInput) {
+        destinationInput.value =
+            itinerary.destination;
+    }
+
+
+    if (startDateInput) {
+        startDateInput.value =
+            itinerary.startDate;
+    }
+
+
+    if (endDateInput) {
+        endDateInput.value =
+            itinerary.endDate;
+    }
+
+
+    if (travelTypeInput) {
+        travelTypeInput.value =
+            itinerary.travelType;
+    }
+
+
+    const scheduleDestination =
+        document.getElementById(
+            "scheduleDestination"
+        );
+
+    const scheduleDates =
+        document.getElementById(
+            "scheduleDates"
+        );
+
+    const scheduleDuration =
+        document.getElementById(
+            "scheduleDuration"
+        );
+
+    const scheduleTravelType =
+        document.getElementById(
+            "scheduleTravelType"
+        );
+
+    const itineraryTimeline =
+        document.getElementById(
+            "itineraryTimeline"
+        );
+
+
+    if (scheduleDestination) {
+
+        scheduleDestination.textContent =
+            itinerary.destination;
+    }
+
+
+    if (scheduleDates) {
+
+        const start =
+            new Date(
+                itinerary.startDate +
+                "T00:00:00"
+            );
+
+        const end =
+            new Date(
+                itinerary.endDate +
+                "T00:00:00"
+            );
+
+        scheduleDates.textContent =
+            `${formatScheduleDate(start)} - ${formatScheduleDate(end)}`;
+    }
+
+
+    if (scheduleDuration) {
+
+        scheduleDuration.textContent =
+            `${itinerary.totalDays} Days / ${itinerary.totalNights} Nights`;
+    }
+
+
+    if (scheduleTravelType) {
+
+        scheduleTravelType.textContent =
+            formatTravelType(
+                itinerary.travelType
+            );
+    }
+
+
+    if (itineraryTimeline) {
+
+        itineraryTimeline.innerHTML =
+            itinerary.itineraryHTML;
+    }
+
+
+    const scheduleSection =
+        document.getElementById(
+            "schedule"
+        );
+
+
+    if (scheduleSection) {
+
+        scheduleSection.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+    }
+
+
+    showTripEaseToast(
+        `${itinerary.destination} itinerary loaded.`,
+        "Itinerary Loaded"
+    );
+
+
+    console.log(
+        "TripEase: Saved itinerary loaded.",
+        itinerary.destination
+    );
+}
+
+
+/* DELETE SAVED ITINERARY */
+
+function deleteSavedTripEaseItinerary(id) {
+
+    const savedItineraries =
+        getSavedTripEaseItineraries();
+
+
+    const itinerary =
+        savedItineraries.find(
+            item => item.id === id
+        );
+
+
+    if (!itinerary) {
+        return;
+    }
+
+
+    const confirmDelete =
+        confirm(
+            `Delete your ${itinerary.destination} itinerary?`
+        );
+
+
+    if (!confirmDelete) {
+        return;
+    }
+
+
+    const updatedItineraries =
+        savedItineraries.filter(
+            item => item.id !== id
+        );
+
+
+    setSavedTripEaseItineraries(
+        updatedItineraries
+    );
+
+
+    renderSavedTripEaseItineraries();
+
+
+    showTripEaseToast(
+        `${itinerary.destination} itinerary deleted.`,
+        "Deleted"
+    );
+
+
+    console.log(
+        "TripEase: Itinerary deleted."
+    );
+}
+
+
+/* CLEAR ALL SAVED ITINERARIES */
+
+function clearAllTripEaseItineraries() {
+
+    const savedItineraries =
+        getSavedTripEaseItineraries();
+
+
+    if (savedItineraries.length === 0) {
+        return;
+    }
+
+
+    const confirmClear =
+        confirm(
+            "Are you sure you want to clear all saved itineraries? This action cannot be undone."
+        );
+
+
+    if (!confirmClear) {
+        return;
+    }
+
+
+    setSavedTripEaseItineraries([]);
+
+
+    renderSavedTripEaseItineraries();
+
+
+    showTripEaseToast(
+        "All saved itineraries have been cleared.",
+        "Trips Cleared"
+    );
+
+
+    console.log(
+        "TripEase: All saved itineraries cleared."
+    );
+}
+
+
+/* SAVED CARD BUTTON EVENTS */
+
+document.addEventListener(
+    "click",
+    event => {
+
+        const button =
+            event.target.closest(
+                ".saved-card-btn"
+            );
+
+
+        if (!button) {
+            return;
+        }
+
+
+        const action =
+            button.dataset.action;
+
+
+        const id =
+            button.dataset.id;
+
+
+        if (!id) {
+            return;
+        }
+
+
+        if (action === "view") {
+
+            viewSavedTripEaseItinerary(
+                id
+            );
+        }
+
+
+        if (action === "delete") {
+
+            deleteSavedTripEaseItinerary(
+                id
+            );
+        }
+    }
+);
+
+
+/* DOM CONTENT LOADED */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
+
+        /* Save button */
+
+        const saveButton =
+            document.querySelector(
+                ".save-schedule-btn"
+            );
+
+
+        if (saveButton) {
+
+            saveButton.addEventListener(
+                "click",
+                saveTripEaseSchedule
+            );
+        }
+
+
+        /* Clear all button */
+
+        const clearAllButton =
+            document.getElementById(
+                "clearAllSavedBtn"
+            );
+
+
+        if (clearAllButton) {
+
+            clearAllButton.addEventListener(
+                "click",
+                clearAllTripEaseItineraries
+            );
+        }
+
+
+        /* Toast close */
+
+        const toastClose =
+            document.getElementById(
+                "tripeaseToastClose"
+            );
+
+
+        if (toastClose) {
+
+            toastClose.addEventListener(
+                "click",
+                hideTripEaseToast
+            );
+        }
+
+
+        /* Render saved trips */
+
+        renderSavedTripEaseItineraries();
+    }
+);
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const savedGrid =
+        document.getElementById("savedItinerariesGrid");
+
+    if (!savedGrid) {
+        return;
+    }
+
+    savedGrid.addEventListener(
+        "wheel",
+        (event) => {
+
+            if (event.deltaY === 0) {
+                return;
+            }
+
+            event.preventDefault();
+
+            savedGrid.scrollLeft += event.deltaY;
+        },
+        {
+            passive: false
+        }
+    );
+
+});

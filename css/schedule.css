@@ -333,3 +333,598 @@
     background: var(--primary-dark, #0369a1);
     border-color: var(--primary-dark, #0369a1);
 }
+
+/* SAVED ITINERARIES SECTION */
+
+.saved-itineraries-section {
+    width: 100%;
+    padding: 50px 0;
+    background: #ffffff;
+    overflow: hidden;
+}
+
+
+/* SECTION HEADER */
+
+.saved-itineraries-header {
+    width: 100%;
+    max-width: 750px;
+    margin: 0 auto 50px;
+    text-align: center;
+}
+
+.saved-itineraries-header .section-tag {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 15px;
+    color: var(--secondary-color, #ff8c42);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+}
+
+.saved-itineraries-header .section-tag i {
+    font-size: 14px;
+}
+
+.saved-itineraries-header h2 {
+    margin: 0 0 15px;
+    color: var(--text, #0f172a);
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+}
+
+.saved-itineraries-header p {
+    margin: 0;
+    color: var(--text-secondary, #475569);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.7;
+}
+
+
+/* SAVED ITINERARIES HORIZONTAL WRAPPER */
+
+.saved-itineraries-grid {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    width: 100%;
+    max-width: 100%;
+    padding: 10px 5px 25px;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    cursor: grab;
+}
+
+
+/* WEBKIT SCROLLBAR */
+
+.saved-itineraries-grid::-webkit-scrollbar {
+    display: none;
+}
+
+.saved-itineraries-grid:active {
+    cursor: grabbing;
+}
+
+/* SAVED ITINERARY CARD */
+
+.saved-itinerary-card {
+    position: relative;
+
+    flex: 0 0 360px;
+    width: 360px;
+    min-width: 360px;
+    min-height: 260px;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 26px;
+
+    box-sizing: border-box;
+
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 20px;
+
+    box-shadow: 0 8px 25px rgba(15, 23, 42, 0.06);
+
+    overflow: hidden;
+
+    scroll-snap-align: start;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.saved-itinerary-card:hover {
+    transform: translateY(-5px);
+
+    border-color: rgba(2, 132, 199, 0.35);
+
+    box-shadow: 0 15px 35px rgba(15, 23, 42, 0.10);
+}
+
+
+/* CARD TOP */
+
+.saved-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+
+    margin-bottom: 22px;
+}
+
+
+/* DESTINATION */
+
+.saved-card-location {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    min-width: 0;
+}
+
+.saved-location-icon {
+    flex: 0 0 42px;
+
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #ffffff;
+
+    background: linear-gradient(
+        135deg,
+        var(--primary, #0284c7),
+        #16a34a
+    );
+
+    border-radius: 12px;
+}
+
+.saved-location-icon i {
+    font-size: 16px;
+}
+
+.saved-location-text {
+    min-width: 0;
+}
+
+.saved-location-text span {
+    display: block;
+
+    margin-bottom: 4px;
+
+    color: var(--text-secondary, #475569);
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+}
+
+.saved-location-text h3 {
+    margin: 0;
+
+    color: var(--text, #0f172a);
+
+    font-size: 19px;
+    font-weight: 700;
+
+    line-height: 1.3;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+/* TRAVEL TYPE BADGE */
+
+.saved-travel-type {
+    flex-shrink: 0;
+
+    padding: 7px 10px;
+
+    color: var(--primary-dark, #0369a1);
+    background: rgba(2, 132, 199, 0.08);
+
+    border-radius: 8px;
+
+    font-size: 11px;
+    font-weight: 700;
+}
+
+
+/* CARD DETAILS */
+
+.saved-card-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    gap: 12px;
+
+    margin-bottom: 20px;
+}
+
+.saved-detail-item {
+    padding: 13px;
+
+    background: #f8fafc;
+
+    border: 1px solid #eef2f7;
+
+    border-radius: 12px;
+}
+
+.saved-detail-item span {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: var(--text-secondary, #475569);
+
+    font-size: 11px;
+    font-weight: 500;
+}
+
+.saved-detail-item strong {
+    display: block;
+
+    color: var(--text, #0f172a);
+
+    font-size: 13px;
+    font-weight: 700;
+
+    line-height: 1.4;
+}
+
+
+/* CARD FOOTER */
+
+.saved-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 10px;
+
+    margin-top: auto;
+    padding-top: 18px;
+
+    border-top: 1px solid #e2e8f0;
+}
+
+
+/* CARD ACTIONS */
+
+.saved-card-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.saved-card-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+
+    padding: 9px 13px;
+
+    border-radius: 9px;
+
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.saved-card-btn:hover {
+    transform: translateY(-1px);
+}
+
+.saved-view-btn {
+    color: #ffffff;
+    background: var(--primary, #0284c7);
+    border: 1px solid var(--primary, #0284c7);
+}
+
+.saved-view-btn:hover {
+    background: var(--primary-dark, #0369a1);
+    border-color: var(--primary-dark, #0369a1);
+}
+
+.saved-delete-btn {
+    color: #ef4444;
+    background: #ffffff;
+    border: 1px solid #fecaca;
+}
+
+.saved-delete-btn:hover {
+    color: #ffffff;
+    background: #ef4444;
+    border-color: #ef4444;
+}
+
+
+/* EMPTY STATE */
+
+.saved-itineraries-empty {
+    width: 100%;
+    max-width: 600px;
+
+    margin: 0 auto;
+
+    padding: 45px 25px;
+
+    text-align: center;
+
+    background: #ffffff;
+
+    border: 1px dashed #cbd5e1;
+    border-radius: 18px;
+
+    box-sizing: border-box;
+}
+
+.saved-empty-icon {
+    width: 60px;
+    height: 60px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 0 auto 18px;
+
+    color: var(--primary, #0284c7);
+    background: rgba(2, 132, 199, 0.08);
+
+    border-radius: 15px;
+}
+
+.saved-empty-icon i {
+    font-size: 24px;
+}
+
+.saved-itineraries-empty h3 {
+    margin: 0 0 8px;
+
+    color: var(--text, #0f172a);
+
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.saved-itineraries-empty p {
+    max-width: 450px;
+
+    margin: 0 auto;
+
+    color: var(--text-secondary, #475569);
+
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.saved-itineraries-empty strong {
+    color: var(--text, #0f172a);
+}
+
+/* SAVED ITINERARIES - CLEAR ALL */
+
+.saved-itineraries-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    margin-top: -25px;
+    margin-bottom: 25px;
+}
+
+.saved-clear-all-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 15px;
+    color: #ef4444;
+    background: #ffffff;
+    border: 1px solid #fecaca;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition:
+        color 0.25s ease,
+        background 0.25s ease,
+        border-color 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.saved-clear-all-btn:hover {
+    color: #ffffff;
+    background: #ef4444;
+    border-color: #ef4444;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(239, 68, 68, 0.18);
+}
+
+.saved-clear-all-btn i {
+    font-size: 13px;
+}
+
+
+.saved-card-date {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--text-secondary, #475569);
+    font-size: 11px;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.saved-card-date i {
+    color: var(--primary, #0284c7);
+    font-size: 12px;
+}
+
+
+/* TRIPEASE TOAST */
+
+.tripease-toast {
+    position: fixed;
+    top: 25px;
+    right: 25px;
+    z-index: 9999;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    width: min(380px, calc(100vw - 30px));
+    padding: 14px 15px;
+
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+
+    box-shadow:
+        0 15px 40px rgba(15, 23, 42, 0.15);
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-15px);
+
+    transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease,
+        transform 0.3s ease;
+}
+
+.tripease-toast.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.tripease-toast[hidden] {
+    display: flex;
+}
+
+
+/* Toast Icon */
+
+.tripease-toast-icon {
+    flex: 0 0 38px;
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #16a34a;
+    background: rgba(22, 163, 74, 0.10);
+    border-radius: 10px;
+}
+
+.tripease-toast-icon i {
+    font-size: 16px;
+}
+
+
+/* Toast Content */
+
+.tripease-toast-content {
+    flex: 1;
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.tripease-toast-content strong {
+    color: var(--text, #0f172a);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.tripease-toast-content span {
+    color: var(--text-secondary, #475569);
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+
+/* Toast Close */
+
+.tripease-toast-close {
+    flex: 0 0 auto;
+
+    width: 30px;
+    height: 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #64748b;
+    background: transparent;
+    border: none;
+    border-radius: 7px;
+
+    cursor: pointer;
+
+    transition:
+        color 0.2s ease,
+        background 0.2s ease;
+}
+
+.tripease-toast-close:hover {
+    color: #0f172a;
+    background: #f1f5f9;
+}
+
+.tripease-toast-close i {
+    font-size: 13px;
+}

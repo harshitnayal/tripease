@@ -37,6 +37,7 @@
           <li><a href="#trip-planner">Trip Planner</a></li>
           <li><a href="#bookings">Bookings</a></li>
           <li><a href="#my-bookings">My Bookings</a></li>
+          <li><a href="#schedule">Schedule</a></li>
           <li><a href="#about">About Us</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
@@ -1372,6 +1373,106 @@
           </div>
         </div>
       </section>
+
+      <!-- SAVED ITINERARIES -->
+
+<section class="saved-itineraries-section" id="saved-itineraries">
+
+    <div class="container">
+
+        <!-- SECTION HEADER -->
+        <div class="section-header saved-itineraries-header">
+
+            <span class="section-tag">
+                <i class="fa-solid fa-bookmark"></i>
+                YOUR SAVED TRIPS
+            </span>
+
+            <h2>Your Saved Itineraries</h2>
+
+            <p>
+                Keep your travel plans organized and revisit your favorite
+                journeys anytime.
+            </p>
+
+        </div>
+
+
+        <!-- CLEAR ALL -->
+        <div class="saved-itineraries-toolbar">
+
+            <button
+                type="button"
+                class="saved-clear-all-btn"
+                id="clearAllSavedBtn"
+                hidden
+            >
+                <i class="fa-solid fa-trash-can"></i>
+                Clear All
+            </button>
+
+        </div>
+
+
+        <!-- SAVED ITINERARIES CARDS -->
+        <div
+            class="saved-itineraries-grid"
+            id="savedItinerariesGrid"
+        >
+        </div>
+
+
+        <!-- EMPTY STATE -->
+        <div
+            class="saved-itineraries-empty"
+            id="savedItinerariesEmpty"
+        >
+
+            <div class="saved-empty-icon">
+                <i class="fa-regular fa-folder-open"></i>
+            </div>
+
+            <h3>No Trips Saved Yet</h3>
+
+            <p>
+                Your saved journeys will appear here. Create your perfect
+                trip with TripEase and save your itinerary to access it
+                anytime.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- TRIPEASE TOAST -->
+<div
+    class="tripease-toast"
+    id="tripeaseToast"
+    hidden
+>
+    <div class="tripease-toast-icon">
+        <i class="fa-solid fa-check"></i>
+    </div>
+
+    <div class="tripease-toast-content">
+        <strong>Success</strong>
+        <span id="tripeaseToastMessage">
+            Itinerary saved successfully.
+        </span>
+    </div>
+
+    <button
+        type="button"
+        class="tripease-toast-close"
+        id="tripeaseToastClose"
+        aria-label="Close notification"
+    >
+        <i class="fa-solid fa-xmark"></i>
+    </button>
+</div>
     </main>
 
     <script src="js/app.js" defer></script>
