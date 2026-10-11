@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="css/responsive.css" />
     <link rel="stylesheet" href="css/booking.css" />
     <link rel="stylesheet" href="css/schedule.css" />
+    <link rel="stylesheet" href="css/subscribe.css" />
   </head>
   <body>
     <!-- Navbar -->
@@ -44,7 +45,7 @@
 
         <!-- Auth Buttons -->
         <div class="nav-actions">
-          <a href="#login" class="login-btn">Log In</a>
+          <a href="#login" class="login-btn" id="navLoginBtn">Log In</a>
           <a href="#signup" class="signup-btn">Sign Up</a>
         </div>
 
@@ -1376,108 +1377,89 @@
 
       <!-- SAVED ITINERARIES -->
 
-<section class="saved-itineraries-section" id="saved-itineraries">
-
-    <div class="container">
-
-        <!-- SECTION HEADER -->
-        <div class="section-header saved-itineraries-header">
-
+      <section class="saved-itineraries-section" id="saved-itineraries">
+        <div class="container">
+          <!-- SECTION HEADER -->
+          <div class="section-header saved-itineraries-header">
             <span class="section-tag">
-                <i class="fa-solid fa-bookmark"></i>
-                YOUR SAVED TRIPS
+              <i class="fa-solid fa-bookmark"></i>
+              YOUR SAVED TRIPS
             </span>
 
             <h2>Your Saved Itineraries</h2>
 
             <p>
-                Keep your travel plans organized and revisit your favorite
-                journeys anytime.
+              Keep your travel plans organized and revisit your favorite
+              journeys anytime.
             </p>
+          </div>
 
-        </div>
-
-
-        <!-- CLEAR ALL -->
-        <div class="saved-itineraries-toolbar">
-
+          <!-- CLEAR ALL -->
+          <div class="saved-itineraries-toolbar">
             <button
-                type="button"
-                class="saved-clear-all-btn"
-                id="clearAllSavedBtn"
-                hidden
+              type="button"
+              class="saved-clear-all-btn"
+              id="clearAllSavedBtn"
+              hidden
             >
-                <i class="fa-solid fa-trash-can"></i>
-                Clear All
+              <i class="fa-solid fa-trash-can"></i>
+              Clear All
             </button>
+          </div>
 
-        </div>
+          <!-- SAVED ITINERARIES CARDS -->
+          <div class="saved-itineraries-grid" id="savedItinerariesGrid"></div>
 
-
-        <!-- SAVED ITINERARIES CARDS -->
-        <div
-            class="saved-itineraries-grid"
-            id="savedItinerariesGrid"
-        >
-        </div>
-
-
-        <!-- EMPTY STATE -->
-        <div
-            class="saved-itineraries-empty"
-            id="savedItinerariesEmpty"
-        >
-
+          <!-- EMPTY STATE -->
+          <div class="saved-itineraries-empty" id="savedItinerariesEmpty">
             <div class="saved-empty-icon">
-                <i class="fa-regular fa-folder-open"></i>
+              <i class="fa-regular fa-folder-open"></i>
             </div>
 
             <h3>No Trips Saved Yet</h3>
 
             <p>
-                Your saved journeys will appear here. Create your perfect
-                trip with TripEase and save your itinerary to access it
-                anytime.
+              Your saved journeys will appear here. Create your perfect trip
+              with TripEase and save your itinerary to access it anytime.
             </p>
+          </div>
+        </div>
+      </section>
 
+      <!-- NEWSLETTER SUBSCRIBE -->
+      <section class="newsletter-section" id="newsletter">
+        <div class="newsletter-content">
+          <h2>Explore More with TripEase!</h2>
+          <p>
+            Get travel inspiration, destination guides and exclusive offers
+            delivered to your inbox.
+          </p>
         </div>
 
-    </div>
+        <form class="newsletter-form" id="newsletterForm">
+          <input
+            type="email"
+            id="newsletterEmail"
+            placeholder="Enter your email address"
+            required
+          />
 
-</section>
+          <button type="submit">
+            Subscribe
+            <i class="fa-solid fa-paper-plane"></i>
+          </button>
+        </form>
 
-
-<!-- TRIPEASE TOAST -->
-<div
-    class="tripease-toast"
-    id="tripeaseToast"
-    hidden
->
-    <div class="tripease-toast-icon">
-        <i class="fa-solid fa-check"></i>
-    </div>
-
-    <div class="tripease-toast-content">
-        <strong>Success</strong>
-        <span id="tripeaseToastMessage">
-            Itinerary saved successfully.
-        </span>
-    </div>
-
-    <button
-        type="button"
-        class="tripease-toast-close"
-        id="tripeaseToastClose"
-        aria-label="Close notification"
-    >
-        <i class="fa-solid fa-xmark"></i>
-    </button>
-</div>
+        <p class="newsletter-note" id="newsletterMessage">
+          No spam. Just travel inspiration. Unsubscribe anytime.
+        </p>
+      </section>
     </main>
 
     <script src="js/app.js" defer></script>
     <script src="js/bookingData.js"></script>
     <script src="js/booking.js"></script>
     <script src="js/schedule.js"></script>
+    <script src="js/subscribe.js"></script>
   </body>
 </html>
