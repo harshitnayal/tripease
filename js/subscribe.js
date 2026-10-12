@@ -1,6 +1,4 @@
-
 // NEWSLETTER SUBSCRIBE JS
-
 
 const newsletterForm = document.getElementById("newsletterForm");
 const newsletterEmail = document.getElementById("newsletterEmail");
