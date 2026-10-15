@@ -1,0 +1,950 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta
+      name="description"
+      content="Discover TripEase, our mission, travel planning features, and beautiful destinations to inspire your next journey."
+    />
+
+    <title>About Us | TripEase - Your Journey, Made Easy</title>
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["DM Sans", "sans-serif"],
+              outfit: ["Outfit", "sans-serif"],
+            },
+            colors: {
+              primary: "#0284c7",
+              "primary-dark": "#0369a1",
+              secondary: "#ff8c42",
+              "trip-green": "#16a34a",
+              "trip-dark": "#0f172a",
+            },
+          },
+        },
+      };
+    </script>
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "DM Sans", sans-serif;
+      }
+
+      h1,
+      h2,
+      h3,
+      .brand {
+        font-family: "Outfit", sans-serif;
+      }
+
+      .hero-section {
+        background:
+          radial-gradient(
+            circle at 0% 0%,
+            rgba(2, 132, 199, 0.09),
+            transparent 35%
+          ),
+          linear-gradient(135deg, #f0f9ff 0%, #ffffff 60%, #f0fdf4 100%);
+      }
+
+      .feature-card {
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+      }
+
+      .feature-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 18px 40px rgba(15, 23, 42, 0.09);
+      }
+
+      .destination-card img {
+        transition: transform 0.6s ease;
+      }
+
+      .destination-card:hover img {
+        transform: scale(1.06);
+      }
+
+      .about-menu {
+        animation: menu 0.18s ease;
+      }
+
+      @keyframes menu {
+        from {
+          opacity: 0;
+          transform: translateY(-6px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.01ms !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+    </style>
+  </head>
+
+  <body class="bg-white text-trip-dark">
+    <!-- NAVBAR -->
+    <nav
+      class="sticky top-0 z-50 border-b border-gray-100 bg-white/95 backdrop-blur"
+    >
+      <div
+        class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4"
+      >
+        <!-- Logo + Name -->
+        <a
+          href="../index.html"
+          class="flex items-center gap-2"
+          aria-label="TripEase Home"
+        >
+          <img
+            src="/assets/images/tripease-logo.png"
+            alt="Tripease-logo"
+            class="h-[50px] w-[62px] object-contain shrink-0"
+          />
+
+          <span class="brand text-2xl font-extrabold text-gray-900">
+            Trip<span class="text-primary">Ease</span>
+          </span>
+        </a>
+
+        <!-- About Us Dropdown -->
+        <div class="relative">
+          <button
+            id="aboutMenuButton"
+            type="button"
+            aria-expanded="false"
+            aria-controls="aboutMenu"
+            class="flex items-center gap-2 rounded-xl border border-gray-200 px-4 py-2.5 font-semibold text-gray-700 transition hover:border-primary hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/30"
+          >
+            About Us
+            <i
+              id="aboutMenuArrow"
+              class="fa-solid fa-chevron-down text-xs transition-transform"
+            ></i>
+          </button>
+
+          <div
+            id="aboutMenu"
+            class="about-menu absolute right-0 mt-3 hidden w-56 overflow-hidden rounded-xl border border-gray-100 bg-white py-2 shadow-xl"
+          >
+            <a
+              href="#who-we-are"
+              class="about-menu-link block px-4 py-3 text-sm text-gray-700 hover:bg-sky-50 hover:text-primary"
+            >
+              <i class="fa-solid fa-users mr-2 w-4"></i>
+              Who We Are
+            </a>
+
+            <a
+              href="#our-mission"
+              class="about-menu-link block px-4 py-3 text-sm text-gray-700 hover:bg-sky-50 hover:text-primary"
+            >
+              <i class="fa-solid fa-bullseye mr-2 w-4"></i>
+              Our Mission
+            </a>
+
+            <a
+              href="#what-we-offer"
+              class="about-menu-link block px-4 py-3 text-sm text-gray-700 hover:bg-sky-50 hover:text-primary"
+            >
+              <i class="fa-solid fa-compass mr-2 w-4"></i>
+              What We Offer
+            </a>
+
+            <a
+              href="#why-tripease"
+              class="about-menu-link block px-4 py-3 text-sm text-gray-700 hover:bg-sky-50 hover:text-primary"
+            >
+              <i class="fa-solid fa-star mr-2 w-4"></i>
+              Why TripEase?
+            </a>
+
+            <a
+              href="#get-started"
+              class="about-menu-link block px-4 py-3 text-sm text-gray-700 hover:bg-sky-50 hover:text-primary"
+            >
+              <i class="fa-solid fa-route mr-2 w-4"></i>
+              Get Started
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <!-- HERO -->
+
+      <section
+        class="hero-section overflow-hidden pt-4 pb-8 sm:pt-6 sm:pb-10 lg:pt-6 lg:pb-10"
+      >
+        <div class="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2">
+          <!-- Hero Text -->
+          <div>
+            <span
+              class="mb-6 inline-flex items-center gap-2 rounded-full bg-sky-100 px-4 py-2 text-xs font-bold uppercase tracking-wider text-primary sm:text-sm"
+            >
+              <i class="fa-solid fa-heart"></i>
+              Your Journey, Our Passion
+            </span>
+
+            <h1
+              class="mb-6 text-4xl font-extrabold leading-tight tracking-tight text-trip-dark sm:text-5xl lg:text-6xl"
+            >
+              Travel Smarter.
+              <span class="text-primary">Explore Further.</span>
+            </h1>
+
+            <p
+              class="mb-8 max-w-xl text-base leading-8 text-gray-600 sm:text-lg"
+            >
+              Every great journey begins with a dream. TripEase helps you turn
+              that dream into a plan with destination discovery, itinerary
+              planning, expense estimation, and travel booking options—all in
+              one place.
+            </p>
+
+            <div class="flex flex-wrap gap-4">
+              <a
+                href="../index.html#destinations"
+                class="inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3.5 font-bold text-white shadow-lg shadow-sky-200 transition hover:bg-primary-dark"
+              >
+                Explore Destinations
+                <i class="fa-solid fa-arrow-right"></i>
+              </a>
+
+              <a
+                href="#who-we-are"
+                class="inline-flex items-center gap-2 rounded-xl border border-gray-200 bg-white px-6 py-3.5 font-bold text-gray-700 transition hover:border-primary hover:text-primary"
+              >
+                Discover Our Story
+              </a>
+            </div>
+          </div>
+
+          <!-- Hero Image -->
+          <div class="relative">
+            <div
+              class="absolute -right-5 -top-5 h-32 w-32 rounded-full bg-green-200/60 blur-2xl"
+            ></div>
+            <div
+              class="absolute -bottom-5 -left-5 h-32 w-32 rounded-full bg-sky-200/70 blur-2xl"
+            ></div>
+
+            <div
+              class="relative overflow-hidden rounded-3xl border-4 border-white shadow-2xl"
+            >
+              <img
+                src="https://images.openai.com/static-rsc-4/KUaZa2Uncr_t8aQrDssl1TCOxRKQTsv7T_XH4rDfRsBswZXzIvOYNsu_8CT-svTm9eRbVT3aPQLal7LYMsu9uFhg3Uwc0gAA1Lwi5d0-XOF3K16dL00WxG7UD5cQnjp61zePJ0ljZoRYca5mDwUCPVJphpKyN5ZLFfSFAvnrCxv7xTNYMCZRH6XBHYpw4XKR?purpose=fullsize"
+                alt="Beautiful natural mountain landscape inspiring a travel adventure"
+                class="h-[340px] w-full object-cover sm:h-[440px] lg:h-[500px]"
+                fetchpriority="high"
+              />
+
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"
+              ></div>
+
+              <div
+                class="absolute bottom-0 left-0 right-0 p-6 text-white sm:p-8"
+              >
+                <span
+                  class="mb-2 inline-block rounded-full bg-white/20 px-3 py-1 text-xs font-semibold backdrop-blur"
+                >
+                  DISCOVER SOMETHING NEW
+                </span>
+
+                <h2 class="text-2xl font-bold sm:text-3xl">
+                  Your Next Adventure Awaits
+                </h2>
+
+                <p class="mt-2 text-sm text-white/85 sm:text-base">
+                  Explore more. Experience more.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- WHO WE ARE -->
+      <section id="who-we-are" class="px-5 py-20 sm:py-24">
+        <div class="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2">
+          <!-- Travelers Image -->
+          <div class="relative">
+            <div
+              class="absolute -bottom-4 -left-4 h-32 w-32 rounded-2xl bg-green-100"
+            ></div>
+
+            <img
+              src="https://images.openai.com/static-rsc-4/BqjgxaQL3e2jsBSXNHUZwLlqhum0tiT8L1JwwnP55tHx9nDQIfrmTx91XjDv-cXu-onzKbjxmkA7_3BsuPap4Oqk5MKTYtcI8G-2NJWvPAhI3-wYoHrgMvBx3WKXngvPsQPX43Z9THkYi4BSKDrwp-4tmgHL1nDMEIWCaIqi8i1UfgaP9cQNbuiQxspogZ8M?purpose=fullsize"
+              alt="Majestic mountain scenery that inspires memorable journeys"
+              class="relative h-[320px] w-full rounded-3xl object-cover shadow-xl sm:h-[430px]"
+              loading="lazy"
+            />
+
+            <div
+              class="absolute bottom-5 left-5 rounded-2xl bg-white/95 p-4 shadow-lg backdrop-blur sm:bottom-7 sm:left-7"
+            >
+              <p class="font-outfit text-lg font-extrabold text-trip-dark">
+                Explore the Extraordinary
+              </p>
+              <p class="mt-1 text-sm text-gray-500">
+                Your journey starts here.
+              </p>
+            </div>
+          </div>
+
+          <!-- About Text -->
+          <div>
+            <span
+              class="mb-4 inline-block text-sm font-bold uppercase tracking-widest text-primary"
+            >
+              Who We Are
+            </span>
+
+            <h2 class="mb-6 text-3xl font-extrabold leading-tight sm:text-4xl">
+              Making Travel Planning Simple for Everyone
+            </h2>
+
+            <p class="mb-5 leading-8 text-gray-600">
+              TripEase is a travel planning website designed to make organizing
+              a trip easier and more convenient. We bring useful travel-planning
+              features together in one place so you can spend less time
+              organizing and more time looking forward to your journey.
+            </p>
+
+            <p class="mb-7 leading-8 text-gray-600">
+              Whether you're planning a weekend getaway, a family vacation, a
+              trip with friends, or a solo adventure, TripEase helps you
+              discover destinations and organize your travel plans.
+            </p>
+
+            <div class="grid grid-cols-2 gap-4">
+              <div class="rounded-2xl bg-sky-50 p-5">
+                <i class="fa-solid fa-compass mb-3 text-2xl text-primary"></i>
+                <h3 class="mb-1 font-bold">Explore</h3>
+                <p class="text-sm leading-6 text-gray-600">
+                  Find inspiration for your next destination.
+                </p>
+              </div>
+
+              <div class="rounded-2xl bg-green-50 p-5">
+                <i class="fa-solid fa-route mb-3 text-2xl text-trip-green"></i>
+                <h3 class="mb-1 font-bold">Plan</h3>
+                <p class="text-sm leading-6 text-gray-600">
+                  Organize your travel plans with ease.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- OUR MISSION -->
+      <section id="our-mission" class="bg-slate-50 px-5 py-20 sm:py-24">
+        <div class="mx-auto max-w-5xl text-center">
+          <div
+            class="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-sky-100 text-2xl text-primary"
+          >
+            <i class="fa-solid fa-bullseye"></i>
+          </div>
+
+          <span
+            class="mb-4 inline-block text-sm font-bold uppercase tracking-widest text-primary"
+          >
+            Our Mission
+          </span>
+
+          <h2 class="mb-6 text-3xl font-extrabold sm:text-4xl">
+            Your Travel Dreams, Made Easier
+          </h2>
+
+          <p
+            class="mx-auto max-w-3xl text-base leading-8 text-gray-600 sm:text-lg"
+          >
+            Our mission is to simplify trip planning by bringing destination
+            discovery, itinerary planning, expense estimation, and booking
+            information together in one convenient experience. We aim to help
+            travelers make informed decisions and plan their journeys with
+            greater confidence.
+          </p>
+        </div>
+      </section>
+
+      <!-- WHAT WE OFFER -->
+      <section id="what-we-offer" class="px-5 py-20 sm:py-24">
+        <div class="mx-auto max-w-7xl">
+          <div class="mx-auto mb-14 max-w-3xl text-center">
+            <span
+              class="mb-4 inline-block text-sm font-bold uppercase tracking-widest text-primary"
+            >
+              What We Offer
+            </span>
+
+            <h2 class="mb-5 text-3xl font-extrabold sm:text-4xl">
+              Everything You Need to Plan Your Trip
+            </h2>
+
+            <p class="leading-8 text-gray-600">
+              Useful features to help you prepare for your next journey, from
+              choosing a destination to organizing your travel plans.
+            </p>
+          </div>
+
+          <div class="grid gap-7 sm:grid-cols-2 lg:grid-cols-3">
+            <!-- Destinations -->
+            <article
+              class="feature-card overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm"
+            >
+              <div class="destination-card h-52 overflow-hidden">
+                <img
+                  src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=900&q=85"
+                  alt="Scenic mountain lake and green hills"
+                  class="h-full w-full object-cover"
+                  loading="lazy"
+                />
+              </div>
+
+              <div class="p-7">
+                <div
+                  class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-sky-100 text-xl text-primary"
+                >
+                  <i class="fa-solid fa-mountain-sun"></i>
+                </div>
+
+                <h3 class="mb-3 text-xl font-bold">Explore Destinations</h3>
+
+                <p class="mb-6 leading-7 text-gray-600">
+                  Discover beautiful places across India and find inspiration
+                  for your next holiday or weekend escape.
+                </p>
+
+                <a
+                  href="../index.html#destinations"
+                  class="inline-flex items-center gap-2 font-bold text-primary hover:text-primary-dark"
+                >
+                  Explore Places
+                  <i class="fa-solid fa-arrow-right text-sm"></i>
+                </a>
+              </div>
+            </article>
+
+            <!-- Trip Planner -->
+            <article
+              class="feature-card overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm"
+            >
+              <div class="destination-card h-52 overflow-hidden">
+                <img
+                  src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=900&q=85"
+                  alt="Open road through a scenic landscape"
+                  class="h-full w-full object-cover"
+                  loading="lazy"
+                />
+              </div>
+
+              <div class="p-7">
+                <div
+                  class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-green-100 text-xl text-trip-green"
+                >
+                  <i class="fa-solid fa-map"></i>
+                </div>
+
+                <h3 class="mb-3 text-xl font-bold">Smart Trip Planner</h3>
+
+                <p class="mb-6 leading-7 text-gray-600">
+                  Organize your trip by adding travel details and preferences to
+                  help structure your journey.
+                </p>
+
+                <a
+                  href="../index.html#trip-planner"
+                  class="inline-flex items-center gap-2 font-bold text-primary hover:text-primary-dark"
+                >
+                  Plan a Trip
+                  <i class="fa-solid fa-arrow-right text-sm"></i>
+                </a>
+              </div>
+            </article>
+
+            <!-- Expense Estimator -->
+            <article
+              class="feature-card overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm"
+            >
+              <div class="destination-card h-52 overflow-hidden">
+                <img
+                  src="https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=900&q=85"
+                  alt="Family enjoying a travel experience together"
+                  class="h-full w-full object-cover"
+                  loading="lazy"
+                />
+              </div>
+
+              <div class="p-7">
+                <div
+                  class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-orange-100 text-xl text-secondary"
+                >
+                  <i class="fa-solid fa-calculator"></i>
+                </div>
+
+                <h3 class="mb-3 text-xl font-bold">Expense Estimator</h3>
+
+                <p class="mb-6 leading-7 text-gray-600">
+                  Estimate potential travel expenses to help you prepare a
+                  budget before your journey.
+                </p>
+
+                <a
+                  href="../index.html#expense-calculator"
+                  class="inline-flex items-center gap-2 font-bold text-primary hover:text-primary-dark"
+                >
+                  Estimate Expenses
+                  <i class="fa-solid fa-arrow-right text-sm"></i>
+                </a>
+              </div>
+            </article>
+
+            <!-- Booking Options -->
+            <article
+              class="feature-card overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm"
+            >
+              <div class="destination-card h-52 overflow-hidden">
+                <img
+                  src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=900&q=85"
+                  alt="Passenger airplane flying through the sky"
+                  class="h-full w-full object-cover"
+                  loading="lazy"
+                />
+              </div>
+
+              <div class="p-7">
+                <div
+                  class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-purple-100 text-xl text-purple-600"
+                >
+                  <i class="fa-solid fa-ticket"></i>
+                </div>
+
+                <h3 class="mb-3 text-xl font-bold">Booking Options</h3>
+
+                <p class="mb-6 leading-7 text-gray-600">
+                  Explore hotel and transport options to help prepare for
+                  different parts of your trip.
+                </p>
+
+                <a
+                  href="../index.html#bookings"
+                  class="inline-flex items-center gap-2 font-bold text-primary hover:text-primary-dark"
+                >
+                  Explore Bookings
+                  <i class="fa-solid fa-arrow-right text-sm"></i>
+                </a>
+              </div>
+            </article>
+
+            <!-- Easy to Use -->
+            <article
+              class="feature-card overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm"
+            >
+              <div class="destination-card h-52 overflow-hidden">
+                <img
+                  src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=900&q=85"
+                  alt="Beautiful lake surrounded by mountains"
+                  class="h-full w-full object-cover"
+                  loading="lazy"
+                />
+              </div>
+
+              <div class="p-7">
+                <div
+                  class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-pink-100 text-xl text-pink-600"
+                >
+                  <i class="fa-solid fa-mobile-screen-button"></i>
+                </div>
+
+                <h3 class="mb-3 text-xl font-bold">Easy to Use</h3>
+
+                <p class="mb-6 leading-7 text-gray-600">
+                  Navigate a straightforward interface designed to make
+                  exploring and organizing trips more convenient.
+                </p>
+
+                <a
+                  href="../index.html"
+                  class="inline-flex items-center gap-2 font-bold text-primary hover:text-primary-dark"
+                >
+                  Visit Website
+                  <i class="fa-solid fa-arrow-right text-sm"></i>
+                </a>
+              </div>
+            </article>
+
+            <!-- Travel Inspiration -->
+            <article
+              class="feature-card overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm"
+            >
+              <div class="destination-card h-52 overflow-hidden">
+                <img
+                  src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=900&q=85"
+                  alt="Mountain peaks beneath a star-filled night sky"
+                  class="h-full w-full object-cover"
+                  loading="lazy"
+                />
+              </div>
+
+              <div class="p-7">
+                <div
+                  class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-indigo-100 text-xl text-indigo-600"
+                >
+                  <i class="fa-solid fa-compass"></i>
+                </div>
+
+                <h3 class="mb-3 text-xl font-bold">Travel Inspiration</h3>
+
+                <p class="mb-6 leading-7 text-gray-600">
+                  Find ideas for solo adventures, family holidays, trips with
+                  friends, and memorable experiences.
+                </p>
+
+                <a
+                  href="../index.html#destinations"
+                  class="inline-flex items-center gap-2 font-bold text-primary hover:text-primary-dark"
+                >
+                  Get Inspired
+                  <i class="fa-solid fa-arrow-right text-sm"></i>
+                </a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- WHY TRIPEASE -->
+      <section id="why-tripease" class="bg-slate-50 px-5 py-20 sm:py-24">
+        <div class="mx-auto max-w-7xl">
+          <div class="mx-auto mb-14 max-w-3xl text-center">
+            <span
+              class="mb-4 inline-block text-sm font-bold uppercase tracking-widest text-primary"
+            >
+              Why TripEase?
+            </span>
+
+            <h2 class="mb-5 text-3xl font-extrabold sm:text-4xl">
+              A Simpler Way to Plan Your Journey
+            </h2>
+
+            <p class="leading-8 text-gray-600">
+              We focus on making the planning process clear, practical, and
+              convenient for different kinds of travelers.
+            </p>
+          </div>
+
+          <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            <div class="text-center">
+              <div
+                class="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-2xl bg-white text-2xl text-primary shadow-sm"
+              >
+                <i class="fa-solid fa-layer-group"></i>
+              </div>
+              <h3 class="mb-3 text-lg font-bold">Features in One Place</h3>
+              <p class="text-sm leading-7 text-gray-600">
+                Access useful travel-planning tools from one website.
+              </p>
+            </div>
+
+            <div class="text-center">
+              <div
+                class="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-2xl bg-white text-2xl text-trip-green shadow-sm"
+              >
+                <i class="fa-solid fa-sliders"></i>
+              </div>
+              <h3 class="mb-3 text-lg font-bold">Flexible Planning</h3>
+              <p class="text-sm leading-7 text-gray-600">
+                Organize your journey according to your preferences.
+              </p>
+            </div>
+
+            <div class="text-center">
+              <div
+                class="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-2xl bg-white text-2xl text-secondary shadow-sm"
+              >
+                <i class="fa-solid fa-wallet"></i>
+              </div>
+              <h3 class="mb-3 text-lg font-bold">Budget Awareness</h3>
+              <p class="text-sm leading-7 text-gray-600">
+                Estimate expenses before making travel decisions.
+              </p>
+            </div>
+
+            <div class="text-center">
+              <div
+                class="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-2xl bg-white text-2xl text-purple-600 shadow-sm"
+              >
+                <i class="fa-solid fa-laptop"></i>
+              </div>
+              <h3 class="mb-3 text-lg font-bold">Simple Experience</h3>
+              <p class="text-sm leading-7 text-gray-600">
+                Navigate the website with a clear and organized layout.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- GET STARTED -->
+      <section id="get-started" class="px-5 py-20 sm:py-24">
+        <div
+          class="mx-auto max-w-6xl overflow-hidden rounded-3xl bg-gradient-to-r from-primary to-sky-600"
+        >
+          <div class="grid items-center gap-6 lg:grid-cols-2">
+            <!-- Content -->
+            <div
+              class="px-7 py-4 text-center text-white sm:px-12 lg:py-5 lg:text-left"
+            >
+              <span
+                class="mb-3 inline-block text-xs font-bold uppercase tracking-widest text-sky-100"
+              >
+                Your next chapter starts here
+              </span>
+
+              <h2 class="mb-4 text-2xl font-extrabold sm:text-3xl">
+                Ready for Your Next Adventure?
+              </h2>
+
+              <p class="mb-5 text-sm leading-6 text-sky-50 sm:text-base">
+                Discover new destinations, organize your itinerary, and prepare
+                for your next memorable journey.
+              </p>
+
+              <a
+                href="../index.html#destinations"
+                class="inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3 text-sm font-bold text-primary transition hover:bg-sky-50"
+              >
+                Start Exploring
+                <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+
+            <!-- Image -->
+            <div class="h-56 w-full object-cover sm:h-64 lg:h-[530px]">
+              <img
+                src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=85"
+                alt="Beautiful outdoor travel destination at golden hour"
+                class="h-full w-full object-cover"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-trip-dark px-5 pb-8 pt-14 text-gray-300">
+      <div class="mx-auto max-w-7xl">
+        <div
+          class="grid gap-10 border-b border-white/10 pb-10 sm:grid-cols-2 lg:grid-cols-4"
+        >
+          <!-- Brand -->
+          <div>
+            <a
+              href="/pages/aboutUs.html"
+              class="mb-5 inline-flex items-center gap-2"
+            >
+              <img
+                src="/assets/images/tripease-logo.png"
+                alt="Tripease-logo"
+                class="h-[40px] w-[52px] object-contain shrink-0"
+              />
+              <span class="brand text-2xl font-extrabold text-white">
+                Trip<span class="text-sky-400">Ease</span>
+              </span>
+            </a>
+
+            <p class="mb-5 max-w-xs text-sm leading-7 text-gray-400">
+              Your journey, made easy. Explore destinations and prepare for
+              memorable travel experiences.
+            </p>
+
+            <a
+              href="../index.html"
+              class="inline-flex items-center gap-2 font-semibold text-sky-400 hover:text-sky-300"
+            >
+              Visit TripEase
+              <i class="fa-solid fa-arrow-right text-sm"></i>
+            </a>
+          </div>
+
+          <!-- Quick Links -->
+          <div>
+            <h3 class="mb-5 text-lg font-bold text-white">Quick Links</h3>
+
+            <ul class="space-y-3 text-sm">
+              <li>
+                <a href="../index.html" class="hover:text-sky-400">Home</a>
+              </li>
+              <li>
+                <a href="../index.html#destinations" class="hover:text-sky-400"
+                  >Destinations</a
+                >
+              </li>
+              <li>
+                <a href="../index.html#trip-planner" class="hover:text-sky-400"
+                  >Trip Planner</a
+                >
+              </li>
+              <li>
+                <a href="../index.html#bookings" class="hover:text-sky-400"
+                  >Bookings</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- About -->
+          <div>
+            <h3 class="mb-5 text-lg font-bold text-white">About TripEase</h3>
+
+            <ul class="space-y-3 text-sm">
+              <li><a href="faq.html" class="hover:text-sky-400">FAQs</a></li>
+              <li>
+                <a href="contact.html" class="hover:text-sky-400">Contact Us</a>
+              </li>
+              <li>
+                <a href="help.html" class="hover:text-sky-400"
+                  >Help &amp; Support</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- More Information -->
+          <div>
+            <h3 class="mb-5 text-lg font-bold text-white">More Information</h3>
+
+            <ul class="space-y-3 text-sm">
+              <li>
+                <a href="disclaimer.html" class="hover:text-sky-400"
+                  >Disclaimer</a
+                >
+              </li>
+              <li>
+                <a href="account.html" class="hover:text-sky-400">My Account</a>
+              </li>
+            </ul>
+
+            <a
+              href="../index.html#destinations"
+              class="mt-6 inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-bold text-white transition hover:bg-primary-dark"
+            >
+              Plan Your Journey
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <div
+          class="flex flex-col items-center justify-between gap-3 pt-7 text-center text-xs text-gray-400 sm:flex-row sm:text-left"
+        >
+          <p>
+            &copy; <span id="currentYear"></span> TripEase. All rights reserved.
+          </p>
+
+          <p>Made for travelers, inspired by journeys.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script>
+      const aboutMenuButton = document.getElementById("aboutMenuButton");
+      const aboutMenu = document.getElementById("aboutMenu");
+      const aboutMenuArrow = document.getElementById("aboutMenuArrow");
+
+      function closeAboutMenu() {
+        aboutMenu.classList.add("hidden");
+        aboutMenuArrow.classList.remove("rotate-180");
+        aboutMenuButton.setAttribute("aria-expanded", "false");
+      }
+
+      aboutMenuButton.addEventListener("click", (event) => {
+        event.stopPropagation();
+
+        const isOpen = aboutMenuButton.getAttribute("aria-expanded") === "true";
+
+        if (isOpen) {
+          closeAboutMenu();
+        } else {
+          aboutMenu.classList.remove("hidden");
+          aboutMenuArrow.classList.add("rotate-180");
+          aboutMenuButton.setAttribute("aria-expanded", "true");
+        }
+      });
+
+      // Close after choosing a section
+      document.querySelectorAll(".about-menu-link").forEach((link) => {
+        link.addEventListener("click", closeAboutMenu);
+      });
+
+      // Close when clicking outside
+      document.addEventListener("click", (event) => {
+        if (
+          !aboutMenuButton.contains(event.target) &&
+          !aboutMenu.contains(event.target)
+        ) {
+          closeAboutMenu();
+        }
+      });
+
+      // Close with Escape
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          closeAboutMenu();
+          aboutMenuButton.focus();
+        }
+      });
+
+      // Dynamic Change copyright year
+      document.getElementById("currentYear").textContent =
+        new Date().getFullYear();
+    </script>
+  </body>
+</html>
