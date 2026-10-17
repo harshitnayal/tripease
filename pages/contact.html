@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <meta
+    name="description"
+    content="Contact TripEase for travel planning assistance, itinerary questions, and support for your next adventure."
+  />
+
+  <title>Contact Us - TripEase</title>
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Font Awesome Icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+  />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- TripEase Theme -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ["DM Sans", "sans-serif"],
+            outfit: ["Outfit", "sans-serif"]
+          },
+          colors: {
+            primary: "#0284c7",
+            "primary-dark": "#0369a1",
+            secondary: "#ff8c42",
+            "trip-green": "#16a34a",
+            "trip-dark": "#0f172a"
+          }
+        }
+      }
+    };
+  </script>
+</head>
+
+<body class="bg-white font-sans text-slate-700 antialiased">
+
+  <!-- Navigation -->
+  <header class="sticky top-0 z-50 border-b border-slate-100 bg-white/95 backdrop-blur">
+    <nav
+      class="mx-auto flex max-w-7xl items-center justify-between px-5 py-3"
+      aria-label="Main navigation"
+    >
+      <!-- Logo -->
+      <a href="../index.html" class="flex items-center gap-2">
+        <img
+          src="../assets/images/tripease-logo.png"
+          alt="TripEase Logo"
+          class="h-12 w-14 object-contain"
+        />
+
+        <span class="font-outfit text-2xl font-extrabold text-trip-dark">
+          Trip<span class="text-primary">Ease</span>
+        </span>
+      </a>
+
+      <!-- Navigation Links -->
+      <div class="flex items-center gap-5 text-sm font-semibold sm:gap-7">
+        <a
+          href="../index.html"
+          class="text-slate-600 transition hover:text-primary"
+        >
+          Home
+        </a>
+
+        <a
+          href="/pages/aboutUs.html"
+          class="text-slate-600 transition hover:text-primary sm:inline-block"
+        >
+          About Us
+        </a>
+
+        <a
+          href="contact.html"
+          aria-current="page"
+          class="rounded-lg bg-primary px-4 py-2.5 text-white transition hover:bg-primary-dark"
+        >
+          Contact Us
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- Contact Hero Section -->
+    <section class="relative overflow-hidden px-5 py-16 sm:py-20 lg:py-24">
+
+      <div
+        class="pointer-events-none absolute -right-16 -top-20 h-64 w-64 rounded-full bg-sky-200/40 blur-3xl"
+        aria-hidden="true"
+      ></div>
+
+      <div class="relative mx-auto max-w-4xl text-center">
+
+        <span
+          class="mb-5 inline-flex items-center gap-2 rounded-full border border-sky-100 bg-white px-4 py-2 text-xs font-bold uppercase tracking-wider text-primary shadow-sm"
+        >
+          <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
+          We'd Love to Hear From You
+        </span>
+
+        <h1
+          class="mb-5 font-outfit text-4xl font-extrabold leading-tight tracking-tight text-trip-dark sm:text-5xl lg:text-6xl"
+        >
+          Let's Start a
+          <span class="text-primary">Conversation</span>
+        </h1>
+
+        <!-- Description -->
+        <p
+          class="mx-auto max-w-2xl text-base leading-7 text-slate-600 sm:text-lg sm:leading-8"
+        >
+          Have a question about your next trip or need help planning
+          your journey? We're here to help make your travel experience
+          simple, smooth, and memorable.
+        </p>
+
+      </div>
+    </section>
+
+    <section>
+      <!-- Explore Button -->
+<div class="mt-6 flex flex-col items-center justify-center gap-3">
+
+
+  <div id="contactOptionsToggle" class="group flex flex-col items-center gap-3 text-orange-600 transition">
+    <!-- Explore Text -->
+    <span class="text-xs font-extrabold uppercase tracking-[3px]">
+      Explore
+    </span>
+
+    <span class="flex h-12 w-12 items-center justify-center rounded-full border-2 border-black transition duration-300 cursor-pointer">
+      <i
+        id="contactArrow"
+        class="fa-solid fa-chevron-down text-lg transition-transform duration-300"
+        aria-hidden="true"
+      ></i>
+    </span>
+    </div>
+
+</div>
+    </section>
+
+<!-- Contact Information Section -->
+<section id="contactOptions" class="bg-white px-5 py-12 sm:py-16">
+
+  <div class="mx-auto max-w-6xl">
+
+    <div class="mb-10 text-center">
+
+      <span
+        class="mb-3 inline-block text-xs font-bold uppercase tracking-widest text-primary"
+      >
+        Get in Touch
+      </span>
+
+      <h2
+        class="mb-3 font-outfit text-2xl font-extrabold text-trip-dark sm:text-3xl"
+      >
+        We're Here to Help
+      </h2>
+
+      <p class="mx-auto max-w-xl text-sm leading-6 text-slate-500 sm:text-base">
+        Have questions about your next adventure?
+        Choose your preferred way to connect with us.
+      </p>
+
+    </div>
+
+    <!-- Contact Cards -->
+    <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+
+      <!-- Email Card -->
+      <div
+        class="group rounded-2xl border border-slate-100 bg-white p-6 text-center shadow-sm transition duration-300 hover:-translate-y-1 hover:border-sky-200 hover:shadow-lg"
+      >
+
+        <div
+          class="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-sky-100 text-primary transition group-hover:bg-primary group-hover:text-white"
+        >
+          <i class="fa-solid fa-envelope text-xl" aria-hidden="true"></i>
+        </div>
+
+        <h3 class="mb-2 font-outfit text-lg font-bold text-trip-dark">
+          Email Us
+        </h3>
+
+        <p class="mb-4 text-sm leading-6 text-slate-500">
+          Send us your questions and we'll help you find the answers.
+        </p>
+
+        <a
+          href="mailto:support@tripease.com"
+          class="break-all text-sm font-bold text-primary transition hover:text-primary-dark"
+        >
+          support@tripease.com
+        </a>
+
+      </div>
+
+      <!-- Phone Card -->
+      <div
+        class="group rounded-2xl border border-slate-100 bg-white p-6 text-center shadow-sm transition duration-300 hover:-translate-y-1 hover:border-sky-200 hover:shadow-lg"
+      >
+
+        <div
+          class="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-orange-100 text-secondary transition group-hover:bg-secondary group-hover:text-white"
+        >
+          <i class="fa-solid fa-phone text-xl" aria-hidden="true"></i>
+        </div>
+
+        <h3 class="mb-2 font-outfit text-lg font-bold text-trip-dark">
+          Call Us
+        </h3>
+
+        <p class="mb-4 text-sm leading-6 text-slate-500">
+          Need assistance? Reach out to us with your travel questions.
+        </p>
+
+        <a
+          href="tel:+911234567890"
+          class="text-sm font-bold text-primary transition hover:text-primary-dark"
+        >
+          +91 12345 67890
+        </a>
+
+      </div>
+
+      <!-- Location Card -->
+      <div
+        class="group rounded-2xl border border-slate-100 bg-white p-6 text-center shadow-sm transition duration-300 hover:-translate-y-1 hover:border-sky-200 hover:shadow-lg sm:col-span-2 lg:col-span-1"
+      >
+
+        <div
+          class="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-green-100 text-trip-green transition group-hover:bg-trip-green group-hover:text-white"
+        >
+          <i class="fa-solid fa-location-dot text-xl" aria-hidden="true"></i>
+        </div>
+
+        <h3 class="mb-2 font-outfit text-lg font-bold text-trip-dark">
+          Our Location
+        </h3>
+
+        <p class="mb-4 text-sm leading-6 text-slate-500">
+          We're building a platform to make your travel planning easier,
+          wherever you are.
+        </p>
+
+        <span class="text-sm font-bold text-primary">
+          Online Travel Assistance
+        </span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+
+<!-- Contact Form Section -->
+<section id="contact-form" class="relative overflow-hidden bg-white px-5 py-16 sm:px-8 sm:py-20 lg:py-24">
+
+  <div class="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2 lg:gap-16">
+
+    <!-- Left-section -->
+    <div class="relative flex items-center justify-center">
+
+      <!-- Decorative Background -->
+      <div class="absolute left-1/2 top-1/2 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-sky-50 sm:h-96 sm:w-96"></div>
+
+      <img
+        src="https://images.openai.com/static-rsc-4/SOm2-uq1sAbvmd4W1LrMfZKTvRrKt-exrs7Op2pB3M_6fE6pkamgHTgNJqgZtllfbytMXOxQcl0yxMpdcwj9n3dIKCZsDSkETrLLQlMV3S7fyWOal-Yot82xF_kQkAP_NJBCy9G8Qz4qUL3DSbTLXQ93-j_or-5IdQ7bASx32D5Q_T40_LNFKEUv7MPppuJu?purpose=fullsize"
+        alt="Team members working together to help customers"
+        class="relative z-10 w-full max-w-lg rounded-3xl object-cover"
+        loading="lazy"
+      />
+    </div>
+
+    <!-- Right-section -->
+    <div class="relative z-10 rounded-3xl bg-white p-6 shadow-[0_15px_60px_rgba(15,23,42,0.08)] sm:p-10 lg:p-12">
+
+      <div class="mb-8 text-center">
+        <span class="mb-3 inline-block text-xs font-bold uppercase tracking-widest text-primary">
+          Contact TripEase
+        </span>
+
+        <h2 class="font-outfit text-2xl font-extrabold text-slate-800 sm:text-3xl">
+          Send Us a Message
+        </h2>
+
+        <p class="mt-3 text-sm leading-6 text-slate-500">
+          Have a question about your next journey? We're here to help.
+        </p>
+      </div>
+
+      <form id="contactForm" class="space-y-5">
+
+        <!-- Full Name -->
+        <div>
+          <label for="name" class="mb-2 block text-sm font-semibold text-slate-700">
+            Full Name
+          </label>
+
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Enter your full name"
+            minlength="2"
+            maxlength="80"
+            autocomplete="name"
+            required
+            class="w-full rounded-lg border border-slate-300 bg-white px-4 py-3.5 text-sm text-slate-800 outline-none transition placeholder:text-slate-400 focus:border-primary focus:ring-2 focus:ring-sky-100"
+          />
+        </div>
+
+        <!-- Email -->
+        <div>
+          <label for="email" class="mb-2 block text-sm font-semibold text-slate-700">
+            Email Address
+          </label>
+
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="your@email.com"
+            autocomplete="email"
+            required
+            class="w-full rounded-lg border border-slate-300 bg-white px-4 py-3.5 text-sm text-slate-800 outline-none transition placeholder:text-slate-400 focus:border-primary focus:ring-2 focus:ring-sky-100"
+          />
+        </div>
+
+        <!-- Subject -->
+        <div>
+          <label for="subject" class="mb-2 block text-sm font-semibold text-slate-700">
+            Subject
+          </label>
+
+          <input
+            type="text"
+            id="subject"
+            name="subject"
+            placeholder="How can we help?"
+            minlength="3"
+            maxlength="120"
+            required
+            class="w-full rounded-lg border border-slate-300 bg-white px-4 py-3.5 text-sm text-slate-800 outline-none transition placeholder:text-slate-400 focus:border-primary focus:ring-2 focus:ring-sky-100"
+          />
+        </div>
+
+        <!-- Message -->
+        <div>
+          <label for="message" class="mb-2 block text-sm font-semibold text-slate-700">
+            Your Message
+          </label>
+
+          <textarea
+            id="message"
+            name="message"
+            rows="4"
+            minlength="10"
+            maxlength="2000"
+            placeholder="Tell us how we can help you..."
+            required
+            class="w-full resize-y rounded-lg border border-slate-300 bg-white px-4 py-3.5 text-sm text-slate-800 outline-none transition placeholder:text-slate-400 focus:border-primary focus:ring-2 focus:ring-sky-100"
+          ></textarea>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="flex justify-center pt-2">
+          <button
+            type="submit"
+            class="inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary px-8 py-4 text-sm font-bold text-white shadow-lg shadow-sky-200/60 transition hover:-translate-y-0.5 hover:bg-primary-dark focus:outline-none focus:ring-4 focus:ring-sky-200 sm:w-auto sm:min-w-64"
+          >
+            Send Message
+            <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
+          </button>
+        </div>
+
+        <!-- Form Status -->
+        <p
+          id="formStatus"
+          class="hidden rounded-xl p-4 text-sm"
+          role="status"
+          aria-live="polite"
+        ></p>
+
+      </form>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- Why Contact TripEase Section -->
+<section class="bg-slate-50 px-5 py-16 sm:px-8 sm:py-20">
+
+  <div class="mx-auto max-w-7xl">
+
+    <div class="mx-auto mb-12 max-w-2xl text-center">
+
+      <span class="mb-3 inline-flex items-center gap-2 rounded-full bg-sky-100 px-4 py-2 text-xs font-bold uppercase tracking-wider text-primary">
+        <i class="fa-solid fa-sparkles"></i>
+        We're Here for You
+      </span>
+
+      <h2 class="font-outfit text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
+        Why Contact <span class="text-primary">TripEase?</span>
+      </h2>
+
+      <p class="mt-4 text-sm leading-7 text-slate-600 sm:text-base">
+        Every great journey starts with the right information.
+        We're here to help make your travel planning easier.
+      </p>
+
+    </div>
+
+    <!-- Feature Cards -->
+    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+
+      <!-- Card 1 -->
+      <div class="group rounded-2xl border border-slate-100 bg-white p-7 shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-xl">
+
+        <div class="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-sky-100 text-primary transition group-hover:bg-primary group-hover:text-white">
+          <i class="fa-solid fa-comments text-2xl"></i>
+        </div>
+
+        <h3 class="mb-3 font-outfit text-lg font-bold text-slate-900">
+          Quick Assistance
+        </h3>
+
+        <p class="text-sm leading-7 text-slate-600">
+          Get help with travel-related questions and find the information you need.
+        </p>
+
+      </div>
+
+      <!-- Card 2 -->
+      <div class="group rounded-2xl border border-slate-100 bg-white p-7 shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-xl">
+
+        <div class="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-orange-100 text-orange-600 transition group-hover:bg-secondary group-hover:text-white">
+          <i class="fa-solid fa-map-location-dot text-2xl"></i>
+        </div>
+
+        <h3 class="mb-3 font-outfit text-lg font-bold text-slate-900">
+          Travel Guidance
+        </h3>
+
+        <p class="text-sm leading-7 text-slate-600">
+          Discover destinations, explore travel ideas, and organize your next adventure.
+        </p>
+
+      </div>
+
+      <!-- Card 3 -->
+      <div class="group rounded-2xl border border-slate-100 bg-white p-7 shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-xl">
+
+        <div class="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-green-100 text-green-600 transition group-hover:bg-green-600 group-hover:text-white">
+          <i class="fa-solid fa-handshake-angle text-2xl"></i>
+        </div>
+
+        <h3 class="mb-3 font-outfit text-lg font-bold text-slate-900">
+          Helpful Support
+        </h3>
+
+        <p class="text-sm leading-7 text-slate-600">
+          Let us know your concerns so we can guide you toward useful resources.
+        </p>
+
+      </div>
+
+      <!-- Card 4 -->
+      <div class="group rounded-2xl border border-slate-100 bg-white p-7 shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-xl">
+
+        <div class="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-purple-100 text-purple-600 transition group-hover:bg-purple-600 group-hover:text-white">
+          <i class="fa-solid fa-compass text-2xl"></i>
+        </div>
+
+        <h3 class="mb-3 font-outfit text-lg font-bold text-slate-900">
+          Better Journeys
+        </h3>
+
+        <p class="text-sm leading-7 text-slate-600">
+          Find helpful information to make your travel planning smoother and easier.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- FAQ Preview Section -->
+<section class="bg-white px-5 py-16 sm:px-8 sm:py-20">
+
+  <div class="mx-auto max-w-4xl">
+
+    <!-- Heading -->
+    <div class="mb-10 text-center">
+
+      <span class="mb-3 inline-flex items-center gap-2 rounded-full bg-sky-100 px-4 py-2 text-xs font-bold uppercase tracking-wider text-primary">
+        <i class="fa-solid fa-circle-question"></i>
+        Need Answers?
+      </span>
+
+      <h2 class="font-outfit text-3xl font-extrabold text-slate-900 sm:text-4xl">
+        Frequently Asked <span class="text-primary">Questions</span>
+      </h2>
+
+      <p class="mx-auto mt-4 max-w-xl text-sm leading-7 text-slate-600 sm:text-base">
+        Find quick answers to common questions about planning your journey with TripEase.
+      </p>
+
+    </div>
+
+    <!-- FAQ's -->
+    <div class="space-y-4">
+
+      <!-- FAQ 1 -->
+      <details class="group rounded-2xl border border-slate-200 bg-white p-5 transition hover:border-sky-200 hover:shadow-sm sm:p-6">
+        <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-slate-800">
+          <span>How can TripEase help me plan a trip?</span>
+          <i class="fa-solid fa-plus shrink-0 text-primary transition group-open:rotate-45"></i>
+        </summary>
+
+        <p class="mt-4 text-sm leading-7 text-slate-600">
+          TripEase helps you explore destinations and organize your travel plans.
+          Available features depend on what is implemented on the website.
+        </p>
+      </details>
+
+      <!-- FAQ 2 -->
+      <details class="group rounded-2xl border border-slate-200 bg-white p-5 transition hover:border-sky-200 hover:shadow-sm sm:p-6">
+        <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-slate-800">
+          <span>How can I contact the TripEase team?</span>
+          <i class="fa-solid fa-plus shrink-0 text-primary transition group-open:rotate-45"></i>
+        </summary>
+
+        <p class="mt-4 text-sm leading-7 text-slate-600">
+          Fill out the contact form above with your name, email, subject,
+          and message. Message delivery requires a connected backend or form service.
+        </p>
+      </details>
+
+      <!-- FAQ 3 -->
+      <details class="group rounded-2xl border border-slate-200 bg-white p-5 transition hover:border-sky-200 hover:shadow-sm sm:p-6">
+        <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-slate-800">
+          <span>Where can I find answers to more questions?</span>
+          <i class="fa-solid fa-plus shrink-0 text-primary transition group-open:rotate-45"></i>
+        </summary>
+
+        <p class="mt-4 text-sm leading-7 text-slate-600">
+          Visit our full FAQ page for more information about using TripEase.
+        </p>
+      </details>
+
+    </div>
+
+    <!-- Go FAQs Page -->
+    <div class="mt-9 text-center">
+      <a
+        href="faq.html"
+        class="inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-6 py-3.5 text-sm font-bold text-white transition hover:bg-primary-dark focus:outline-none focus:ring-4 focus:ring-sky-200"
+      >
+        View All FAQs
+        <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+      </a>
+    </div>
+
+  </div>
+
+</section>
+
+  </main>
+
+<!-- FOOTER -->
+<footer class="bg-slate-950 text-slate-300">
+
+  <div class="mx-auto max-w-7xl px-5 py-12 sm:px-8 sm:py-14">
+
+    <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+
+      <!-- Brand -->
+      <div>
+        <a href="../index.html"
+           class="mb-4 inline-flex items-center gap-3"
+           aria-label="TripEase Home">
+
+          <img
+            src="../assets/images/tripease-logo.png"
+            alt="TripEase Logo"
+            class="h-12 w-12 object-contain"
+          />
+
+          <span class="font-outfit text-2xl font-extrabold text-white">
+            Trip<span class="text-sky-400">Ease</span>
+          </span>
+        </a>
+
+        <p class="max-w-xs text-sm leading-7 text-slate-400">
+          Your Journey, Made Easy. Discover amazing destinations,
+          organize your trips, and make every journey memorable.
+        </p>
+
+        <div class="mt-5 flex items-center gap-2 text-sm">
+          <i class="fa-solid fa-location-dot text-sky-400"
+             aria-hidden="true"></i>
+          <span>Explore India, one journey at a time.</span>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div>
+        <h3 class="mb-5 font-outfit text-lg font-bold text-white">
+          Quick Links
+        </h3>
+
+        <ul class="space-y-3 text-sm">
+          <li>
+            <a href="../index.html"
+               class="transition hover:text-sky-400">
+              Home
+            </a>
+          </li>
+
+          <li>
+            <a href="aboutUs.html"
+               class="transition hover:text-sky-400">
+              About Us
+            </a>
+          </li>
+
+          <li>
+            <a href="contact.html"
+               aria-current="page"
+               class="text-sky-400 transition hover:text-white">
+              Contact Us
+            </a>
+          </li>
+
+          <li>
+            <a href="faq.html"
+               class="transition hover:text-sky-400">
+              FAQs
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Support -->
+      <div>
+        <h3 class="mb-5 font-outfit text-lg font-bold text-white">
+          Support
+        </h3>
+
+        <ul class="space-y-3 text-sm">
+          <li>
+            <a href="help.html"
+               class="transition hover:text-sky-400">
+              Help Center
+            </a>
+          </li>
+
+          <li>
+            <a href="disclaimer.html"
+               class="transition hover:text-sky-400">
+              Disclaimer
+            </a>
+          </li>
+
+          <li>
+            <a href="../index.html#destinations"
+               class="transition hover:text-sky-400">
+              Explore Destinations
+            </a>
+          </li>
+
+          <li>
+            <a href="../index.html#trip-planner"
+               class="transition hover:text-sky-400">
+              Trip Planner
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Social Media -->
+      <div>
+        <h3 class="mb-5 font-outfit text-lg font-bold text-white">
+          Follow Our Journey
+        </h3>
+
+        <p class="mb-5 text-sm leading-6 text-slate-400">
+          Stay inspired and discover ideas for your next adventure.
+        </p>
+
+        <div class="flex flex-wrap gap-3">
+
+          <a href="https://www.instagram.com/"
+             target="_blank"
+             rel="noopener noreferrer"
+             aria-label="Instagram"
+             class="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-800 transition hover:-translate-y-1 hover:bg-primary hover:text-white">
+            <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+          </a>
+
+          <a href="https://www.facebook.com/"
+             target="_blank"
+             rel="noopener noreferrer"
+             aria-label="Facebook"
+             class="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-800 transition hover:-translate-y-1 hover:bg-primary hover:text-white">
+            <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+          </a>
+
+          <a href="https://www.linkedin.com/"
+             target="_blank"
+             rel="noopener noreferrer"
+             aria-label="LinkedIn"
+             class="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-800 transition hover:-translate-y-1 hover:bg-primary hover:text-white">
+            <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
+          </a>
+
+          <a href="https://www.youtube.com/"
+             target="_blank"
+             rel="noopener noreferrer"
+             aria-label="YouTube"
+             class="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-800 transition hover:-translate-y-1 hover:bg-primary hover:text-white">
+            <i class="fa-brands fa-youtube" aria-hidden="true"></i>
+          </a>
+
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="mt-10 flex flex-col items-center justify-between gap-4 border-t border-slate-800 pt-6 text-center sm:flex-row sm:text-left">
+
+      <p class="text-xs leading-6 text-slate-400">
+        &copy; <span id="currentYear"></span> TripEase.
+        All rights reserved.
+      </p>
+
+      <p class="text-xs text-slate-400">
+        Made for travelers, by travel enthusiasts.
+      </p>
+
+      <a href="../index.html"
+         class="inline-flex items-center gap-2 text-xs font-semibold text-sky-400 transition hover:text-white">
+        Back to Home
+        <i class="fa-solid fa-arrow-up-right-from-square"
+           aria-hidden="true"></i>
+      </a>
+
+    </div>
+
+  </div>
+</footer>
+
+<!-- Contact JS -->
+<script>
+
+  const exploreButton = document.getElementById("contactOptionsToggle");
+  const contactArrow = document.getElementById("contactArrow");
+  const contactOptions = document.getElementById("contactOptions");
+
+  if (exploreButton && contactOptions) {
+  exploreButton.setAttribute("aria-expanded", "true");
+
+  exploreButton.addEventListener("click", function () {
+    const sectionPosition =
+      contactOptions.getBoundingClientRect().top +
+      window.scrollY;
+
+    window.scrollTo({
+      top: sectionPosition - 50,
+      behavior: "smooth"
+    });
+  });
+}
+
+// Dynamic Copyright Year
+
+  const yearElement = document.getElementById("currentYear");
+
+  if (yearElement) {
+    yearElement.textContent = new Date().getFullYear();
+  }
+
+
+  // Get the contact form and status message
+  const contactForm = document.getElementById("contactForm");
+  const formStatus = document.getElementById("formStatus");
+
+  contactForm.addEventListener("submit", function (event) {
+    
+    event.preventDefault();
+
+    // Get input values
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const subject = document.getElementById("subject").value.trim();
+    const message = document.getElementById("message").value.trim();
+
+    // Check if any field is empty
+    if (!name || !email || !subject || !message) {
+      showStatus("Please fill in all required fields.", false);
+      return;
+    }
+
+    // Check minimum message length
+    if (message.length < 10) {
+      showStatus("Your message must contain at least 10 characters.", false);
+      return;
+    }
+
+    // Show success message
+    showStatus(
+      "Thank you, " + name + "! Your form has been submitted.",
+      true
+    );
+
+    // Clear form
+    contactForm.reset();
+  });
+
+  // Display form status
+  function showStatus(message, success) {
+    formStatus.textContent = message;
+
+    formStatus.classList.remove(
+      "hidden",
+      "bg-green-50",
+      "text-green-700",
+      "bg-red-50",
+      "text-red-700"
+    );
+
+    if (success) {
+      formStatus.classList.add("bg-green-50", "text-green-700");
+    } else {
+      formStatus.classList.add("bg-red-50", "text-red-700");
+    }
+  }
+</script>
+
+</body>
+</html>
