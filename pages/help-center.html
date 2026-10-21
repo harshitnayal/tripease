@@ -1,0 +1,1181 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta
+      name="description"
+      content="Get help with TripEase travel planning, destinations, and website features."
+    />
+
+    <title>Help Center | TripEase</title>
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["DM Sans", "sans-serif"],
+              outfit: ["Outfit", "sans-serif"],
+            },
+            colors: {
+              primary: "#0284c7",
+              "primary-dark": "#0369a1",
+              secondary: "#ff8c42",
+              "trip-green": "#16a34a",
+              "trip-dark": "#0f172a",
+            },
+          },
+        },
+      };
+    </script>
+
+    <!-- Font Awesome Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+  </head>
+
+  <body class="bg-white font-sans text-slate-700 antialiased">
+    <!-- NAVBAR -->
+    <header
+      class="sticky top-0 z-50 border-b border-slate-100 bg-white/95 backdrop-blur"
+    >
+      <nav
+        class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8"
+      >
+        <!-- Logo -->
+        <a href="../index.html" class="flex items-center gap-2">
+          <img
+            src="../assets/images/tripease-logo.png"
+            alt="TripEase Logo"
+            class="h-10 w-auto"
+          />
+
+          <span class="font-outfit text-2xl font-extrabold text-trip-dark">
+            Trip<span class="text-primary">Ease</span>
+          </span>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <div class="hidden items-center gap-7 md:flex">
+          <a
+            href="../index.html"
+            class="text-sm font-semibold transition hover:text-primary"
+          >
+            Home
+          </a>
+
+          <a
+            href="../index.html#destinations"
+            class="text-sm font-semibold transition hover:text-primary"
+          >
+            Destinations
+          </a>
+
+          <a
+            href="about.html"
+            class="text-sm font-semibold transition hover:text-primary"
+          >
+            About Us
+          </a>
+
+          <a
+            href="contact.html"
+            class="text-sm font-semibold transition hover:text-primary"
+          >
+            Contact
+          </a>
+
+          <a
+            href="help-center.html"
+            aria-current="page"
+            class="text-sm font-bold text-primary"
+          >
+            Help Center
+          </a>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button
+          id="helpMenuButton"
+          type="button"
+          aria-label="Open navigation menu"
+          aria-expanded="false"
+          aria-controls="helpMobileMenu"
+          class="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 text-trip-dark transition hover:bg-slate-50 md:hidden"
+        >
+          <i class="fa-solid fa-bars text-lg" aria-hidden="true"></i>
+        </button>
+      </nav>
+
+      <!-- Mobile Navigation -->
+      <div
+        id="helpMobileMenu"
+        class="hidden border-t border-slate-100 bg-white px-5 py-4 md:hidden"
+      >
+        <div class="flex flex-col gap-4">
+          <a
+            href="../index.html"
+            class="text-sm font-semibold hover:text-primary"
+          >
+            Home
+          </a>
+
+          <a
+            href="../index.html#destinations"
+            class="text-sm font-semibold hover:text-primary"
+          >
+            Destinations
+          </a>
+
+          <a href="about.html" class="text-sm font-semibold hover:text-primary">
+            About Us
+          </a>
+
+          <a
+            href="contact.html"
+            class="text-sm font-semibold hover:text-primary"
+          >
+            Contact
+          </a>
+
+          <a
+            href="help-center.html"
+            aria-current="page"
+            class="text-sm font-bold text-primary"
+          >
+            Help Center
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section
+      class="relative overflow-hidden bg-gradient-to-br from-sky-50 via-white to-blue-50 px-5 py-16 sm:py-20 lg:py-24"
+    >
+      <!-- Background Decorations -->
+      <div
+        class="pointer-events-none absolute -left-20 top-10 h-56 w-56 rounded-full bg-sky-100/60 blur-3xl"
+      ></div>
+
+      <div
+        class="pointer-events-none absolute -right-16 bottom-0 h-64 w-64 rounded-full bg-orange-100/50 blur-3xl"
+      ></div>
+
+      <div
+        class="relative mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2"
+      >
+        <!-- Hero Content -->
+        <div class="text-center lg:text-left">
+          <span
+            class="mb-5 inline-flex items-center gap-2 rounded-full border border-sky-100 bg-white px-4 py-2 text-xs font-bold uppercase tracking-widest text-primary shadow-sm"
+          >
+            <i class="fa-solid fa-headset" aria-hidden="true"></i>
+            TripEase Support
+          </span>
+
+          <!-- Heading -->
+          <h1
+            class="mb-5 font-outfit text-4xl font-extrabold leading-tight tracking-tight text-trip-dark sm:text-5xl lg:text-6xl"
+          >
+            How Can We
+            <span class="text-primary">Help You?</span>
+          </h1>
+
+          <!-- Description -->
+          <p
+            class="mx-auto mb-8 max-w-xl text-base leading-7 text-slate-600 sm:text-lg lg:mx-0"
+          >
+            Find answers, explore helpful guides, and get the support you need
+            to make your next journey easier.
+          </p>
+
+          <!-- Search Bar -->
+          <form
+            id="helpSearchForm"
+            role="search"
+            class="mx-auto flex max-w-2xl flex-col gap-3 rounded-2xl border border-slate-100 bg-white p-3 shadow-lg shadow-sky-900/5 sm:flex-row lg:mx-0"
+          >
+            <div class="flex min-w-0 flex-1 items-center gap-3 px-3">
+              <i
+                class="fa-solid fa-magnifying-glass text-lg text-slate-400"
+                aria-hidden="true"
+              ></i>
+
+              <input
+                id="helpSearchInput"
+                type="search"
+                name="query"
+                placeholder="Search for answers..."
+                aria-label="Search help articles"
+                autocomplete="off"
+                class="w-full border-0 bg-transparent py-3 text-sm text-trip-dark outline-none placeholder:text-slate-400 focus:ring-0"
+              />
+            </div>
+
+            <button
+              type="submit"
+              class="inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-7 py-3 font-bold text-white transition hover:bg-primary-dark"
+            >
+              Search
+              <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+            </button>
+          </form>
+
+          <!-- Popular Search Links -->
+          <p class="mt-4 text-sm text-slate-500">
+            Popular searches:
+
+            <a
+              href="#help-categories"
+              class="ml-1 font-semibold text-primary hover:underline"
+            >
+              Trip planning </a
+            >,
+
+            <a
+              href="#help-categories"
+              class="font-semibold text-primary hover:underline"
+            >
+              Destinations </a
+            >,
+
+            <a
+              href="#popular-questions"
+              class="font-semibold text-primary hover:underline"
+            >
+              FAQs
+            </a>
+          </p>
+        </div>
+
+        <!-- Hero Image -->
+        <div class="relative mx-auto w-full max-w-lg">
+          <div
+            class="absolute inset-5 rounded-[2rem] bg-sky-100/70 blur-2xl"
+          ></div>
+
+          <div
+            class="relative overflow-hidden rounded-[2rem] border border-white bg-white p-3 shadow-2xl shadow-sky-900/10"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=1000&q=85"
+              alt="London cityscape with historic buildings and the River Thames"
+              class="h-64 w-full rounded-3xl object-cover sm:h-80"
+            />
+
+            <!-- Floating Card -->
+            <div
+              class="absolute bottom-7 left-6 right-6 rounded-2xl border border-white/70 bg-white/95 p-4 shadow-lg backdrop-blur sm:bottom-8 sm:left-8 sm:right-8"
+            >
+              <div class="flex items-center gap-4">
+                <div
+                  class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-sky-100 text-primary"
+                >
+                  <i
+                    class="fa-solid fa-comments text-xl"
+                    aria-hidden="true"
+                  ></i>
+                </div>
+
+                <div>
+                  <h2 class="font-outfit text-base font-bold text-trip-dark">
+                    Need a little guidance?
+                  </h2>
+
+                  <p class="mt-1 text-sm leading-5 text-slate-500">
+                    We're here to make planning easier.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Floating Badge -->
+          <div
+            class="absolute -right-2 -top-4 flex items-center gap-2 rounded-2xl border border-slate-100 bg-white px-4 py-3 shadow-lg sm:-right-5"
+          >
+            <i
+              class="fa-solid fa-circle-check text-xl text-trip-green"
+              aria-hidden="true"
+            ></i>
+
+            <span class="text-sm font-bold text-trip-dark">
+              Travel made simple
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Help Categories Section -->
+    <section id="help-categories" class="bg-slate-50 py-16 sm:py-20">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <!-- Section Heading -->
+        <div class="mx-auto mb-12 max-w-2xl text-center">
+          <span
+            class="mb-3 inline-block rounded-full bg-sky-100 px-4 py-2 text-sm font-semibold text-primary"
+          >
+            HELP & SUPPORT
+          </span>
+
+          <h2
+            class="font-outfit text-3xl font-bold tracking-tight text-trip-dark sm:text-4xl"
+          >
+            What Can We Help You With?
+          </h2>
+
+          <p class="mt-4 text-base leading-7 text-slate-600 sm:text-lg">
+            Explore our help topics to find answers, travel tips, and guidance
+            for a smoother journey with TripEase.
+          </p>
+        </div>
+
+        <!-- Category Cards -->
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <!-- Trip Planning -->
+          <a
+            href="#popular-questions"
+            class="group rounded-2xl border border-slate-200 bg-white p-7 transition duration-300 hover:-translate-y-1 hover:border-sky-200 hover:shadow-xl"
+          >
+            <div
+              class="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-sky-100 text-primary transition duration-300 group-hover:bg-primary group-hover:text-white"
+            >
+              <i class="fa-solid fa-route text-2xl"></i>
+            </div>
+            <h3 class="font-outfit text-xl font-bold text-trip-dark">
+              Trip Planning
+            </h3>
+            <p class="mt-3 leading-7 text-slate-600">
+              Get help planning your itinerary, choosing destinations, and
+              preparing for your next adventure.
+            </p>
+            <span
+              class="mt-5 inline-flex items-center gap-2 font-semibold text-primary"
+            >
+              Explore topics
+              <i
+                class="fa-solid fa-arrow-right text-sm transition-transform group-hover:translate-x-1"
+              ></i>
+            </span>
+          </a>
+
+          <!-- Bookings & Reservations -->
+          <a
+            href="#popular-questions"
+            class="group rounded-2xl border border-slate-200 bg-white p-7 transition duration-300 hover:-translate-y-1 hover:border-orange-200 hover:shadow-xl"
+          >
+            <div
+              class="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-orange-100 text-secondary transition duration-300 group-hover:bg-secondary group-hover:text-white"
+            >
+              <i class="fa-solid fa-calendar-check text-2xl"></i>
+            </div>
+            <h3 class="font-outfit text-xl font-bold text-trip-dark">
+              Bookings & Reservations
+            </h3>
+            <p class="mt-3 leading-7 text-slate-600">
+              Learn about travel reservations, booking information, and
+              organizing your travel arrangements.
+            </p>
+            <span
+              class="mt-5 inline-flex items-center gap-2 font-semibold text-primary"
+            >
+              Explore topics
+              <i
+                class="fa-solid fa-arrow-right text-sm transition-transform group-hover:translate-x-1"
+              ></i>
+            </span>
+          </a>
+
+          <!-- Payments & Pricing -->
+          <a
+            href="#popular-questions"
+            class="group rounded-2xl border border-slate-200 bg-white p-7 transition duration-300 hover:-translate-y-1 hover:border-green-200 hover:shadow-xl"
+          >
+            <div
+              class="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-green-100 text-trip-green transition duration-300 group-hover:bg-trip-green group-hover:text-white"
+            >
+              <i class="fa-solid fa-wallet text-2xl"></i>
+            </div>
+            <h3 class="font-outfit text-xl font-bold text-trip-dark">
+              Payments & Pricing
+            </h3>
+            <p class="mt-3 leading-7 text-slate-600">
+              Understand estimated travel costs, budgeting tips, and how to plan
+              a trip within your budget.
+            </p>
+            <span
+              class="mt-5 inline-flex items-center gap-2 font-semibold text-primary"
+            >
+              Explore topics
+              <i
+                class="fa-solid fa-arrow-right text-sm transition-transform group-hover:translate-x-1"
+              ></i>
+            </span>
+          </a>
+
+          <!-- Destination Guides -->
+          <a
+            href="#popular-questions"
+            class="group rounded-2xl border border-slate-200 bg-white p-7 transition duration-300 hover:-translate-y-1 hover:border-purple-200 hover:shadow-xl"
+          >
+            <div
+              class="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-purple-100 text-purple-600 transition duration-300 group-hover:bg-purple-600 group-hover:text-white"
+            >
+              <i class="fa-solid fa-map-location-dot text-2xl"></i>
+            </div>
+            <h3 class="font-outfit text-xl font-bold text-trip-dark">
+              Destination Guides
+            </h3>
+            <p class="mt-3 leading-7 text-slate-600">
+              Discover destination highlights, the best time to visit, and
+              useful tips before you travel.
+            </p>
+            <span
+              class="mt-5 inline-flex items-center gap-2 font-semibold text-primary"
+            >
+              Explore topics
+              <i
+                class="fa-solid fa-arrow-right text-sm transition-transform group-hover:translate-x-1"
+              ></i>
+            </span>
+          </a>
+
+          <!-- Account & Profile -->
+          <a
+            href="#popular-questions"
+            class="group rounded-2xl border border-slate-200 bg-white p-7 transition duration-300 hover:-translate-y-1 hover:border-pink-200 hover:shadow-xl"
+          >
+            <div
+              class="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-pink-100 text-pink-600 transition duration-300 group-hover:bg-pink-600 group-hover:text-white"
+            >
+              <i class="fa-solid fa-user-gear text-2xl"></i>
+            </div>
+            <h3 class="font-outfit text-xl font-bold text-trip-dark">
+              Account & Profile
+            </h3>
+            <p class="mt-3 leading-7 text-slate-600">
+              Find guidance about your profile, website preferences, and getting
+              started with TripEase.
+            </p>
+            <span
+              class="mt-5 inline-flex items-center gap-2 font-semibold text-primary"
+            >
+              Explore topics
+              <i
+                class="fa-solid fa-arrow-right text-sm transition-transform group-hover:translate-x-1"
+              ></i>
+            </span>
+          </a>
+
+          <!-- General Support -->
+          <a
+            href="contact.html"
+            class="group rounded-2xl border border-slate-200 bg-white p-7 transition duration-300 hover:-translate-y-1 hover:border-indigo-200 hover:shadow-xl"
+          >
+            <div
+              class="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-indigo-100 text-indigo-600 transition duration-300 group-hover:bg-indigo-600 group-hover:text-white"
+            >
+              <i class="fa-solid fa-headset text-2xl"></i>
+            </div>
+            <h3 class="font-outfit text-xl font-bold text-trip-dark">
+              General Support
+            </h3>
+            <p class="mt-3 leading-7 text-slate-600">
+              Need extra assistance? Reach out to our team for help with your
+              TripEase experience.
+            </p>
+            <span
+              class="mt-5 inline-flex items-center gap-2 font-semibold text-primary"
+            >
+              Contact us
+              <i
+                class="fa-solid fa-arrow-right text-sm transition-transform group-hover:translate-x-1"
+              ></i>
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Popular Questions Section -->
+    <section id="popular-questions" class="bg-white py-16 sm:py-20">
+      <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+        <!-- Section Heading -->
+        <div class="mb-10 text-center">
+          <span
+            class="mb-3 inline-block rounded-full bg-sky-100 px-4 py-2 text-sm font-semibold text-primary"
+          >
+            QUICK ANSWERS
+          </span>
+
+          <h2
+            class="font-outfit text-3xl font-bold tracking-tight text-trip-dark sm:text-4xl"
+          >
+            Frequently Asked Questions
+          </h2>
+
+          <p class="mx-auto mt-4 max-w-2xl leading-7 text-slate-600">
+            Find quick answers to common questions about TripEase, trip
+            planning, destinations, and travel budgets.
+          </p>
+        </div>
+
+        <!-- FAQ Search -->
+        <div class="mx-auto mb-8 max-w-2xl">
+          <label for="faqSearch" class="sr-only">
+            Search frequently asked questions
+          </label>
+
+          <div
+            class="flex items-center gap-3 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 transition focus-within:border-primary focus-within:ring-4 focus-within:ring-sky-100"
+          >
+            <i class="fa-solid fa-magnifying-glass text-slate-400"></i>
+
+            <input
+              type="search"
+              id="faqSearch"
+              placeholder="Search your question..."
+              class="w-full bg-transparent text-slate-700 outline-none placeholder:text-slate-400"
+              autocomplete="off"
+            />
+
+            <button
+              type="button"
+              id="clearFaqSearch"
+              class="hidden shrink-0 rounded-lg px-3 py-1 text-sm font-semibold text-primary hover:bg-sky-100"
+              aria-label="Clear search"
+            >
+              Clear
+            </button>
+          </div>
+
+          <p
+            id="faqSearchStatus"
+            class="mt-3 text-sm text-slate-500"
+            aria-live="polite"
+          >
+            Browse our most frequently asked questions.
+          </p>
+        </div>
+
+        <!-- FAQ List -->
+        <div id="faqList" class="space-y-4">
+          <!-- FAQ 1 -->
+          <article
+            class="faq-item overflow-hidden rounded-2xl border border-slate-200 bg-white transition hover:border-sky-200"
+            data-search="what is tripease about website travel planner"
+          >
+            <button
+              type="button"
+              class="faq-question flex w-full items-center justify-between gap-4 p-5 text-left sm:p-6"
+              aria-expanded="false"
+            >
+              <span
+                class="font-outfit text-base font-semibold text-trip-dark sm:text-lg"
+              >
+                What is TripEase?
+              </span>
+              <i
+                class="fa-solid fa-plus shrink-0 text-primary transition-transform duration-300"
+              ></i>
+            </button>
+
+            <div class="faq-answer hidden px-5 pb-5 sm:px-6 sm:pb-6">
+              <p class="leading-7 text-slate-600">
+                TripEase is a travel planning website designed to help you
+                explore destinations, discover travel ideas, and plan your
+                journeys more easily.
+              </p>
+            </div>
+          </article>
+
+          <!-- FAQ 2 -->
+          <article
+            class="faq-item overflow-hidden rounded-2xl border border-slate-200 bg-white transition hover:border-sky-200"
+            data-search="how plan trip itinerary travel destination"
+          >
+            <button
+              type="button"
+              class="faq-question flex w-full items-center justify-between gap-4 p-5 text-left sm:p-6"
+              aria-expanded="false"
+            >
+              <span
+                class="font-outfit text-base font-semibold text-trip-dark sm:text-lg"
+              >
+                How can I plan my trip using TripEase?
+              </span>
+              <i
+                class="fa-solid fa-plus shrink-0 text-primary transition-transform duration-300"
+              ></i>
+            </button>
+            <div class="faq-answer hidden px-5 pb-5 sm:px-6 sm:pb-6">
+              <p class="leading-7 text-slate-600">
+                Start by exploring our destinations, compare the places you want
+                to visit, and use the available travel information to organize
+                your itinerary.
+              </p>
+            </div>
+          </article>
+
+          <!-- FAQ 3 -->
+          <article
+            class="faq-item overflow-hidden rounded-2xl border border-slate-200 bg-white transition hover:border-sky-200"
+            data-search="does tripease offer hotel flight train booking reservations"
+          >
+            <button
+              type="button"
+              class="faq-question flex w-full items-center justify-between gap-4 p-5 text-left sm:p-6"
+              aria-expanded="false"
+            >
+              <span
+                class="font-outfit text-base font-semibold text-trip-dark sm:text-lg"
+              >
+                Can I book flights or hotels directly on TripEase?
+              </span>
+              <i
+                class="fa-solid fa-plus shrink-0 text-primary transition-transform duration-300"
+              ></i>
+            </button>
+            <div class="faq-answer hidden px-5 pb-5 sm:px-6 sm:pb-6">
+              <p class="leading-7 text-slate-600">
+                TripEase helps you explore destinations and plan trips. Direct
+                flight or hotel booking is available only if the website
+                specifically provides that feature. Check the relevant page for
+                the services currently offered.
+              </p>
+            </div>
+          </article>
+
+          <!-- FAQ 4 -->
+          <article
+            class="faq-item overflow-hidden rounded-2xl border border-slate-200 bg-white transition hover:border-sky-200"
+            data-search="how much money budget cost expenses trip"
+          >
+            <button
+              type="button"
+              class="faq-question flex w-full items-center justify-between gap-4 p-5 text-left sm:p-6"
+              aria-expanded="false"
+            >
+              <span
+                class="font-outfit text-base font-semibold text-trip-dark sm:text-lg"
+              >
+                How do I estimate my travel budget?
+              </span>
+              <i
+                class="fa-solid fa-plus shrink-0 text-primary transition-transform duration-300"
+              ></i>
+            </button>
+            <div class="faq-answer hidden px-5 pb-5 sm:px-6 sm:pb-6">
+              <p class="leading-7 text-slate-600">
+                Calculate your expected transport, accommodation, food,
+                sightseeing, and miscellaneous expenses. Keep an additional
+                amount aside for unexpected costs.
+              </p>
+            </div>
+          </article>
+
+          <!-- FAQ 5 -->
+          <article
+            class="faq-item overflow-hidden rounded-2xl border border-slate-200 bg-white transition hover:border-sky-200"
+            data-search="best time visit destination weather season"
+          >
+            <button
+              type="button"
+              class="faq-question flex w-full items-center justify-between gap-4 p-5 text-left sm:p-6"
+              aria-expanded="false"
+            >
+              <span
+                class="font-outfit text-base font-semibold text-trip-dark sm:text-lg"
+              >
+                How can I find the best time to visit a destination?
+              </span>
+              <i
+                class="fa-solid fa-plus shrink-0 text-primary transition-transform duration-300"
+              ></i>
+            </button>
+            <div class="faq-answer hidden px-5 pb-5 sm:px-6 sm:pb-6">
+              <p class="leading-7 text-slate-600">
+                Consider the destination's weather, seasonal activities, local
+                events, and your budget. Check current travel conditions before
+                finalizing your plans.
+              </p>
+            </div>
+          </article>
+
+          <!-- FAQ 6 -->
+          <article
+            class="faq-item overflow-hidden rounded-2xl border border-slate-200 bg-white transition hover:border-sky-200"
+            data-search="create account sign up profile registration"
+          >
+            <button
+              type="button"
+              class="faq-question flex w-full items-center justify-between gap-4 p-5 text-left sm:p-6"
+              aria-expanded="false"
+            >
+              <span
+                class="font-outfit text-base font-semibold text-trip-dark sm:text-lg"
+              >
+                Do I need an account to explore TripEase?
+              </span>
+              <i
+                class="fa-solid fa-plus shrink-0 text-primary transition-transform duration-300"
+              ></i>
+            </button>
+            <div class="faq-answer hidden px-5 pb-5 sm:px-6 sm:pb-6">
+              <p class="leading-7 text-slate-600">
+                You can explore the public pages of TripEase without an account
+                if no sign-in requirement is displayed. Some features may have
+                additional requirements.
+              </p>
+            </div>
+          </article>
+
+          <!-- FAQ 7 -->
+          <article
+            class="faq-item overflow-hidden rounded-2xl border border-slate-200 bg-white transition hover:border-sky-200"
+            data-search="contact support help team question issue"
+          >
+            <button
+              type="button"
+              class="faq-question flex w-full items-center justify-between gap-4 p-5 text-left sm:p-6"
+              aria-expanded="false"
+            >
+              <span
+                class="font-outfit text-base font-semibold text-trip-dark sm:text-lg"
+              >
+                How can I contact the TripEase team?
+              </span>
+              <i
+                class="fa-solid fa-plus shrink-0 text-primary transition-transform duration-300"
+              ></i>
+            </button>
+            <div class="faq-answer hidden px-5 pb-5 sm:px-6 sm:pb-6">
+              <p class="leading-7 text-slate-600">
+                Visit our Contact Us page to find the available contact options
+                and send us your question.
+              </p>
+              <a
+                href="contact.html"
+                class="mt-4 inline-flex items-center gap-2 font-semibold text-primary hover:text-primary-dark"
+              >
+                Contact Us
+                <i class="fa-solid fa-arrow-right text-sm"></i>
+              </a>
+            </div>
+          </article>
+
+          <!-- No Results Message -->
+          <div
+            id="faqNoResults"
+            class="hidden rounded-2xl border border-dashed border-slate-300 bg-slate-50 px-6 py-10 text-center"
+          >
+            <i
+              class="fa-solid fa-magnifying-glass mb-4 text-3xl text-slate-400"
+            ></i>
+            <h3 class="font-outfit text-xl font-bold text-trip-dark">
+              No questions found
+            </h3>
+            <p class="mt-2 text-slate-600">
+              Try a different keyword or contact our support team.
+            </p>
+            <a
+              href="contact.html"
+              class="mt-5 inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-3 font-semibold text-white transition hover:bg-primary-dark"
+            >
+              Contact Support
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Support CTA -->
+    <section class="relative overflow-hidden py-16 sm:py-20">
+      <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+        <div
+          class="rounded-3xl bg-gradient-to-br from-[#6d28d9] to-primary-dark px-6 py-10 text-center shadow-xl sm:px-12 sm:py-14"
+        >
+          <!-- Support Icon -->
+          <div
+            class="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-white/15 text-white"
+          >
+            <i class="fa-solid fa-headset text-3xl"></i>
+          </div>
+
+          <!-- Heading -->
+          <p
+            class="mb-3 text-sm font-bold uppercase tracking-[0.2em] text-sky-100"
+          >
+            We're Here to Help
+          </p>
+
+          <h2
+            class="font-outfit text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl"
+          >
+            Still Have Questions?
+          </h2>
+
+          <p
+            class="mx-auto mt-5 max-w-2xl text-base leading-8 text-sky-50 sm:text-lg"
+          >
+            Couldn't find what you were looking for? Visit our Contact Us page
+            and explore the available ways to get in touch with the TripEase
+            team.
+          </p>
+
+          <!-- CTA Buttons -->
+          <div class="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
+            <a
+              href="contact.html"
+              class="inline-flex items-center justify-center gap-3 rounded-xl bg-white px-7 py-4 font-bold text-primary shadow-lg transition duration-300 hover:-translate-y-1 hover:bg-sky-50"
+            >
+              <i class="fa-solid fa-envelope"></i>
+              Contact Support
+              <i class="fa-solid fa-arrow-right text-sm"></i>
+            </a>
+
+            <a
+              href="#popular-questions"
+              class="inline-flex items-center justify-center gap-3 rounded-xl border border-white/40 px-7 py-4 font-semibold text-white transition duration-300 hover:bg-white/10"
+            >
+              <i class="fa-solid fa-circle-question"></i>
+              Browse FAQs
+            </a>
+          </div>
+
+          <!-- Trust Note -->
+          <div
+            class="mt-8 flex items-center justify-center gap-2 text-sm text-sky-100"
+          >
+            <i class="fa-solid fa-heart text-red-700"></i>
+            <span>Making every journey easier, one step at a time.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Help Center Footer -->
+    <footer class="bg-trip-dark text-slate-300">
+      <!-- Main Footer -->
+      <div class="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
+        <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+          <!-- Brand Information -->
+          <div>
+            <a href="../index.html" class="inline-flex items-center gap-3">
+              <img
+                src="../assets/images/tripease-logo.png"
+                alt="TripEase Logo"
+                class="h-12 w-auto object-contain"
+              />
+              <span class="font-outfit text-2xl font-bold text-white">
+                TripEase
+              </span>
+            </a>
+
+            <p class="mt-5 max-w-xs text-sm leading-7 text-slate-400">
+              Your Journey, Made Easy. Discover amazing destinations, find
+              travel inspiration, and plan your next adventure with TripEase.
+            </p>
+
+            <!-- Social Media -->
+            <div class="mt-6 flex items-center gap-3">
+              <a
+                href="https://www.instagram.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                class="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-800 transition hover:-translate-y-1 hover:bg-primary hover:text-white"
+              >
+                <i class="fa-brands fa-instagram text-lg"></i>
+              </a>
+
+              <a
+                href="https://www.facebook.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+                class="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-800 transition hover:-translate-y-1 hover:bg-primary hover:text-white"
+              >
+                <i class="fa-brands fa-facebook-f text-lg"></i>
+              </a>
+
+              <a
+                href="https://x.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="X (Twitter)"
+                class="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-800 transition hover:-translate-y-1 hover:bg-primary hover:text-white"
+              >
+                <i class="fa-brands fa-x-twitter"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Quick Links -->
+          <div>
+            <h3 class="font-outfit text-lg font-bold text-white">
+              Quick Links
+            </h3>
+
+            <ul class="mt-5 space-y-3 text-sm">
+              <li>
+                <a href="../index.html" class="transition hover:text-sky-400">
+                  Home
+                </a>
+              </li>
+              <li>
+                <a
+                  href="../index.html#destinations"
+                  class="transition hover:text-sky-400"
+                >
+                  Destinations
+                </a>
+              </li>
+              <li>
+                <a href="about.html" class="transition hover:text-sky-400">
+                  About Us
+                </a>
+              </li>
+              <li>
+                <a href="contact.html" class="transition hover:text-sky-400">
+                  Contact Us
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Help & Support -->
+          <div>
+            <h3 class="font-outfit text-lg font-bold text-white">
+              Help & Support
+            </h3>
+
+            <ul class="mt-5 space-y-3 text-sm">
+              <li>
+                <a
+                  href="help-center.html"
+                  class="transition hover:text-sky-400"
+                >
+                  Help Center
+                </a>
+              </li>
+              <li>
+                <a href="faq.html" class="transition hover:text-sky-400">
+                  FAQs
+                </a>
+              </li>
+              <li>
+                <a href="contact.html" class="transition hover:text-sky-400">
+                  Get Support
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Travel Inspiration -->
+          <div>
+            <h3 class="font-outfit text-lg font-bold text-white">
+              Travel Inspiration
+            </h3>
+
+            <p class="mt-5 text-sm leading-7 text-slate-400">
+              Your next unforgettable journey starts with a little inspiration.
+              Explore new places and make every trip count.
+            </p>
+
+            <a
+              href="../index.html#destinations"
+              class="mt-5 inline-flex items-center gap-2 font-semibold text-sky-400 transition hover:text-white"
+            >
+              Explore Destinations
+              <i class="fa-solid fa-arrow-right text-sm"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Copyright Bar -->
+      <div class="border-t border-white/10">
+        <div
+          class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-3 px-4 py-6 text-center text-sm text-slate-400 sm:px-6 md:flex-row lg:px-8"
+        >
+          <p>
+            &copy; <span id="footerYear"></span> TripEase. All rights reserved.
+          </p>
+
+          <p class="flex items-center gap-2">
+            Made for travelers
+            <i class="fa-solid fa-heart text-red-700"></i>
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      
+      // Mobile Menu Functionality
+      const helpMenuButton = document.getElementById("helpMenuButton");
+      const helpMobileMenu = document.getElementById("helpMobileMenu");
+      const menuIcon = helpMenuButton.querySelector("i");
+
+      helpMenuButton.addEventListener("click", () => {
+        const isExpanded =
+          helpMenuButton.getAttribute("aria-expanded") === "true";
+
+        helpMobileMenu.classList.toggle("hidden", isExpanded);
+        helpMenuButton.setAttribute("aria-expanded", String(!isExpanded));
+
+        menuIcon.classList.toggle("fa-bars", isExpanded);
+        menuIcon.classList.toggle("fa-xmark", !isExpanded);
+
+        helpMenuButton.setAttribute(
+          "aria-label",
+          isExpanded ? "Open navigation menu" : "Close navigation menu"
+        );
+      });
+
+      // Close mobile menu after selecting a link
+      helpMobileMenu.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          helpMobileMenu.classList.add("hidden");
+          helpMenuButton.setAttribute("aria-expanded", "false");
+          helpMenuButton.setAttribute("aria-label", "Open navigation menu");
+
+          menuIcon.classList.remove("fa-xmark");
+          menuIcon.classList.add("fa-bars");
+        });
+      });
+
+      // FAQ functionality
+      const faqItems = document.querySelectorAll(".faq-item");
+
+      faqItems.forEach((item) => {
+        const question = item.querySelector(".faq-question");
+        const answer = item.querySelector(".faq-answer");
+        const icon = question.querySelector("i");
+
+        question.addEventListener("click", () => {
+          const isExpanded = question.getAttribute("aria-expanded") === "true";
+
+          // Close all FAQ items
+          faqItems.forEach((faq) => {
+            const faqQuestion = faq.querySelector(".faq-question");
+            const faqAnswer = faq.querySelector(".faq-answer");
+            const faqIcon = faqQuestion.querySelector("i");
+
+            faqQuestion.setAttribute("aria-expanded", "false");
+            faqAnswer.classList.add("hidden");
+            faqIcon.classList.remove("fa-minus");
+            faqIcon.classList.add("fa-plus");
+            faqIcon.classList.remove("rotate-45");
+          });
+
+          // Open the selected item if it was previously closed
+          if (!isExpanded) {
+            question.setAttribute("aria-expanded", "true");
+            answer.classList.remove("hidden");
+            icon.classList.remove("fa-plus");
+            icon.classList.add("fa-minus");
+          }
+        });
+      });
+
+      // FAQ search functionality
+      const faqSearch = document.getElementById("faqSearch");
+      const clearFaqSearch = document.getElementById("clearFaqSearch");
+      const faqSearchStatus = document.getElementById("faqSearchStatus");
+      const faqNoResults = document.getElementById("faqNoResults");
+
+      function filterFAQs() {
+        const searchTerm = faqSearch.value.trim().toLowerCase();
+        let visibleCount = 0;
+
+        faqItems.forEach((item) => {
+          const questionText = item
+            .querySelector(".faq-question")
+            .textContent.toLowerCase();
+
+          const answerText = item
+            .querySelector(".faq-answer")
+            .textContent.toLowerCase();
+
+          const keywords = (item.dataset.search || "").toLowerCase();
+
+          const matches =
+            questionText.includes(searchTerm) ||
+            answerText.includes(searchTerm) ||
+            keywords.includes(searchTerm);
+
+          item.classList.toggle("hidden", !matches);
+
+          if (matches) {
+            visibleCount++;
+          } else {
+            // Close hidden questions
+            const question = item.querySelector(".faq-question");
+            const answer = item.querySelector(".faq-answer");
+            const icon = question.querySelector("i");
+
+            question.setAttribute("aria-expanded", "false");
+            answer.classList.add("hidden");
+            icon.classList.remove("fa-minus");
+            icon.classList.add("fa-plus");
+          }
+        });
+
+        clearFaqSearch.classList.toggle("hidden", searchTerm.length === 0);
+        faqNoResults.classList.toggle("hidden", visibleCount !== 0);
+
+        if (searchTerm === "") {
+          faqSearchStatus.textContent =
+            "Browse our most frequently asked questions.";
+        } else {
+          faqSearchStatus.textContent = `${visibleCount} question${visibleCount === 1 ? "" : "s"} found.`;
+        }
+      }
+
+      faqSearch.addEventListener("input", filterFAQs);
+
+      clearFaqSearch.addEventListener("click", () => {
+        faqSearch.value = "";
+        filterFAQs();
+        faqSearch.focus();
+      });
+
+       // Hero Search Functionality
+      const helpSearchForm = document.getElementById("helpSearchForm");
+      const helpSearchInput = document.getElementById("helpSearchInput");
+
+      helpSearchForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        faqSearch.value = helpSearchInput.value.trim();
+        filterFAQs();
+
+        document.getElementById("popular-questions").scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+      });
+
+      // Dynamic Copyright Year
+      document.getElementById("footerYear").textContent =
+        new Date().getFullYear();
+    </script>
+  </body>
+</html>
