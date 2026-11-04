@@ -109,16 +109,15 @@ button {
     object-fit: contain;
 }
 
-.logo span {
+.logo .trip {
     font-family: 'Outfit', sans-serif;
     font-size: 26px;
     font-weight: 700;
     color: var(--text-color);
 }
 
-.logo span::after {
-    content: ".";
-    color: var(--secondary-color);
+.logo .ease{
+    color: rgb(255, 127, 48);
 }
 
 /* Navigation */
@@ -163,11 +162,98 @@ button {
 .nav-actions {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 15px;
 }
 
-.login-btn,
-.signup-btn {
+.nav-actions .profile-btn {
+  width: 42px;
+  height: 42px;
+  border: none;
+  border-radius: 50%;
+  background-color: #292929;
+  color: var(--secondary-color);
+  font-size: 26px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.profile-btn:hover {
+  background-color: #e0f2fe;
+  color: #0369a1;
+  transform: scale(1.08);
+  box-shadow: 0 4px 15px rgba(53, 168, 226, 0.8);
+}
+
+.profile-btn .icon {
+  font-size: 22px;
+  line-height: 1;
+  margin: 0;
+  padding: 0;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.profile-btn:hover .icon {
+  transform: scale(1.15);
+}
+
+.profile-menu {
+  position: relative;
+}
+
+.profile-dropdown {
+  position: absolute;
+  left: calc(100% + 20px);
+  right: 0;
+  width: 180px;
+  padding: 8px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  border: 1px solid #e2e8f0;
+  z-index: 1000;
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: 0.25s ease;
+}
+
+/* Hover on Profile Button */
+.profile-menu:hover .profile-dropdown,
+.profile-menu:focus-within .profile-dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+}
+
+/* Dropdown Links */
+.profile-dropdown a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px;
+  text-decoration: none;
+  color: #292929;
+  font-size: 14px;
+  border-radius: 7px;
+  transition: 0.2s ease;
+}
+
+.profile-dropdown a i {
+  color: #0369a1;
+  font-size: 16px;
+}
+
+.profile-dropdown a:hover {
+  background-color: #e0f2fe;
+  color: #0369a1;
+}
+
+.join-tripease {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -179,25 +265,17 @@ button {
     transition: var(--transition);
 }
 
-.login-btn {
-    color: var(--text-color);
-}
-
-.login-btn:hover {
-    color: var(--primary-color);
-}
-
-.signup-btn {
+.join-tripease {
     color: var(--white);
-    background: var(--gradient-primary);
+    background: var(--primary-color);
     background-size: 150% 150%;
     box-shadow: 0 4px 12px rgba(2, 132, 199, 0.15);
 }
 
-.signup-btn:hover {
+.join-tripease:hover {
     background-position: 100% 50%;
     transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(2, 132, 199, 0.25);
+    box-shadow: 0 6px 16px rgba(32, 190, 238, 0.50);
 }
 
 /* Mobile Menu Toggle */

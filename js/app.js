@@ -16,6 +16,34 @@ menuToggle.addEventListener("click", () => {
     : '<i class="fa-solid fa-bars"></i>';
 });
 
+const profileMenu = document.querySelector(".profile-menu");
+const profileBtn = document.querySelector(".profile-btn");
+
+// Click to open/close dropdown
+profileBtn.addEventListener("click", (e) => {
+  e.stopPropagation();
+  profileMenu.classList.toggle("active");
+
+  const isOpen = profileMenu.classList.contains("active");
+  profileBtn.setAttribute("aria-expanded", isOpen);
+});
+
+// Close dropdown when clicking outside
+document.addEventListener("click", (e) => {
+  if (!profileMenu.contains(e.target)) {
+    profileMenu.classList.remove("active");
+    profileBtn.setAttribute("aria-expanded", "false");
+  }
+});
+
+// Close dropdown with Escape key
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    profileMenu.classList.remove("active");
+    profileBtn.setAttribute("aria-expanded", "false");
+  }
+});
+
 // Close menu after clicking a link
 
 document.querySelectorAll(".nav-links a").forEach((link) => {

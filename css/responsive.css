@@ -2664,3 +2664,61 @@
     padding-bottom: 75px;
   }
 }
+
+.profile-btn {
+  width: 42px;
+  height: 42px;
+  min-width: 42px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background-color: #292929;
+  color: var(--secondary-color);
+  cursor: pointer;
+
+  display: inline-grid;
+  place-items: center;
+
+  flex-shrink: 0;
+  transition: 0.3s ease;
+}
+
+.profile-btn .icon {
+  display: block;
+  font-size: 24px;
+  line-height: 1;
+  margin: 0;
+  padding: 0;
+  transition: transform 0.3s ease;
+}
+
+/* Hover Effect */
+.profile-btn:hover .icon {
+  transform: scale(1.15);
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .profile-btn {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+  }
+
+  .profile-btn .icon {
+    font-size: 23px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .profile-btn {
+    width: 38px;
+    height: 38px;
+    min-width: 38px;
+  }
+
+  .profile-btn .icon {
+    font-size: 22px;
+  }
+}
