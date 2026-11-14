@@ -1,0 +1,641 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Create Account | TripEase</title>
+
+    <meta
+      name="description"
+      content="Create your TripEase account and start planning your next journey."
+    />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind Configuration -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#0284c7",
+              "primary-dark": "#0369a1",
+              secondary: "#ff8c42",
+              tripdark: "#0f172a",
+            },
+            fontFamily: {
+              sans: ["DM Sans", "sans-serif"],
+              outfit: ["Outfit", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+
+    <!-- Custom Styling -->
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        min-width: 320px;
+        margin: 0;
+      }
+
+      /* Header */
+      .signup-header {
+        padding: 6px 16px;
+      }
+
+      /* Signup Card */
+      .signup-card {
+        width: 100%;
+        max-width: 450px;
+        padding: 16px 22px;
+        border-radius: 12px;
+        background: #ffffff;
+        box-shadow: 0 3px 15px rgba(15, 23, 42, 0.05);
+      }
+
+      .signup-title {
+        font-size: 26px;
+        line-height: 1.2;
+        margin-bottom: 10px;
+      }
+
+      /* Form */
+      .signup-form {
+        display: flex;
+        flex-direction: column;
+        gap: 9px;
+      }
+
+      .signup-input {
+        height: 40px;
+        width: 100%;
+        min-width: 0;
+        transition:
+          border-color 0.2s,
+          box-shadow 0.2s;
+      }
+
+      .signup-input:focus {
+        border-color: #0284c7;
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.1);
+      }
+
+      /* Country Code */
+      .country-code {
+        width: 135px;
+        flex-shrink: 0;
+        font-family:
+          "Segoe UI Emoji", "Noto Color Emoji", "Apple Color Emoji", sans-serif;
+      }
+
+      .country-code option {
+        font-family:
+          "Segoe UI Emoji", "Noto Color Emoji", "Apple Color Emoji", sans-serif;
+      }
+
+      /* Validation Error */
+      .error-message {
+        margin-top: 4px;
+        color: #dc2626;
+        font-size: 12px;
+        line-height: 16px;
+      }
+
+      .input-error {
+        border: 1px solid #ef4444 !important;
+        box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.08);
+      }
+
+      /* Verify Button */
+      .signup-button {
+        height: 40px;
+        margin-top: 2px;
+        cursor: pointer;
+      }
+
+      /* Divider */
+      .signup-divider {
+        margin-top: 14px;
+        margin-bottom: 12px;
+      }
+
+      /* Footer */
+      .signup-footer {
+        padding: 10px 12px;
+      }
+
+      /* Tablet */
+      @media (max-width: 768px) {
+        .signup-card {
+          max-width: 420px;
+          padding: 16px 20px;
+        }
+
+        .signup-title {
+          font-size: 25px;
+        }
+
+        .signup-form {
+          gap: 9px;
+        }
+      }
+
+      /* Mobile */
+      @media (max-width: 640px) {
+        .signup-header {
+          padding: 5px 12px;
+        }
+
+        .signup-card {
+          max-width: 100%;
+          padding: 16px;
+          border-radius: 10px;
+        }
+
+        .signup-title {
+          font-size: 24px;
+          margin-bottom: 10px;
+        }
+
+        .signup-input {
+          height: 40px;
+          font-size: 14px;
+        }
+
+        .signup-form {
+          gap: 10px;
+        }
+
+        .signup-button {
+          height: 40px;
+        }
+
+        .signup-divider {
+          margin-top: 13px;
+          margin-bottom: 12px;
+        }
+
+        .signup-footer {
+          padding: 9px 10px;
+        }
+      }
+
+      /* Small Mobile */
+      @media (max-width: 380px) {
+        .signup-card {
+          padding: 14px 12px;
+        }
+
+        .signup-title {
+          font-size: 22px;
+        }
+
+        .country-code {
+          width: 115px;
+        }
+
+        .signup-input {
+          font-size: 12px;
+        }
+
+        .signup-footer .footer-links {
+          column-gap: 10px;
+          row-gap: 6px;
+          flex-wrap: wrap;
+        }
+      }
+
+      /* Very Small Screens */
+      @media (max-width: 340px) {
+        .signup-card {
+          padding: 12px 10px;
+        }
+
+        .country-code {
+          width: 105px;
+        }
+      }
+    </style>
+  </head>
+
+  <body class="flex min-h-dvh flex-col bg-white font-sans text-slate-900">
+    <!-- HEADER -->
+    <header class="signup-header flex shrink-0 justify-center px-4">
+      <a href="/index.html" class="flex items-center gap-2 no-underline">
+        <img
+          src="/assets/images/tripease-logo.png"
+          alt="TripEase Logo"
+          class="h-11 w-11 object-contain sm:h-12 sm:w-12"
+        />
+
+        <span class="font-outfit text-2xl font-bold text-tripdark sm:text-3xl">
+          Trip<span class="text-secondary">Ease</span>
+        </span>
+      </a>
+    </header>
+
+    <!-- MAIN SECTION -->
+    <main class="flex flex-1 items-start justify-center px-4 py-2 sm:py-3">
+      <div class="w-full max-w-[450px]">
+        <!-- CREATE ACCOUNT CARD -->
+        <section class="signup-card border border-slate-300">
+          <h1
+            class="signup-title font-outfit font-medium leading-tight text-slate-900"
+          >
+            Create Account
+          </h1>
+
+          <!-- SIGNUP FORM -->
+          <form id="signupForm" novalidate class="signup-form flex flex-col">
+            <!-- Full Name -->
+            <div>
+              <label
+                for="fullName"
+                class="mb-1.5 block text-sm font-bold text-slate-800"
+              >
+                Your name
+              </label>
+
+              <input
+                type="text"
+                id="fullName"
+                name="fullName"
+                placeholder="First and last name"
+                autocomplete="name"
+                required
+                class="signup-input rounded-lg border border-slate-400 px-3 text-sm outline-none placeholder:text-slate-500"
+              />
+
+              <p
+                id="fullNameError"
+                class="error-message hidden"
+                aria-live="polite"
+              ></p>
+            </div>
+
+            <!-- Mobile Number -->
+            <div>
+              <label
+                for="mobile"
+                class="mb-1.5 block text-sm font-bold text-slate-800"
+              >
+                Mobile number
+              </label>
+
+              <div class="flex gap-2">
+                <!-- Country Code -->
+                <select
+                  id="countryCode"
+                  name="countryCode"
+                  required
+                  class="signup-input country-code rounded-lg border border-slate-400 bg-white px-2 text-sm outline-none"
+                >
+                  <option value="+91" selected>🇮🇳 India (+91)</option>
+                </select>
+
+                <!-- Mobile Number Input -->
+                <input
+                  type="tel"
+                  id="mobile"
+                  name="mobile"
+                  placeholder="Mobile number"
+                  autocomplete="tel-national"
+                  inputmode="numeric"
+                  maxlength="15"
+                  required
+                  class="signup-input min-w-0 flex-1 rounded-lg border border-slate-400 px-3 text-sm outline-none placeholder:text-slate-500"
+                />
+              </div>
+
+              <p
+                id="mobileError"
+                class="error-message hidden"
+                aria-live="polite"
+              ></p>
+
+              <p class="mt-1.5 text-xs leading-5 text-slate-600">
+                <i class="fa-solid fa-circle-info mr-1 text-primary"></i>
+                An OTP will be sent to your registered mobile number for
+                verification.
+              </p>
+            </div>
+
+            <!-- Password -->
+            <div>
+              <label
+                for="password"
+                class="mb-1.5 block text-sm font-bold text-slate-800"
+              >
+                Password
+              </label>
+
+              <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="At least 6 characters"
+                autocomplete="new-password"
+                minlength="6"
+                required
+                class="signup-input rounded-lg border border-slate-400 px-3 text-sm outline-none placeholder:text-slate-500"
+              />
+
+              <p
+                id="passwordError"
+                class="error-message hidden"
+                aria-live="polite"
+              ></p>
+
+              <p class="mt-1.5 flex items-center gap-2 text-xs text-slate-600">
+                <i class="fa-solid fa-circle-info text-base text-primary"></i>
+                Passwords must be at least 6 characters.
+              </p>
+            </div>
+
+            <p class="text-[13px] leading-[19px] text-slate-700">
+              To verify your number, we will send you a text message with a
+              temporary code. Message and data rates may apply.
+            </p>
+
+            <!-- Verify Button -->
+            <button
+              type="submit"
+              class="signup-button w-full rounded-full bg-[#ffd814] text-sm font-semibold text-black transition hover:bg-[#f7ca00] focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2"
+            >
+              Verify mobile number
+            </button>
+          </form>
+
+          <!-- Divider -->
+          <div class="signup-divider border-t border-slate-300"></div>
+
+          <!-- Existing Account -->
+          <p class="text-sm text-slate-800">
+            Already have an account?
+
+            <a
+              href="/pages/accounts/login.html"
+              class="font-medium text-primary hover:text-primary-dark hover:underline"
+            >
+              Sign in <span aria-hidden="true">›</span>
+            </a>
+          </p>
+
+          <!-- Terms and Conditions -->
+          <p class="signup-terms mt-4 text-xs leading-[18px] text-slate-700">
+            By creating an account, you agree to the TripEase
+
+            <a href="#" class="text-primary underline hover:text-primary-dark">
+              Conditions of Use
+            </a>
+
+            and
+
+            <a href="#" class="text-primary underline hover:text-primary-dark">
+              Privacy Notice </a
+            >.
+          </p>
+        </section>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer
+      class="signup-footer shrink-0 border-t border-slate-300 px-4 text-center"
+    >
+      <div
+        class="footer-links flex flex-wrap justify-center gap-x-7 gap-y-2 text-[11px]"
+      >
+        <a href="#" class="text-primary hover:underline">
+          Terms and Privacy Notice
+        </a>
+
+        <a href="#" class="text-primary hover:underline"> Send us feedback </a>
+
+        <a href="/pages/help-center.html" class="text-primary hover:underline">
+          Help
+        </a>
+      </div>
+
+      <p class="mt-2 text-[11px] text-slate-600">
+        © 2026 TripEase. All rights reserved.
+      </p>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script src="../../js/countries.js"></script>
+
+    <script>
+      // ELEMENT REFERENCES
+
+      const signupForm = document.getElementById("signupForm");
+
+      const fullName = document.getElementById("fullName");
+      const mobile = document.getElementById("mobile");
+      const password = document.getElementById("password");
+      const countryCode = document.getElementById("countryCode");
+
+      const fullNameError = document.getElementById("fullNameError");
+      const mobileError = document.getElementById("mobileError");
+      const passwordError = document.getElementById("passwordError");
+
+      // ERROR HANDLING
+
+      function showError(input, errorElement, message) {
+        errorElement.textContent = message;
+        errorElement.classList.remove("hidden");
+
+        input.classList.add("input-error");
+      }
+
+      function clearError(input, errorElement) {
+        errorElement.textContent = "";
+        errorElement.classList.add("hidden");
+
+        input.classList.remove("input-error");
+      }
+
+      // FULL NAME VALIDATION
+
+      function validateFullName() {
+        const nameValue = fullName.value.trim();
+
+        if (nameValue === "") {
+          showError(fullName, fullNameError, "Please enter your full name.");
+
+          return false;
+        }
+
+        if (nameValue.length < 2) {
+          showError(
+            fullName,
+            fullNameError,
+            "Name must contain at least 2 characters.",
+          );
+
+          return false;
+        }
+
+        clearError(fullName, fullNameError);
+
+        return true;
+      }
+
+      // COUNTRY DROPDOWN
+
+      function renderCountryOptions(countryList) {
+        countryCode.innerHTML = "";
+
+        const sortedCountries = [...countryList].sort((a, b) =>
+          a.name.localeCompare(b.name),
+        );
+
+        sortedCountries.forEach((country) => {
+          const option = document.createElement("option");
+
+          option.value = country.code;
+
+          option.textContent = `${country.flag} ${country.name} (${country.code})`;
+
+          option.dataset.country = country.name;
+          option.dataset.iso = country.iso;
+
+          countryCode.appendChild(option);
+        });
+
+        countryCode.value = "+91";
+      }
+
+      if (typeof countries !== "undefined" && countries.length > 0) {
+        renderCountryOptions(countries);
+
+        console.log("Countries loaded successfully:", countries.length);
+      } else {
+        console.error(
+          "Countries array not found. Check countries.js file path and array name.",
+        );
+      }
+
+      // MOBILE VALIDATION
+
+      function validateMobile() {
+        const mobileValue = mobile.value.trim();
+
+        if (mobileValue === "") {
+          showError(mobile, mobileError, "Please enter your mobile number.");
+
+          return false;
+        }
+
+        if (!/^\d+$/.test(mobileValue)) {
+          showError(
+            mobile,
+            mobileError,
+            "Mobile number must contain digits only.",
+          );
+
+          return false;
+        }
+
+        if (mobileValue.length < 7 || mobileValue.length > 15) {
+          showError(
+            mobile,
+            mobileError,
+            "Mobile number must contain 7 to 15 digits.",
+          );
+
+          return false;
+        }
+
+        clearError(mobile, mobileError);
+
+        return true;
+      }
+
+      // PASSWORD VALIDATION
+
+      function validatePassword() {
+        const passwordValue = password.value;
+
+        if (passwordValue === "") {
+          showError(password, passwordError, "Please enter your password.");
+
+          return false;
+        }
+
+        if (passwordValue.length < 6) {
+          showError(
+            password,
+            passwordError,
+            "Password must be at least 6 characters.",
+          );
+
+          return false;
+        }
+
+        clearError(password, passwordError);
+
+        return true;
+      }
+
+      // INPUT EVENT LISTENERS
+
+      fullName.addEventListener("input", () => {
+        clearError(fullName, fullNameError);
+      });
+
+      mobile.addEventListener("input", () => {
+        clearError(mobile, mobileError);
+      });
+
+      password.addEventListener("input", () => {
+        clearError(password, passwordError);
+      });
+
+      // FORM SUBMISSION
+
+      signupForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const isNameValid = validateFullName();
+        const isMobileValid = validateMobile();
+        const isPasswordValid = validatePassword();
+
+        if (!isNameValid || !isMobileValid || !isPasswordValid) {
+          if (!isNameValid) {
+            fullName.focus();
+          } else if (!isMobileValid) {
+            mobile.focus();
+          } else {
+            password.focus();
+          }
+
+          return;
+        }
+      });
+    </script>
+  </body>
+</html>
